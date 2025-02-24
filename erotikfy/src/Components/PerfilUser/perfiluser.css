@@ -1,7 +1,7 @@
 .perfilUser{
     display:flex;
     background-image: linear-gradient(to bottom, #080808cb, #201752c5);
-    width: 100%;
+    width: 500px;
     height: 1005;
 }
 .perfilUser__container{
@@ -13,8 +13,35 @@
 .perfilUser__icon {
     width: 48px;
     height: 48px;
-    border: 2px solid #302f2f;
+    border: 2px solid #7700ff;
     border-radius: 50%;
+    background-color: transparent; /* Fondo transparente */
+    box-shadow: 
+        0 0 5px #8a2be2, /* Sombra base */
+        0 0 10px #8a2be2, /* Sombra intermedia */
+        0 0 20px #8a2be2, /* Sombra exterior */
+        0 0 40px #8a2be2, /* Sombra más amplia */
+        0 0 80px #8a2be2; /* Sombra más difuminada */
+    animation: neonBreathing 2s infinite ease-in-out; /* Animación de respiración */
+}
+
+@keyframes neonBreathing {
+    0%, 100% {
+        box-shadow: 
+            0 0 1px #8a2be2,
+            0 0 5px #8a2be2,
+            0 0 15px #8a2be2,
+            0 0 20px #8a2be2,
+            0 0 40px #8a2be2;
+    }
+    50% {
+        box-shadow: 
+            0 0 10px #8a2be2,
+            0 0 20px #8a2be2,
+            0 0 40px #8a2be2,
+            0 0 80px #8a2be2,
+            0 0 120px #8a2be2; /* Efecto de respiración más intenso */
+    }
 }
 .perfilUser__icon img{
     width: 40px;

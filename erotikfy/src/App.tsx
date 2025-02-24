@@ -5,6 +5,8 @@ import { Loguear } from './Pages/Loguear'
 import { Main } from './Pages/Main'
 import { Pedidos } from './Pages/Pedidos'
 import { MiAgenda } from './Pages/MiAgenda'
+import { Perfil } from './Pages/perfil'
+
 
 function App() {
 
@@ -19,6 +21,7 @@ function App() {
           <Route path='pedidos-personalizados' element={<Pedidos/>}/>
           <Route path='loguear-cuenta' element={<Loguear/>}/>
           <Route path='mi-agenda' element={<MiAgenda/>}/>
+          <Route path='perfil' element={<Perfil/>}/>
           <Route/>
         </Routes>
       </BrowserRouter>
