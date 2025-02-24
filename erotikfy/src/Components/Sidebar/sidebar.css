@@ -1,0 +1,80 @@
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+    height: 100vh;
+    border-right: 0.01rem solid #a7137a;
+    position: fixed;
+}
+
+
+.sidebar-complete{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.sidebar-list-main ul li a{
+    padding: 0;
+    margin: auto 0;
+    font-size: 0.9rem;
+}
+.sidebar-complete{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.sidebar-img img{
+    display: flex;
+    margin: 0;
+    margin-left: 50px;
+    width: 80px;
+    padding: 0;
+}
+
+.sidebar-list-main{
+    display: flex;
+    width: 100%;
+    margin-left: -20px;
+}
+.sidebar-list-main ul :hover{
+    background-color: #272626;
+}
+.sidebar-list-main ul{
+    display: flex;
+    flex-direction: column;
+}
+.sidebar-list-main ul li{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 10px;
+    padding-right: 40px;
+    border-radius: 10px;
+    margin: 0;
+}
+.sidebar-list-main ul li img{
+    width: 20px;
+    height: 20px;
+}
+.sidebar-list-settings{
+    display: flex;
+    margin-top: 170px;
+    align-items: end;
+    margin-left: -20px;
+}
+.sidebar-list-settings ul li{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 10px;
+    padding-right: 50px;
+    border-radius: 10px;
+    margin: 0;
+}
+.sidebar-list-settings ul li img{
+    width: 20px;
+    height: 20px;
+}
+.sidebar-list-settings ul :hover{
+    background-color: #272626;
+}

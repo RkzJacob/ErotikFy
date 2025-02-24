@@ -1,0 +1,113 @@
+.register{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0;
+    height: 100vh;
+    
+}
+.register__container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
+.register__form{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;    
+}
+
+
+.register__button{
+    background-color: rgb(33, 141, 190);
+    border: 1px solid #a7137a;
+    width: 100%;
+    padding: 0.7rem;
+    margin:0;
+    font-family: inherit;
+    font-weight: bold;
+    border-radius: 6px;
+}
+
+.register_container-title{
+    display: flex;
+    margin: 0 auto;
+    margin-top: 5rem;
+    padding: 20px;
+}
+
+.register_container-title h2{
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+
+.content-register{
+    width: 100%;
+    height: 100%;
+    box-shadow:10px 0px 140px #5312a8 ;
+    background-color: rgb(95, 48, 148);
+    padding: 0;
+    margin: 0;
+}
+.imagen-register{
+    width: 100%;
+    height: 100%;
+}
+.imagen-register img{
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    object-fit: cover;
+}
+.register__form i{
+    position: absolute;
+    margin-right: 5px;
+    top: 30%;
+    left: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 1.2rem;
+}
+.register__form div{
+    position:relative;
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.register__item-input{
+    padding: 10px 10px 0px 40px;
+    display: flex;
+    width: 100%;
+    height: 2.5rem;
+    border-radius: 5px;
+    background-color: #0003; 
+    border-color: aqua;
+    margin: 0;
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+.register__item-input.is-invalid{
+    outline-color: rgb(226, 43, 43);
+    border-color: #cf2020;
+}
+
+.register__item-input.valid{
+    outline-color: blueviolet;
+    border-color: aqua;
+}
+
+.content-register div p{
+    margin-top: 600px;
+}

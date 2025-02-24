@@ -1,0 +1,172 @@
+
+.header{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    backdrop-filter: blur(12px);
+    flex-direction: column;
+    position: fixed;
+    border-bottom:1px solid #fff;
+}
+
+.navbar_container{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+.navbar-content{
+    display: flex;
+    flex-direction: column;
+}
+.navbar-list{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 0;
+    margin: 20px;
+    text-decoration: none;
+    justify-content: space-between;
+}
+
+.login{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.login__img.banner{
+    display: flex;
+    object-fit: cover;
+    background-color: rgb(95, 48, 148);
+    width: 100%;
+    height: 100vh;
+    box-shadow:1px 0px 120px #0628c281 ;
+}
+.login__img.logo{
+    width: 20rem;
+    height: auto;
+    object-fit: contain;
+    position: absolute;
+    z-index: 100;
+    top: -20px;
+}
+.login__img.justice-league{
+    width: 20rem;
+    height: auto;
+    object-fit: contain;
+    position: absolute;
+    z-index: 100;
+    left: 28rem;
+    top: 0px;
+}
+.login__container{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+.login__header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+.login__header h2{
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.login__header p{
+    margin: 0;
+}
+.login__form{
+    margin: 0;
+    margin-top: 40px;
+    padding: 0;
+    display: grid;
+    grid-template-rows: repeat(4,minmax(auto-fit,400px));
+    justify-content: center;
+    color: white;
+    width: 100%;
+}
+.login__item{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-size: 16px;
+    color: #fff;
+    flex-direction: column;
+    width: 100%;
+    
+}
+.login__item .list{
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #fff;
+    width: 100%;
+    
+}
+.login__item .list li:nth-child(2){
+    place-content: end;
+    place-items: end;
+}
+
+.login__item-label{
+    width: 100%;
+    margin: 10px;
+}
+.login__item-input{
+    width: 600px;
+    height: 3rem;
+    border-radius: 10px;
+    background-color: #0003;
+    border-color: #d800d8;
+    margin: 0;
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.login__button{
+    display: flex;
+    padding: 0.8rem 1.2em;
+    width: 100%;
+    background-color: #9e27df;
+    font-weight: bold;
+    font-size: 1em;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #8c00d8;
+    transition: border-color 0.2s;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+.login__button:hover{
+    background-color: #8c00d8;
+    color: #fff;
+    border: 1px solid rgb(35, 174, 255);
+}
+.login__recuperar{
+    display: flex;
+    margin-bottom: 40px;
+    color: rgb(35, 174, 255);
+    font-size: 16px;
+    transition: color 0.2s;
+}
+
+.login__recuperar:hover{
+    color: rgb(138, 35, 255);
+}
+
+.login__item .list{
+    display: flex;
+    align-items: end;
+}

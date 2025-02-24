@@ -1,0 +1,101 @@
+.pedidos{
+    display: flex;
+    flex-direction: column;
+    margin-left: 15rem;
+    padding-left: 9rem;
+    padding-right: 4rem;
+    padding-bottom: 2rem;
+    width: 1000px;
+    height: 100vh;
+    background-image: linear-gradient(to bottom, #080808cb, #201752c5);
+}
+.pedidos__container{
+    display: flex;
+    flex-direction: column;
+}
+.pedidos__container-title{
+    display: flex;
+}
+.pedidos__container-title img{
+    width: 40px;
+    height: 40px;
+    margin-top: 1rem;
+    margin-right: 1rem;
+}
+.pedidosUsuarios__cards{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pedidoUsuario__card{
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(to bottom, #0b4a5acb, #281980c5);
+    border-radius: 20px;
+}
+.card-title{
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+}
+.card-title h2{
+    display: flex;
+    color: rgb(20, 224, 231);
+    font-size: 1.4rem;
+}
+.card-title :nth-child(2){
+    font-size: 0.7rem;
+    margin-top: -0.7rem;
+    margin-left: 0.2rem;
+    color: rgba(255, 255, 255, 0.664);
+}
+.card-content{
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.card-content-user{
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+}
+.card-content-user img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.card-content-user h2{
+    display: flex;
+    font-size: 1.2rem;
+    margin: auto;
+    margin-left: 10px;
+    color: #b1afafbe;
+}
+.card-content-buttons{
+    display: flex;
+    gap: 20px;
+    height: 50px;
+    
+}
+.card-content-buttons button{
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;    
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+.card-content-buttons button:nth-child(1){
+    background-image: linear-gradient(to bottom, #c80fe0cb, #173c52c5);
+    border: 1px solid #0eafe0c5;
+}
+.card-content-buttons button:nth-child(2){
+    margin-left: 40rem;
+    margin-top: -9rem;
+    width: 150px;
+    background-color: rgba(219, 52, 52, 0.726);
+    border: 1px solid #202020c5;
+}

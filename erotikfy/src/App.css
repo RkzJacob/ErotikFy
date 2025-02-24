@@ -1,0 +1,21 @@
+body{
+  margin: 0;
+  background: #0a0a0a;
+  font-weight: bold;
+  color: #fff;
+  padding: 0;
+}
+body,div,h2,nav,h1,h3{
+  box-sizing: border-box;
+}
+
+a,li,ul{
+  text-decoration: inherit;
+  list-style-type: none;
+  color: #fff;
+  
+}
+
+.container{
+  display: flex;
+}

@@ -1,0 +1,13 @@
+@font-face {
+  font-family: monserrat;
+  src: url(./fonts/static/Montserrat-Regular.ttf);
+}
+
+:root{
+  font-family: monserrat;
+}
+
+
+html::-webkit-scrollbar {
+  display: none;
+}
