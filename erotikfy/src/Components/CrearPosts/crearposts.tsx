@@ -98,7 +98,7 @@ const CreatePublicationPopup: React.FC<CreatePublicationPopupProps> = ({
                     <img src={imagenUser}  alt="Perfil" className="profile-pic"/>
                 </div>
                 <div className="post-info-user">
-                    <p>kanashimip</p>
+                    <p>carlistosks</p>
                     <p> 1s</p>
                 </div>
             </div>
@@ -127,7 +127,7 @@ const CreatePublicationPopup: React.FC<CreatePublicationPopupProps> = ({
                 </div>
               <div className="post-content-description">
                 <div className="content-title">
-                    <strong>kanashimip</strong>
+                    <strong>carlistosks</strong>
                     <p>{publicationName}</p>
 
                 </div>
