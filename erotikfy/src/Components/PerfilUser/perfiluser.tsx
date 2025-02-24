@@ -9,7 +9,7 @@ export const PerfilUser = () => {
                     <img src={imagenUser} alt=""/>
                 </div>
                 <div className="perfilUser__info">
-                    <h2 className='perfilUser__info-username'>carlitosexdi</h2>
+                    <h2 className='perfilUser__info-username'>carlitosexdi .l.</h2>
                     <h2 className='perfilUser__info-apodo'>carl </h2>
                 </div>
             </div>
