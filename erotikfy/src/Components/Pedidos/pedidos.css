@@ -2,11 +2,11 @@
     display: flex;
     flex-direction: column;
     margin-left: 15rem;
-    padding-left: 9rem;
+    padding-left: 4rem;
     padding-right: 4rem;
     padding-bottom: 2rem;
-    width: 1000px;
-    height: 100vh;
+    width: 1100px;
+    min-height: 100vh;
     background-image: linear-gradient(to bottom, #080808cb, #201752c5);
 }
 .pedidos__container{
@@ -76,8 +76,10 @@
 }
 .card-content-buttons{
     display: flex;
+    flex-direction: row;
     gap: 20px;
     height: 50px;
+    align-items: center;
     
 }
 .card-content-buttons button{
@@ -93,16 +95,15 @@
     border: 1px solid #0eafe0c5;
 }
 .card-content-buttons button:nth-child(2){
-    margin-left: 40rem;
-    margin-top: -9rem;
-    width: 150px;
+    margin-left: 35rem;
+    width: 200px;
     background-color: rgba(219, 52, 52, 0.726);
     border: 1px solid #202020c5;
 }
 
 @media (max-width: 1200px) {
     .pedidos {
-        width: 100%; /* Ocupa el 100% del ancho disponible */
+        width: 800px; /* Ocupa el 100% del ancho disponible */
         padding-left: 1rem; /* Reduce el padding izquierdo */
         padding-right: 1rem; /* Reduce el padding derecho */
         margin-left: 4.4rem;
@@ -123,23 +124,28 @@
     }
 
     .card-content-buttons {
-        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
-        gap: 10px; /* Reduce el espacio entre botones */
+        flex-direction: row; /* Cambia a columna en pantallas pequeñas */
+        align-items: center;
+        gap:10px; /* Reduce el espacio entre botones */
     }
 
     .card-content-buttons button {
-        width: 22%; /* Ocupa el 100% del ancho disponible */
+        width: 200px; /* Ocupa el 100% del ancho disponible */
+        height: 40px;
     }
 
     .card-content-buttons button:nth-child(2) {
-        margin-left: 0; /* Elimina el margen izquierdo */
+        margin-left: 30rem; /* Elimina el margen izquierdo */
         margin-top: 0; /* Elimina el margen superior */
+    }
+    .perfilUser{
+        display: none;
     }
 }
 
 @media (max-width: 960px) {
     .pedidos {
-        width: 100%; /* Ocupa el 100% del ancho disponible */
+        width: 650px; /* Ocupa el 100% del ancho disponible */
         padding-left: 1rem; /* Reduce el padding izquierdo */
         padding-right: 1rem; /* Reduce el padding derecho */
         margin-left: 4.4rem;
@@ -160,32 +166,59 @@
     }
 
     .card-content-buttons {
-        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        flex-direction: row; /* Cambia a columna en pantallas pequeñas */
         gap: 10px; /* Reduce el espacio entre botones */
+        align-items: center;
     }
 
     .card-content-buttons button {
-        width: 22%; /* Ocupa el 100% del ancho disponible */
+        width: 200px; /* Ocupa el 100% del ancho disponible */
+        height: 40px;
     }
 
     .card-content-buttons button:nth-child(2) {
-        margin-left: 0; /* Elimina el margen izquierdo */
-        margin-top: 0; /* Elimina el margen superior */
+        margin-left: 20rem;
+       
+        
     }
 }
 @media (max-width: 768px) {
-    .register_container-title{
-        font-size: 0.8rem;
+    .pedidos {
+        width: 600px; /* Ocupa el 100% del ancho disponible */
+        padding-left: 1rem; /* Reduce el padding izquierdo */
+        padding-right: 1rem; /* Reduce el padding derecho */
+        margin-left: 4.4rem;
     }
-    .register__item-input{
-        height: 30px;
+
+    .pedidos__container-title {
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        align-items: flex-start; /* Alinea el contenido a la izquierda */
     }
-    .register{
-        display: grid;
-        grid-template-columns: 1fr;
+
+    .pedidos__container-title img {
+        margin-top: 0.5rem; /* Reduce el margen superior */
+        margin-right: 0; /* Elimina el margen derecho */
     }
-    .imagen-register{
-        display: none;
+
+    .pedidoUsuario__card {
+        padding: 10px; /* Reduce el padding interno */
+    }
+
+    .card-content-buttons {
+        flex-direction: row; /* Cambia a columna en pantallas pequeñas */
+        gap: 10px; /* Reduce el espacio entre botones */
+        align-items: center;
+    }
+
+    .card-content-buttons button {
+        width: 200px; /* Ocupa el 100% del ancho disponible */
+        height: 40px;
+    }
+
+    .card-content-buttons button:nth-child(2) {
+        margin-left: 20rem;
+       
+        
     }
 
 }
