@@ -93,10 +93,11 @@ export const PerfilList = () => {
         </div>
   
         <div className="posts-grid">
-          {[img1, img2, img3, img4, img5, img6].map((src, index) => (
+          {[img1, img2, img3, img4, img5, img6, img2, img3, img4, img5, img6].map((src, index) => (
             <img key={index} src={src} alt="Publicación" className="post" onClick={() => openModal(src)} />
           ))}
         </div>
+        
   
         {modalImage && (
           <div className="modal" onClick={closeModal}>
