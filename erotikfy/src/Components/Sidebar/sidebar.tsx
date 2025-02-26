@@ -105,7 +105,15 @@ export const Sidebar = () =>{
                 </div>
                 <div className="sidebar-list-settings">
                     <ul>
-                        <li><a href=""><img src={menu} alt="" />...</a></li>
+                        <li>
+                            <div className="list-main-item">
+                                <a href="">
+                                    <img src={menu} alt="" />
+                                    <p>Config</p>
+                                </a>
+                            </div>
+                        </li>
+                        
                     </ul>
                 </div>
             </div>

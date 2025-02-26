@@ -63,7 +63,7 @@
 }
 .sidebar-list-settings{
     display: flex;
-    margin-top: 450px;
+    margin-top: 200px;
     align-items: end;
     margin-left: -20px;
 }
@@ -108,7 +108,7 @@
 
 @media (max-width: 1200px) {
     .sidebar-list-settings{
-        margin-top: 0px;
+        margin-top: 60px;
     }
     .sidebar{
         width: 70px;
@@ -143,78 +143,39 @@
     .sidebar-list-main ul li a:hover{
         transform: scale(1.1);
     }
+    .sidebar-list-settings ul li img{
+        width: 30px;
+        height: 30px;
+        margin-left: 0;
+    }
+    .sidebar-list-settings ul {
+        padding: 0;
+        margin: 0;
+        gap: 30px;
+        padding-left: 35px;
+    }
+    .sidebar-list-settings ul li a{
+        padding: 5px;
+    }
 
 
 }
 
 @media (max-width: 960px) {
-    .register_container-title{
-        font-size: 0.8rem;
-    }
-    .register__item-input{
-        height: 30px;
-    }
+    
 }
 @media (max-width: 768px) {
-    .register_container-title{
-        font-size: 0.8rem;
-    }
-    .register__item-input{
-        height: 30px;
-    }
-    .register{
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-    .imagen-register{
-        display: none;
-    }
+    
 
 }
 
 @media (max-width: 576px) {
-    .register_container-title{
-        font-size: 0.8rem;
-    }
-    .register__item-input{
-        height: 30px;
-    }
-    .register{
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-    .imagen-register{
-        display: none;
-    }
+   
 }
 @media (max-width: 430px) {
-    .register_container-title{
-        font-size: 0.8rem;
-    }
-    .register__item-input{
-        height: 30px;
-    }
-    .register{
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-    .imagen-register{
-        display: none;
-    }
+    
 }
 
 @media (max-width: 376px) {
-    .register_container-title{
-        font-size: 0.8rem;
-    }
-    .register__item-input{
-        height: 30px;
-    }
-    .register{
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-    .imagen-register{
-        display: none;
-    }
+    
 }
