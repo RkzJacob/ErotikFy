@@ -1,9 +1,6 @@
 .register{
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 0;
-    height: 100vh;
-    
+    grid-template-columns: 1fr 1fr;    
 }
 .register__container{
     width: 100%;
@@ -14,7 +11,7 @@
 }
 
 .register__form{
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -59,11 +56,11 @@
 }
 .imagen-register{
     width: 100%;
-    height: 100%;
+    height: 100vh;
 }
 .imagen-register img{
     width: 100%;
-    height: 100%;
+    height: 100vh;
     z-index: 100;
     object-fit: cover;
 }
@@ -110,4 +107,85 @@
 
 .content-register div p{
     margin-top: 600px;
+}
+
+@media (max-width: 1200px) {
+    .register_container-title{
+        font-size: 0.8rem;
+    }
+    .register__item-input{
+        height: 30px;
+    }
+}
+
+@media (max-width: 960px) {
+    .register_container-title{
+        font-size: 0.8rem;
+    }
+    .register__item-input{
+        height: 30px;
+    }
+}
+@media (max-width: 768px) {
+    .register_container-title{
+        font-size: 0.8rem;
+    }
+    .register__item-input{
+        height: 30px;
+    }
+    .register{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .imagen-register{
+        display: none;
+    }
+
+}
+
+@media (max-width: 576px) {
+    .register_container-title{
+        font-size: 0.8rem;
+    }
+    .register__item-input{
+        height: 30px;
+    }
+    .register{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .imagen-register{
+        display: none;
+    }
+}
+@media (max-width: 430px) {
+    .register_container-title{
+        font-size: 0.8rem;
+    }
+    .register__item-input{
+        height: 30px;
+    }
+    .register{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .imagen-register{
+        display: none;
+    }
+}
+
+@media (max-width: 376px) {
+    .register_container-title{
+        font-size: 0.8rem;
+    }
+    .register__item-input{
+        height: 30px;
+    }
+    .register{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .imagen-register{
+        display: none;
+    }
 }

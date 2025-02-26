@@ -31,19 +31,81 @@ export const Sidebar = () =>{
                 </div>
                 <div className="sidebar-list-main">
                     <ul>
-                        <li><img src={Home} alt="" /><a href="#">Inicio</a></li>
-                        <li><img src={creator} alt="" /><a href="">Creadores</a></li>
-                        <li><img src={search} alt="" /><a href="">Buscar</a></li>
-                        <li><img src={live} alt="" /><a href="">Live</a></li>
-                        <li><img src={createPost} alt="" /><a href="" onClick={handleCreateClick}>Crear</a></li>
-                        <li><img src={wallet} alt="" /><a href="">Cartera</a></li>
-                        <li><img src={agenda} alt="" /><a href="">Agenda</a></li>
-                        <li><img src={Home} alt="" /><a href="" >Cerrar Sesion</a></li>
+                        <li>
+                            <div className="list-main-item">
+                                <a href="">
+                                    <img src={Home} alt="" />
+                                    <p>Home </p>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div className="list-main-item">
+                                <a href="">
+                                    <img src={creator} alt="" />
+                                    <p>Creadores</p>
+                                </a>
+                            </div>
+                            
+                        </li>
+                        <li>
+                            <div className="list-main-item">
+                                <a href="">
+                                    <img src={search} alt="" />
+                                    <p>Buscar</p>
+                                </a>
+                            </div>
+                            
+                        </li>
+                        <li>
+                            <div className="list-main-item">
+                                <a href="">
+                                    <img src={live} alt="" />
+                                    <p>Live</p>
+                                </a>
+                            </div>
+                            
+                        </li>
+                        <li>
+                            <div className="list-main-item">
+                                <a href="">
+                                    <img src={createPost} alt="" />
+                                    <p onClick={handleCreateClick}>Crear</p>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div className="list-main-item">
+                                <a href="">
+                                    <img src={wallet} alt="" />
+                                    <p>Cartera</p>
+                                </a>
+                            </div>
+                            
+                        </li>
+                        <li>
+                            <div className="list-main-item">
+                                <a href="">
+                                    <img src={agenda} alt="" />
+                                    <p>Agenda</p>
+                                </a>
+                            </div>
+                            
+                        </li>
+                        <li>
+                            <div className="list-main-item">
+                                <a href="">
+                                    <img src={Home} alt="" />
+                                    <p>Cerrar Sesion</p>
+                                </a>
+                            </div>
+                            
+                        </li>
                     </ul>
                 </div>
                 <div className="sidebar-list-settings">
                     <ul>
-                        <li><img src={menu} alt="" /><a href="">...</a></li>
+                        <li><a href=""><img src={menu} alt="" />...</a></li>
                     </ul>
                 </div>
             </div>

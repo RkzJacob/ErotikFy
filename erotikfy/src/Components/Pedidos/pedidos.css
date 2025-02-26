@@ -99,3 +99,111 @@
     background-color: rgba(219, 52, 52, 0.726);
     border: 1px solid #202020c5;
 }
+
+@media (max-width: 1210px) {
+    .pedidos {
+        width: 100%; /* Ocupa el 100% del ancho disponible */
+        padding-left: 1rem; /* Reduce el padding izquierdo */
+        padding-right: 1rem; /* Reduce el padding derecho */
+    }
+
+    .pedidos__container-title {
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        align-items: flex-start; /* Alinea el contenido a la izquierda */
+    }
+
+    .pedidos__container-title img {
+        margin-top: 0.5rem; /* Reduce el margen superior */
+        margin-right: 0; /* Elimina el margen derecho */
+    }
+
+    .pedidoUsuario__card {
+        padding: 15px; /* Reduce el padding interno */
+    }
+
+    .card-content-buttons {
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        gap: 10px; /* Reduce el espacio entre botones */
+    }
+
+    .card-content-buttons button {
+        width: 100%; /* Ocupa el 100% del ancho disponible */
+    }
+
+    .card-content-buttons button:nth-child(2) {
+        margin-left: 0; /* Elimina el margen izquierdo */
+        margin-top: 0; /* Elimina el margen superior */
+    }
+}
+
+@media (max-width: 960px) {
+    .register_container-title{
+        font-size: 0.8rem;
+    }
+    .register__item-input{
+        height: 30px;
+    }
+}
+@media (max-width: 768px) {
+    .register_container-title{
+        font-size: 0.8rem;
+    }
+    .register__item-input{
+        height: 30px;
+    }
+    .register{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .imagen-register{
+        display: none;
+    }
+
+}
+
+@media (max-width: 576px) {
+    .register_container-title{
+        font-size: 0.8rem;
+    }
+    .register__item-input{
+        height: 30px;
+    }
+    .register{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .imagen-register{
+        display: none;
+    }
+}
+@media (max-width: 430px) {
+    .register_container-title{
+        font-size: 0.8rem;
+    }
+    .register__item-input{
+        height: 30px;
+    }
+    .register{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .imagen-register{
+        display: none;
+    }
+}
+
+@media (max-width: 376px) {
+    .register_container-title{
+        font-size: 0.8rem;
+    }
+    .register__item-input{
+        height: 30px;
+    }
+    .register{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .imagen-register{
+        display: none;
+    }
+}
