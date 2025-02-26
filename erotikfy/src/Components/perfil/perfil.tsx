@@ -5,6 +5,7 @@ import img3 from '../../LocalImagen/img3.jpg'
 import img4 from '../../LocalImagen/img4.jpg' 
 import img5 from '../../LocalImagen/img5.jpg' 
 import img6 from '../../LocalImagen/img6.jpg' 
+import img7 from '../../LocalImagen/profile.jpg'
 import { useRef, useState } from 'react';
 
 
@@ -93,7 +94,7 @@ export const PerfilList = () => {
         </div>
   
         <div className="posts-grid">
-          {[img1, img2, img3, img4, img5, img6, img2, img3, img4, img5, img6].map((src, index) => (
+          {[img1, img2, img3, img4, img5, img6, img7, img2, img3, img4, img5, img6].map((src, index) => (
             <img key={index} src={src} alt="Publicación" className="post" onClick={() => openModal(src)} />
           ))}
         </div>

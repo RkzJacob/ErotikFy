@@ -6,7 +6,7 @@ import { Main } from './Pages/Main'
 import { Pedidos } from './Pages/Pedidos'
 import { MiAgenda } from './Pages/MiAgenda'
 import { Perfil } from './Pages/perfil'
-
+import { ListaPerfiles } from './Pages/ListaPerfiles'
 
 function App() {
 
@@ -19,9 +19,9 @@ function App() {
           <Route path='registrar-cuenta' element={<Register/>}/>
           <Route path='loguear-cuenta' element={<Loguear/>}/>
           <Route path='pedidos-personalizados' element={<Pedidos/>}/>
-          <Route path='loguear-cuenta' element={<Loguear/>}/>
           <Route path='mi-agenda' element={<MiAgenda/>}/>
           <Route path='perfil' element={<Perfil/>}/>
+          <Route path='Listado' element={<ListaPerfiles/>}/> 
           <Route/>
         </Routes>
       </BrowserRouter>
