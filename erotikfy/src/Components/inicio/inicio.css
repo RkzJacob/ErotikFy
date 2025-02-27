@@ -130,6 +130,39 @@
     z-index: 1; /* Asegura que la imagen esté por encima de la información */
 }
 
+/* Contenedor de comentarios */
+.comments-container {
+    position: absolute;
+    bottom: 2px; /* Ajusta para que esté al final de la publicación */
+    left: 0;
+    right: 0;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 0; /* Asegura que el contenedor quede detrás de la imagen */
+}
+
+/* Estilo para cada comentario */
+.comment {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.comment-username {
+    font-weight: bold;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.comment-text {
+    font-size: 0.8rem;
+    color: #d1d1d1;
+}
+
 /* Media Queries */
 @media (max-width: 1024px) {
     .feed-item-image {
