@@ -9,7 +9,6 @@ import creator from "../../Assets/creator.png";
 import menu from "../../Assets/menu.png";
 import CreatePublicationPopup from "../CrearPosts/crearposts";
 import createPost from "../../Assets/createPost.svg";
-import wallet from "../../Assets/wallet.svg";
 import agenda from "../../Assets/agenda.svg";
 
 export const Sidebar = () => {
@@ -33,7 +32,7 @@ export const Sidebar = () => {
           <ul>
             <li>
               <div className="list-main-item">
-                <Link to="/">
+                <Link to="/Inicio">
                   <img src={Home} alt="" />
                   <p>Home</p>
                 </Link>
@@ -72,12 +71,6 @@ export const Sidebar = () => {
               </div>
             </li>
             <li>
-              <div className="list-main-item">
-                <a href="">
-                  <img src={wallet} alt="" />
-                  <p>Cartera</p>
-                </a>
-              </div>
             </li>
             <li>
               <div className="list-main-item">

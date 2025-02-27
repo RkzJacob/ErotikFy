@@ -7,6 +7,7 @@ import { Pedidos } from './Pages/Pedidos'
 import { MiAgenda } from './Pages/MiAgenda'
 import { Perfil } from './Pages/perfil'
 import { ListaPerfiles } from './Pages/ListaPerfiles'
+import { Inicio } from './Pages/Inicio'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path='mi-agenda' element={<MiAgenda/>}/>
           <Route path='perfil' element={<Perfil/>}/>
           <Route path='Listado' element={<ListaPerfiles/>}/> 
+          <Route path='Inicio' element={<Inicio/>}/>
           <Route/>
         </Routes>
       </BrowserRouter>

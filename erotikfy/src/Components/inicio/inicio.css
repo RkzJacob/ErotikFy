@@ -1,0 +1,181 @@
+.feed-container {
+    width: 90%;
+    max-width: 1200px;
+    height: 90vh;
+    margin: 40px auto; /* Esto aplica el mismo margen en la parte superior e inferior */
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.027);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0);
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+/* Fondo general */
+.feed-background {
+    margin-left: 15rem;
+    background-image: linear-gradient(to bottom, #080808cb, #201752c5);
+    height: 100vh;
+    width: 100%;
+    overflow: hidden; /* Bloquea el scroll del fondo */
+}
+
+/* Estilo para la lista de publicaciones */
+.feed-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Espacio entre publicaciones */
+}
+
+/* Estilo para cada publicación */
+.feed-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea los elementos a la izquierda */
+    position: relative; /* Necesario para el posicionamiento de los elementos dentro */
+    border-radius: 10px;
+    padding: 1rem;
+    border-top: 1px solid #a7137a; /* Línea gris para separar las publicaciones */
+    border-left: 1px solid #a7137a; /* Línea gris para separar las publicaciones */
+    border-right: 1px solid #a7137a; /* Línea gris para separar las publicaciones */
+    border-bottom: 1px solid #a7137a; /* Línea gris para separar las publicaciones */
+}
+
+/* Elimina la línea en la última publicación */
+.feed-item:last-child {
+    border-bottom: none;
+}
+
+/* Contenedor con la información del usuario */
+.feed-info-container {
+    position: absolute; /* Posiciona el contenedor detrás de la imagen */
+    top: 2px; /* Ajusta para que esté a la misma altura que el margen de la imagen */
+    left: 0;
+    right: 0;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 0; /* Asegura que el contenedor quede detrás de la imagen */
+}
+
+/* Foto de perfil */
+.feed-profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Nombre de usuario */
+.feed-username {
+    font-weight: bold;
+    color: white;
+    font-size: 1rem;
+}
+
+/* Contenedor de botones */
+.feed-buttons {
+    display: flex;
+    gap: 0.5rem;
+    position: relative; /* Necesario para que los botones estén por encima de los demás elementos */
+    z-index: 10; /* Asegura que los botones estén por encima de la imagen y la info */
+}
+
+/* Estilo para los botones */
+.like-button, .comment-button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.like-button:hover, .comment-button:hover {
+    color: #a7137a;
+}
+
+/* Contenedor para la descripción y la imagen */
+.feed-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 1rem;
+}
+
+/* Descripción a la derecha de la imagen */
+.feed-description-container {
+    width: 60%; /* Ajusta el ancho de la descripción */
+    text-align: left;
+}
+
+/* Descripción */
+.feed-description {
+    font-size: 0.9rem;
+    color: #d1d1d1;
+}
+
+/* Imagen principal de la publicación */
+.feed-item-image {
+    width: 35%;
+    max-width: 400px; /* Ajusta el tamaño máximo de la imagen */
+    height: auto;
+    border-radius: 8px;
+    margin-top: 2px; /* Márgenes de 2px arriba */
+    margin-bottom: 2px; /* Márgenes de 2px abajo */
+    position: relative; /* Necesario para que el contenedor de información se posicione respecto a la imagen */
+    z-index: 1; /* Asegura que la imagen esté por encima de la información */
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .feed-item-image {
+        max-width: 350px; /* Ajusta el tamaño de la imagen en tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .feed-container {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    .feed-item-image {
+        max-width: 250px; /* Ajusta el tamaño de la imagen en móviles */
+    }
+
+    .feed-profile-pic {
+        width: 35px;
+        height: 35px;
+    }
+
+    .feed-username {
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .feed-container {
+        padding: 1rem;
+    }
+
+    .feed-item-image {
+        max-width: 200px; /* Ajusta el tamaño de la imagen en móviles pequeños */
+    }
+
+    .feed-profile-pic {
+        width: 30px;
+        height: 30px;
+    }
+
+    .feed-username {
+        font-size: 0.75rem;
+    }
+
+    .feed-info-container {
+        padding: 0.3rem 0.8rem; /* Reduce el padding para pantallas pequeñas */
+    }
+}
