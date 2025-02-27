@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./listaPerfiles.css"; // Importa el archivo CSS que proporcionaste
+import img1 from '../../LocalImagen/profile.jpg' 
 
 interface Perfil {
   id: number;
@@ -15,7 +16,7 @@ export const ListPerfiles = () => {
       nombre: "Valeria",
       descripcion:
         "Crea contenido de entretenimiento sensual y atractivo. Su estilo único ha atraído a miles de seguidores.",
-      imagen: "img/profile1.jpg",
+      imagen: img1,
     },
     {
       id: 2,
