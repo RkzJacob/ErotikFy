@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { FaUserPlus } from "react-icons/fa"; // Importa el ícono de agregar persona
 import "./listaPerfiles.css"; // Importa el archivo CSS que proporcionaste
-import img1 from '../../LocalImagen/profile.jpg' 
+import img1 from '../../LocalImagen/profile.jpg';
 
 interface Perfil {
   id: number;
@@ -65,6 +66,11 @@ export const ListPerfiles = () => {
     setModalImagen(null);
   };
 
+  // Función para manejar el clic en el botón flotante
+  const handleAddPerson = () => {
+    alert("Agregar nueva persona"); // Puedes reemplazar esto con la lógica que desees
+  };
+
   return (
     <section className="profile-list-background">
       <div className="profile-list-container">
@@ -92,6 +98,11 @@ export const ListPerfiles = () => {
             <img src={modalImagen} className="modal-content" alt="Ampliada" />
           </div>
         )}
+
+        {/* Botón flotante para agregar persona */}
+        <button className="floating-button" onClick={handleAddPerson}>
+          <FaUserPlus size={24} /> {/* Ícono de agregar persona */}
+        </button>
       </div>
     </section>
   );
