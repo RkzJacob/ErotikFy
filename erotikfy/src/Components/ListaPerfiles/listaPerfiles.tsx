@@ -32,6 +32,27 @@ export const ListPerfiles = () => {
         "Especialista en moda y lifestyle. Inspira a sus seguidores con looks únicos y consejos de estilo.",
       imagen: "img/profile3.jpg",
     },
+    {
+      id: 1,
+      nombre: "Valeria",
+      descripcion:
+        "Crea contenido de entretenimiento sensual y atractivo. Su estilo único ha atraído a miles de seguidores.",
+      imagen: img1,
+    },
+    {
+      id: 2,
+      nombre: "Carlos",
+      descripcion:
+        "Amante de la tecnología y los videojuegos. Comparte reseñas y tutoriales para la comunidad gamer.",
+      imagen: "img/profile2.jpg",
+    },
+    {
+      id: 3,
+      nombre: "Ana",
+      descripcion:
+        "Especialista en moda y lifestyle. Inspira a sus seguidores con looks únicos y consejos de estilo.",
+      imagen: "img/profile3.jpg",
+    },
   ]);
 
   const [modalImagen, setModalImagen] = useState<string | null>(null);
@@ -47,13 +68,6 @@ export const ListPerfiles = () => {
   return (
     <section className="profile-list-background">
       <div className="profile-list-container">
-        {/* Cuadro de información */}
-        <div className="profile-list-info-container">
-          <div className="profile-list-header">
-            <h1 className="profile-list-title">Lista de Creadores</h1>
-          </div>
-        </div>
-
         {/* Lista de perfiles */}
         <div className="profile-list">
           {perfiles.map((perfil) => (

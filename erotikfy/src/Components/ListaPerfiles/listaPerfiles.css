@@ -1,14 +1,11 @@
 /* Contenedor principal */
 .profile-list-container {
-    width: 90%;
-    max-width: 1200px;
-    height: 90vh;
+    height: 100vh;
     margin: 0 auto;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.027);
+    background: rgba(255, 255, 255, 0);
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0);
-    margin-top: 20px;
     overflow-y: auto;
     scroll-behavior: smooth;
 }
@@ -27,10 +24,11 @@
     width: 100%;
     margin: 0 auto;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.027);
+    background: rgba(247, 2, 255, 0.055);
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0);
+
     margin-bottom: 1.5rem;
+
 }
 
 /* Header */
@@ -39,6 +37,7 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 1rem;
+    
 }
 
 .profile-list-title {
@@ -62,15 +61,6 @@
     color: #8b8b8b;
 }
 
-/* Categorías */
-.profile-list-categories {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 1.5rem;
-    text-align: left;
-}
-
 .profile-list-category-item label {
     color: white;
     font-size: 1rem;
@@ -82,6 +72,7 @@
     flex-direction: column;
     gap: 1rem;
     margin-top: 1.5rem;
+    
 }
 
 .profile-list-item {
@@ -89,9 +80,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.041);
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #8c00d8; /* Línea gris para separar las publicaciones */
+
 }
 
 .profile-list-image {
@@ -116,51 +107,6 @@
 .profile-list-description {
     color: rgba(255, 255, 255, 0.7);
     font-size: 0.875rem;
-}
-
-/* Botón de compartir */
-.profile-list-share-button {
-    background-color: transparent;
-    border: none;
-    font-size: 2.5rem;
-    cursor: pointer;
-}
-
-.profile-list-share-button i {
-    color: #c300ff;
-    margin-right: 3%;
-}
-
-.profile-list-share-button svg {
-    fill: #c300ff;
-    margin-right: 3%;
-}
-
-/* Sello de verificación */
-.profile-list-verification-container {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.875rem;
-    color: white;
-    font-weight: 600;
-}
-
-.profile-list-verification-text {
-    font-size: 1rem;
-}
-
-.profile-list-verification-icon {
-    width: 24px;
-    height: 24px;
-    background-color: white;
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    transform: rotate(45deg);
-    display: inline-block;
-    border-radius: 50%;
 }
 
 /* Media Queries */

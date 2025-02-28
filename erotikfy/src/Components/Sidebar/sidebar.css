@@ -37,7 +37,7 @@
     margin-left: -20px;
 }
 .sidebar-list-main ul :hover{
-    background-color: #272626;
+    background-color: #000000;
 }
 .sidebar-list-main ul{
     display: flex;
@@ -83,7 +83,7 @@
     height: 20px;
 }
 .sidebar-list-settings ul li:hover{
-    background-color: #272626;
+    background-color: #000000;
 }
 
 .list-main-item {

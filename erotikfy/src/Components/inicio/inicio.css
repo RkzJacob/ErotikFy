@@ -1,14 +1,35 @@
 .feed-container {
-    width: 90%;
-    max-width: 1200px;
-    height: 90vh;
-    margin: 40px auto; /* Esto aplica el mismo margen en la parte superior e inferior */
+    height: 100vh;
+    margin: 0 auto;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.027);
+    background: rgba(255, 255, 255, 0);
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0);
     overflow-y: auto;
     scroll-behavior: smooth;
+
+    /* Estilos para el scrollbar en navegadores basados en WebKit (Chrome, Safari, Edge) */
+    &::-webkit-scrollbar {
+        width: 8px; /* Ancho del scrollbar */
+    }
+
+    &::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1); /* Color de fondo del track */
+        border-radius: 4px; /* Bordes redondeados */
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #8c00d8; /* Color morado del thumb (la barra que se mueve) */
+        border-radius: 4px; /* Bordes redondeados */
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: #c300ff; /* Color morado más claro al pasar el mouse */
+    }
+
+    /* Estilos para el scrollbar en Firefox */
+    scrollbar-width: thin; /* Hace el scrollbar delgado */
+    scrollbar-color: #8c00d8 rgba(255, 255, 255, 0.1); /* Color del thumb y del track */
 }
 
 /* Fondo general */
@@ -35,10 +56,23 @@
     position: relative; /* Necesario para el posicionamiento de los elementos dentro */
     border-radius: 10px;
     padding: 1rem;
-    border-top: 1px solid #a7137a; /* Línea gris para separar las publicaciones */
-    border-left: 1px solid #a7137a; /* Línea gris para separar las publicaciones */
-    border-right: 1px solid #a7137a; /* Línea gris para separar las publicaciones */
-    border-bottom: 1px solid #a7137a; /* Línea gris para separar las publicaciones */
+    border: 1px solid #8c00d8; /* Línea gris para separar las publicaciones */
+    animation: neon-border 2s linear infinite;
+}
+
+@keyframes neon-border {
+    0% {
+        box-shadow: 0 0 2px #8c00d8, 0 0 5px #8c00d8, 0 0 8px #8c00d8;
+        border-color: rgba(167, 19, 122, 0.8);
+    }
+    50% {
+        box-shadow: 0 0 3px #d400ff, 0 0 6px #d400ff, 0 0 9px #d400ff;
+        border-color: rgba(255, 20, 147, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 2px #8c00d8, 0 0 5px #8c00d8, 0 0 8px #8c00d8;
+        border-color: rgba(167, 19, 122, 0.8);
+    }
 }
 
 /* Elimina la línea en la última publicación */
@@ -94,7 +128,7 @@
 }
 
 .like-button:hover, .comment-button:hover {
-    color: #a7137a;
+    color: #8c00d8;
 }
 
 /* Contenedor para la descripción y la imagen */
@@ -138,7 +172,6 @@
     right: 0;
     padding: 0.5rem 1rem;
     border-radius: 10px;
-
     display: flex;
     flex-direction: column;
     gap: 0.5rem;

@@ -8,6 +8,7 @@ export function MiAgenda(){
         <div className="container">
             <Sidebar/>
             <AgendaUser/>
+            <PerfilUser/>
         </div>
         </>
     )
