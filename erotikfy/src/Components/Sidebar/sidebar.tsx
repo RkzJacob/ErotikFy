@@ -1,26 +1,14 @@
-import React, { useState } from "react";
+
 import { Link } from "react-router-dom"; // Importa Link desde react-router-dom
 import "./sidebar.css";
 import Home from "../../Assets/home.png";
 import pornAvatar from "../../Assets/pornhub.avif";
 import search from "../../Assets/search.png";
-import live from "../../Assets/live.png";
 import creator from "../../Assets/creator.png";
 import menu from "../../Assets/menu.png";
-import CreatePublicationPopup from "../CrearPosts/crearposts";
-import createPost from "../../Assets/createPost.svg";
 import agenda from "../../Assets/agenda.svg";
 
 export const Sidebar = () => {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-
-  const openPopup = () => setIsPopupOpen(true);
-  const closePopup = () => setIsPopupOpen(false);
-
-  const handleCreateClick = (event: React.MouseEvent) => {
-    event.preventDefault(); // Evita el comportamiento predeterminado del enlace
-    openPopup(); // Abre el popup
-  };
 
   return (
     <section className="sidebar">
@@ -85,7 +73,6 @@ export const Sidebar = () => {
           </ul>
         </div>
       </div>
-      <CreatePublicationPopup isOpen={isPopupOpen} onClose={closePopup} />
     </section>
   );
 };

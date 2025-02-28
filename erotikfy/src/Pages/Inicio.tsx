@@ -1,4 +1,3 @@
-import { PerfilUser } from "../Components/PerfilUser/perfiluser";
 import { Sidebar } from "../Components/Sidebar/sidebar";
 import { Feed } from "../Components/inicio/inicio";
 
