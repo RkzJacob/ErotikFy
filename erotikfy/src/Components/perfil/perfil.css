@@ -1,18 +1,37 @@
 
-.tumadre {
-    margin-left: 15rem;
-    background-image: linear-gradient(to bottom, #080808cb, #201752c5);
-    height: 100vh;
-    width: 3000px;
-    overflow: hidden; /* Bloquea el scroll del fondo */
-}
 
 .profile-info-container {
-    display: flex;
-    flex-direction: row; /* Alinear en fila */
-    justify-content: space-between; /* Distribuir espacio entre los elementos */
-    gap: 15px; /* Espaciado entre los elementos */
-    width: 80%; /* Asegura que el contenedor tenga el mismo margen que el contenedor principal */
+    height: 100vh;
+    margin: 0 auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0);
+    overflow-y: auto;
+    scroll-behavior: smooth;
+
+    /* Estilos para el scrollbar en navegadores basados en WebKit (Chrome, Safari, Edge) */
+    &::-webkit-scrollbar {
+        width: 8px; /* Ancho del scrollbar */
+    }
+
+    &::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1); /* Color de fondo del track */
+        border-radius: 4px; /* Bordes redondeados */
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #8c00d8; /* Color morado del thumb (la barra que se mueve) */
+        border-radius: 4px; /* Bordes redondeados */
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: #c300ff; /* Color morado más claro al pasar el mouse */
+    }
+
+    /* Estilos para el scrollbar en Firefox */
+    scrollbar-width: thin; /* Hace el scrollbar delgado */
+    scrollbar-color: #8c00d8 rgba(255, 255, 255, 0.1); /* Color del thumb y del track */
 }
 
 .profile-header {

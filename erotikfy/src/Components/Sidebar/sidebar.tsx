@@ -45,7 +45,7 @@ export const Sidebar = () => {
             </li>
             <li>
               <div className="list-main-item">
-                <Link to="/mi-agenda"> {/* Navega a la página de Agenda */}
+                <Link to="/mi-agenda">
                   <img src={agenda} alt="" />
                   <p>Agenda</p>
                 </Link>
