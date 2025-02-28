@@ -8,7 +8,7 @@ export function Inicio () {
         <div className="container">
         <Sidebar/>
         <Feed/>
-        <PerfilUser/>
+
         </div>
         </>
         

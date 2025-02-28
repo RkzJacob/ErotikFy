@@ -8,7 +8,6 @@ export function ListaPerfiles () {
         <div className="container">
         <Sidebar/>
         <ListPerfiles/>
-        <PerfilUser/>
         </div>
         </>
         
