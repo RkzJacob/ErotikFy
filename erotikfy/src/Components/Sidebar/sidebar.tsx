@@ -6,6 +6,7 @@ import pornAvatar from "../../Assets/pornhub.avif";
 import search from "../../Assets/search.png";
 import creator from "../../Assets/creator.png";
 import menu from "../../Assets/menu.png";
+
 import agenda from "../../Assets/agenda.svg";
 
 export const Sidebar = () => {

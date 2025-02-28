@@ -287,3 +287,18 @@
   .floating-button:hover {
     background-color: #c300ff; /* Cambia el color al pasar el mouse */
   }
+
+  /* Estilos para el botón de subir archivo */
+.upload-button {
+    background: none; /* Sin fondo */
+    border: none; /* Sin borde */
+    color: #8c00d8; /* Color morado */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    transition: color 0.3s ease; /* Transición suave */
+    margin-left: auto; /* Mueve el botón a la derecha */
+    padding: 0.5rem; /* Espaciado interno */
+  }
+  
+  .upload-button:hover {
+    color: #c300ff; /* Cambia el color al pasar el mouse */
+  }

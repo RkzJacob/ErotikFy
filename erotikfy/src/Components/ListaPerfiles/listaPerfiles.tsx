@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { FaUserPlus } from "react-icons/fa"; // Importa el ícono de agregar persona
+import { MdFileUpload } from "react-icons/md"; // Importa el ícono de subir archivo
 import "./listaPerfiles.css"; // Importa el archivo CSS que proporcionaste
 import img1 from '../../LocalImagen/profile.jpg';
+import CreatePublicationPopup from "../CrearPosts/crearposts";
 
 interface Perfil {
   id: number;
@@ -57,6 +59,7 @@ export const ListPerfiles = () => {
   ]);
 
   const [modalImagen, setModalImagen] = useState<string | null>(null);
+  const [isCreatePostOpen, setIsCreatePostOpen] = useState(false); // Estado para controlar la ventana emergente
 
   const openModal = (imagen: string) => {
     setModalImagen(imagen);
@@ -69,6 +72,16 @@ export const ListPerfiles = () => {
   // Función para manejar el clic en el botón flotante
   const handleAddPerson = () => {
     alert("Agregar nueva persona"); // Puedes reemplazar esto con la lógica que desees
+  };
+
+  // Función para abrir la ventana emergente de creación de posts
+  const handleUploadFile = () => {
+    setIsCreatePostOpen(true); // Abre la ventana emergente
+  };
+
+  // Función para cerrar la ventana emergente de creación de posts
+  const handleCloseCreatePost = () => {
+    setIsCreatePostOpen(false); // Cierra la ventana emergente
   };
 
   return (
@@ -88,6 +101,13 @@ export const ListPerfiles = () => {
                 <h3 className="profile-list-name">{perfil.nombre}</h3>
                 <p className="profile-list-description">{perfil.descripcion}</p>
               </div>
+              {/* Botón de subir archivo */}
+              <button
+                className="upload-button"
+                onClick={handleUploadFile} // Abre la ventana emergente al hacer clic
+              >
+                <MdFileUpload size={24} /> {/* Ícono de subir archivo */}
+              </button>
             </div>
           ))}
         </div>
@@ -103,6 +123,12 @@ export const ListPerfiles = () => {
         <button className="floating-button" onClick={handleAddPerson}>
           <FaUserPlus size={24} /> {/* Ícono de agregar persona */}
         </button>
+
+        {/* Ventana emergente para crear posts */}
+        <CreatePublicationPopup
+          isOpen={isCreatePostOpen} // Controla si la ventana está abierta
+          onClose={handleCloseCreatePost} // Función para cerrar la ventana
+        />
       </div>
     </section>
   );
