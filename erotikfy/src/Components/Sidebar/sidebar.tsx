@@ -34,7 +34,7 @@ export const Sidebar = () => {
               <div className="list-main-item">
                 <Link to="/Inicio">
                   <img src={Home} alt="" />
-                  <p>Home</p>
+                  <p>Inicio</p>
                 </Link>
               </div>
             </li>
@@ -55,22 +55,6 @@ export const Sidebar = () => {
               </div>
             </li>
             <li>
-              <div className="list-main-item">
-                <a href="">
-                  <img src={live} alt="" />
-                  <p>Live</p>
-                </a>
-              </div>
-            </li>
-            <li>
-              <div className="list-main-item">
-                <a href="" onClick={handleCreateClick}>
-                  <img src={createPost} alt="" />
-                  <p>Crear</p>
-                </a>
-              </div>
-            </li>
-            <li>
             </li>
             <li>
               <div className="list-main-item">
@@ -82,7 +66,7 @@ export const Sidebar = () => {
             </li>
             <li>
               <div className="list-main-item">
-                <a href="">
+                <a href="/loguear-cuenta">
                   <img src={Home} alt="" />
                   <p>Cerrar Sesion</p>
                 </a>
