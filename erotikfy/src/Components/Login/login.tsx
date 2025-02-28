@@ -1,12 +1,54 @@
 import './login.css'
 import { useState } from "react";
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import background from '../../assets/erotikfy.jpg'
+import { gql, useApolloClient, useMutation } from '@apollo/client';
+import { LOGIN_MUTATION } from '../../Mutations/mutations';
 
 
 export const Login = () => {
     const [nombreUsuario,setNombreUsuario] = useState('');
     const [contrasena,setContrasena] = useState('');
+    const [login,{loading,error}] = useMutation(LOGIN_MUTATION);
+    const client = useApolloClient();
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e:any) => {
+        e.preventDefault();
+    
+        try {
+          const {data}=await login({
+            variables: {username: nombreUsuario, contrasena:contrasena },
+          });
+
+          if (data?.login) {
+            // Actualizar el cache de Apollo con el nombre del usuario
+            client.writeQuery({
+              query: gql`
+                query GetUserName {
+                  user {
+                    nombre_usuario
+                  }
+                }
+              `,
+              data: {
+                user: {
+                  nombre_usuario: nombreUsuario,
+                  __typename: 'User',  // Especificar un typename
+                },
+              },
+            });
+          }
+          localStorage.setItem("nombre_usuario", nombreUsuario);
+          navigate("/main");
+        } catch (err) {
+          console.error(err);
+          alert("Error en el inicio de sesión");
+        }
+      };
+
+
+    
     return (
         <>
         <section className="login">
@@ -18,7 +60,7 @@ export const Login = () => {
                     <h2>Iniciar Sesion</h2>
                     <p>Ingresa tu nombre de usuario y la contraseña para acceder a erotkfy</p>
                 </div>
-                <form className="login__form" /*onSubmit={handleSubmit}*/>
+                <form className="login__form" onSubmit={handleSubmit}>
                     <div className='login__item'>
                         <input type="text" placeholder='Nombre de usuario' className='login__item-input'name='nombre_usuario' required value={nombreUsuario} onChange={(e)=> setNombreUsuario(e.target.value)}/>
                     </div>
@@ -27,10 +69,10 @@ export const Login = () => {
                     </div>
                     <div className="login__item">
                       <ul className='login__item list'>
-                        <li><Link to={'/Registrar-cuenta'} className='login__recuperar'>Registrar cuenta</Link></li>
+                        <li><Link to={'/registrar-cuenta'} className='login__recuperar'>Registrar cuenta</Link></li>
                       </ul>
                     </div>
-                    <button className='login__button' type='submit' >
+                    <button className='login__button' type='submit' disabled={loading}>
                         Iniciar sesion
                     </button>
                 </form> 

@@ -15,7 +15,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Main/>}/>
+          <Route path='/' element={<Loguear/>}/>
           <Route path='main' element={<Main/>}/>
           <Route path='registrar-cuenta' element={<Register/>}/>
           <Route path='loguear-cuenta' element={<Loguear/>}/>
