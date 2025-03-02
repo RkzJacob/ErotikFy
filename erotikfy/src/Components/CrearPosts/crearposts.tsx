@@ -1,33 +1,80 @@
 import React, { useState } from "react";
 import './crearposts.css'
 import imagenUser from '../../assets/imagenUser.webp';
+import { useMutation } from "@apollo/client";
+import imageCompression from 'browser-image-compression';
+import { CREATE_POST } from "../../Mutations/mutations";
 
 interface CreatePublicationPopupProps {
   isOpen: boolean;
   onClose: () => void;
+  userId: string | null;
 }
 
 const CreatePublicationPopup: React.FC<CreatePublicationPopupProps> = ({
   isOpen,
   onClose,
+  userId,
 }) => {
-    const [publicationName, setPublicationName] = useState("");
+  const [publicationName, setPublicationName] = useState("");
   const [publicationDescription, setPublicationDescription] = useState("");
   const [files, setFiles] = useState<File[]>([]);
   const [showPreview, setShowPreview] = useState(false);
   const [currentFileIndex, setCurrentFileIndex] = useState(0); // Índice de la imagen/video actual
+  const [createpost] = useMutation(CREATE_POST);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    console.log(files)
     event.preventDefault();
     setShowPreview(true); // Mostrar la vista previa
   };
 
-  const handlePublish = () => {
-    console.log("Publicación enviada:", {
-      publicationName,
-      publicationDescription,
-      files,
+  const compressImage = async (file) => {
+    const options = {
+      maxSizeMB: 1, // Tamaño máximo en MB
+      maxWidthOrHeight: 1024, // Resolución máxima
+      useWebWorker: true,
+    };
+  
+    return await imageCompression(file, options);
+  };
+
+  const fileToBase64 = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = (error) => reject(error);
     });
+  };
+
+  const Agregar_post = async () =>{
+      
+    try {
+      const compressedFiles = await Promise.all(
+        files.map((file) => compressImage(file))
+      );
+
+      const mediaArray = await Promise.all(
+        compressedFiles.map(async (file) => {
+          const base64 = await fileToBase64(file);
+          return base64.split(",")[1]; // Eliminar el prefijo "data:image/jpeg;base64,"
+        })
+      );
+
+      const mediaString = mediaArray.join(",");
+
+      const {data}= await createpost({
+          variables: {user_id:userId, title:publicationName,descripcion:publicationDescription,media:mediaString,price:"0"},
+        });
+      console.log("error",data)
+    } catch (error) {
+        console.log("error",error)
+    }
+}
+
+  const handlePublish = () => {
+    Agregar_post();
     onClose(); // Cerrar el popup después de publicar
   };
 

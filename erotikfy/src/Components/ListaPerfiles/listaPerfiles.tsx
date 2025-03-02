@@ -16,6 +16,7 @@ export const ListPerfiles = () => {
   const {data,loading,error} = useGetallCreators();
   const [modalImagen, setModalImagen] = useState<string | null>(null);
   const [isCreatePostOpen, setIsCreatePostOpen] = useState(false); // Estado para controlar la ventana emergente
+  const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
 
   const openModal = (imagen: string) => {
     setModalImagen(imagen);
@@ -31,7 +32,8 @@ export const ListPerfiles = () => {
   };
 
   // Función para abrir la ventana emergente de creación de posts
-  const handleUploadFile = () => {
+  const handleUploadFile = (userId: string) => {
+    setSelectedUserId(userId);
     setIsCreatePostOpen(true); // Abre la ventana emergente
   };
 
@@ -63,7 +65,7 @@ export const ListPerfiles = () => {
               {/* Botón de subir archivo */}
               <button
                 className="upload-button"
-                onClick={handleUploadFile} // Abre la ventana emergente al hacer clic
+                onClick={() => handleUploadFile(perfil.user_id)} // Abre la ventana emergente al hacer clic
               >
                 <MdFileUpload size={24} /> {/* Ícono de subir archivo */}
               </button>
@@ -85,6 +87,7 @@ export const ListPerfiles = () => {
 
         {/* Ventana emergente para crear posts */}
         <CreatePublicationPopup
+          userId={selectedUserId}
           isOpen={isCreatePostOpen} // Controla si la ventana está abierta
           onClose={handleCloseCreatePost} // Función para cerrar la ventana
         />
