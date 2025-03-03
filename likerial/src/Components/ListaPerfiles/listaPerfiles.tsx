@@ -6,13 +6,6 @@ import CreateProfilePopup from "../CrearPerfil/crearperfil"; // Modificado a cre
 import CrearPosts from "../CrearPosts/crearposts"; // Asegúrate de importar el popup de crear publicación
 import { useGetallCreators } from "../../Hooks/UseQuerys";
 
-interface Perfil {
-  id: number;
-  nombre: string;
-  descripcion: string;
-  imagen: string;
-}
-
 export const ListPerfiles = () => {
   const { data, loading, error } = useGetallCreators();
   const [modalImagen, setModalImagen] = useState<string | null>(null);
