@@ -5,8 +5,8 @@ export function ListaPerfiles () {
     return (
         <>
         <div className="container">
-        <Sidebar/>
-        <ListPerfiles/>
+            <Sidebar/>
+            <ListPerfiles/>
         </div>
         </>
         

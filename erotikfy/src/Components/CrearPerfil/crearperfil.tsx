@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './crearperfil.css';
 import { useMutation } from "@apollo/client";
 import imageCompression from 'browser-image-compression';
-import { CREATE_USER } from "../../Mutations/mutations"; // Suponiendo que tienes una mutación para crear usuario
+// import { CREATE_USER } from "../../Mutations/mutations"; // Suponiendo que tienes una mutación para crear usuario
 
 interface CreateProfilePopupProps {
   isOpen: boolean;
@@ -19,7 +19,7 @@ const CreateProfilePopup: React.FC<CreateProfilePopupProps> = ({
   const [profileDescription, setProfileDescription] = useState("");
   const [files, setFiles] = useState<File[]>([]);
   const [imagePreview, setImagePreview] = useState<string | null>(null); // Estado para la vista previa de la imagen
-  const [createUser] = useMutation(CREATE_USER); // Mutación para crear un usuario
+  // const [createUser] = useMutation(CREATE_USER); // Mutación para crear un usuario
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -73,24 +73,6 @@ const CreateProfilePopup: React.FC<CreateProfilePopupProps> = ({
     }
   };
 
-  const compressImage = async (file) => {
-    const options = {
-      maxSizeMB: 1, // Tamaño máximo en MB
-      maxWidthOrHeight: 1024, // Resolución máxima
-      useWebWorker: true,
-    };
-
-    return await imageCompression(file, options);
-  };
-
-  const fileToBase64 = (file: File): Promise<string> => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result as string);
-      reader.onerror = (error) => reject(error);
-    });
-  };
 
   if (!isOpen) return null;
 
