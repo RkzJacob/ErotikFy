@@ -5,9 +5,6 @@ import Home from "../../Assets/home.png";
 import pornAvatar from "../../Assets/pornhub.avif";
 import search from "../../Assets/search.png";
 import creator from "../../Assets/creator.png";
-import menu from "../../Assets/menu.png";
-
-import agenda from "../../Assets/agenda.svg";
 
 export const Sidebar = () => {
 
@@ -45,14 +42,6 @@ export const Sidebar = () => {
             </li>
             <li>
               <div className="list-main-item">
-                <Link to="/mi-agenda">
-                  <img src={agenda} alt="" />
-                  <p>Agenda</p>
-                </Link>
-              </div>
-            </li>
-            <li>
-              <div className="list-main-item">
                 <a href="/loguear-cuenta">
                   <img src={Home} alt="" />
                   <p>Cerrar Sesion</p>
@@ -65,13 +54,10 @@ export const Sidebar = () => {
           <ul>
             <li>
               <div className="list-main-item">
-                <a href="">
-                  <img src={menu} alt="" />
-                  <p>Config</p>
-                </a>
               </div>
             </li>
           </ul>
+          Premium | No Premium
         </div>
       </div>
     </section>
