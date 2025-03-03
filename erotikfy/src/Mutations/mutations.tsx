@@ -14,13 +14,17 @@ export const REGISTER_MUTATION_USERNORMAL = gql`
     `;
 
 export const CREATE_POST = gql`
-    mutation createPost($user_id: String!, $title: String!, $descripcion: String!, $media: String!, $price: String!) {
-        CREATE_POST(user_id: $user_id,title: $title,descripcion: $descripcion,media: $media,price: $price)
+    mutation createPost($user_id: String!, $title: String!, $descripcion: String!, $media: [String]!) {
+        CREATE_POST(
+        user_id: $user_id
+        ,title: $title
+        ,descripcion: $descripcion
+        ,media: $media)
     }
     `;
 
-    export const CREATE_USER = gql`
-    mutation createPost($user_id: String!, $title: String!, $descripcion: String!, $media: String!, $price: String!) {
-        CREATE_POST(user_id: $user_id,title: $title,descripcion: $descripcion,media: $media,price: $price)
-    }
-    `;
+export const GET_URL = gql`
+    mutation obtenerUrl($base64File: String!) {
+        GET_UPLOAD_URL(base64File:$base64File)
+}
+`;

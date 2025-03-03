@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import './crearposts.css'
 import imagenUser from '../../assets/imagenUser.webp';
 import { useMutation } from "@apollo/client";
-import imageCompression from 'browser-image-compression';
-import { CREATE_POST } from "../../Mutations/mutations";
+import { CREATE_POST, GET_URL } from "../../Mutations/mutations";
+import { compressImage, fileToBase64 } from "../../Functions/functions";
 
 interface CreatePublicationPopupProps {
   isOpen: boolean;
@@ -21,7 +21,8 @@ const CreatePublicationPopup: React.FC<CreatePublicationPopupProps> = ({
   const [files, setFiles] = useState<File[]>([]);
   const [showPreview, setShowPreview] = useState(false);
   const [currentFileIndex, setCurrentFileIndex] = useState(0); // Índice de la imagen/video actual
-  const [createpost] = useMutation(CREATE_POST);
+  const [createPost] = useMutation(CREATE_POST);
+  const [obtenerUrl] = useMutation(GET_URL);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     console.log(files)
@@ -29,45 +30,56 @@ const CreatePublicationPopup: React.FC<CreatePublicationPopupProps> = ({
     setShowPreview(true); // Mostrar la vista previa
   };
 
-  const compressImage = async (file) => {
-    const options = {
-      maxSizeMB: 1, // Tamaño máximo en MB
-      maxWidthOrHeight: 1024, // Resolución máxima
-      useWebWorker: true,
-    };
-  
-    return await imageCompression(file, options);
-  };
+  const uploadToCloudflare = async (file: File) =>{
+      
+    try {
+      const compressedFile = await compressImage(file);
+      const base64 = await fileToBase64(compressedFile);
+      // const imageBase64 = base64.split(",")[1];
 
-  const fileToBase64 = (file: File): Promise<string> => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result as string);
-      reader.onerror = (error) => reject(error);
-    });
-  };
+
+      const {data}= await obtenerUrl({
+          variables: {base64File:base64},
+      });
+
+      if (!data || !data.GET_UPLOAD_URL) {
+        console.error("Error al obtener la URL de subida", data);
+        return null;
+    }
+
+
+      console.log("URL obtenida:", data.GET_UPLOAD_URL);
+      return data.GET_UPLOAD_URL;
+
+    } catch (error) {
+        console.log("error",error)
+        return null;
+    }
+    
+  }
 
   const Agregar_post = async () =>{
       
     try {
-      const compressedFiles = await Promise.all(
-        files.map((file) => compressImage(file))
-      );
+      const uploadedUrls: string[] = [];
 
-      const mediaArray = await Promise.all(
-        compressedFiles.map(async (file) => {
-          const base64 = await fileToBase64(file);
-          return base64.split(",")[1]; // Eliminar el prefijo "data:image/jpeg;base64,"
-        })
-      );
+      for (const file of files) {
+        const imageUrl = await uploadToCloudflare(file);
+        if (imageUrl) {
+          uploadedUrls.push(imageUrl);
+        }
+      }
+      if (uploadedUrls.length === 0) {
+        console.error("No se subieron imágenes correctamente");
+        return;
+      }
 
-      const mediaString = mediaArray.join(",");
+      uploadedUrls.join(",")
 
-      const {data}= await createpost({
-          variables: {user_id:userId, title:publicationName,descripcion:publicationDescription,media:mediaString,price:"0"},
-        });
-      console.log("error",data)
+      const {data}= await createPost({
+          variables: {user_id:userId, title:publicationName,descripcion:publicationDescription,media:uploadedUrls},
+      });
+      console.log("Datos enviados al backend",data)
     } catch (error) {
         console.log("error",error)
     }
