@@ -1,32 +1,116 @@
-.container-ads{
-    display: flex;
-    align-items: center;
+/* Estilos generales */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: linear-gradient(to bottom, #080808cb, #201752c5);
+  color: #fff;
+}
+
+/* Contenedor principal */
+.container-ads {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Contenedor del video */
+.video-wrapper {
+  flex: 1; /* Ocupa el espacio disponible */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.video-container {
+  width: 100%;
+  max-width: 800px; /* Limita el ancho del video */
+  height: 90%; /* 80% de la altura del contenedor */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.video-player {
+  width: 80%;
+  height: 100%;
+  object-fit: cover; /* Asegura que el video cubra el contenedor */
+  border-radius: 8px;
+}
+
+/* Contenedor del letrero neon */
+.neon-sign {
+  flex: 0 0 30%; /* Ancho fijo para el letrero */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.neon-sign p {
+  font-size: 2.5rem; /* Tamaño grande para el texto */
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #ff00de,
+    0 0 40px #ff00de,
+    0 0 80px #ff00de;
+  animation: neon-glow 1.5s infinite alternate;
+}
+
+/* Animación del efecto neon */
+@keyframes neon-glow {
+  from {
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 20px #ff00de,
+      0 0 40px #ff00de,
+      0 0 80px #ff00de;
+  }
+  to {
+    text-shadow:
+      0 0 10px #fff,
+      0 0 20px #fff,
+      0 0 40px #ff00de,
+      0 0 80px #ff00de,
+      0 0 120px #ff00de;
+  }
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .container-ads {
+    flex-direction: column; /* Apila los elementos en móviles */
     justify-content: center;
-    gap: 20px;
     padding: 20px;
   }
-  
+
   .video-container {
-    flex: 1;
+    height: 100%; /* Reduce la altura del video en móviles */
+    max-width: 100%; /* Ocupa todo el ancho disponible */
   }
-  
-  .video-player {
-    width: 100%;
-    max-width: 500px;
-    border-radius: 8px;
+
+  .neon-sign {
+    flex: 0 0 auto; /* Ancho automático en móviles */
+    margin-top: 20px; /* Espacio entre el video y el letrero */
   }
-  
-  .message-container {
-    flex: 1;
-    background-color: #f4f4f4;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
+
+  .neon-sign p {
+    font-size: 2rem; /* Reduce el tamaño del texto en móviles */
   }
-  
-  .message-text {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
+}
+
+@media (max-width: 480px) {
+  .neon-sign p {
+    font-size: 1.5rem; /* Ajusta el tamaño del texto para pantallas pequeñas */
   }
-  
+}
