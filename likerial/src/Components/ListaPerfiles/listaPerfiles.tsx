@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { FaUserPlus } from "react-icons/fa"; // Importa el ícono de agregar persona
-import { MdFileUpload } from "react-icons/md"; // Importa el ícono de subir archivo
-import "./listaPerfiles.css"; // Importa el archivo CSS que proporcionaste
-import CreatePublicationPopup from "../CrearPosts/crearposts";
+import { FaUserPlus } from "react-icons/fa"; // Ícono de agregar persona
+import { MdFileUpload } from "react-icons/md"; // Ícono de subir archivo
+import "./listaPerfiles.css";
+import CreateProfilePopup from "../CrearPerfil/crearperfil"; // Modificado a crear perfil
+import CrearPosts from "../CrearPosts/crearposts"; // Asegúrate de importar el popup de crear publicación
 import { useGetallCreators } from "../../Hooks/UseQuerys";
 
 interface Perfil {
@@ -13,9 +14,10 @@ interface Perfil {
 }
 
 export const ListPerfiles = () => {
-  const {data,loading,error} = useGetallCreators();
+  const { data, loading, error } = useGetallCreators();
   const [modalImagen, setModalImagen] = useState<string | null>(null);
-  const [isCreatePostOpen, setIsCreatePostOpen] = useState(false); // Estado para controlar la ventana emergente
+  const [isCreateProfileOpen, setIsCreateProfileOpen] = useState(false); // Estado para controlar la ventana emergente de crear perfil
+  const [isCrearPostOpen, setIsCrearPostOpen] = useState(false); // Nuevo estado para controlar la ventana emergente de crear publicación
   const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
 
   const openModal = (imagen: string) => {
@@ -26,31 +28,31 @@ export const ListPerfiles = () => {
     setModalImagen(null);
   };
 
-  // Función para manejar el clic en el botón flotante
   const handleAddPerson = () => {
-    alert("Agregar nueva persona"); // Puedes reemplazar esto con la lógica que desees
+    setIsCreateProfileOpen(true); // Abre el popup para crear perfil
   };
 
-  // Función para abrir la ventana emergente de creación de posts
   const handleUploadFile = (userId: string) => {
     setSelectedUserId(userId);
-    setIsCreatePostOpen(true); // Abre la ventana emergente
+    setIsCrearPostOpen(true); // Abre el popup para crear publicación
   };
 
-  // Función para cerrar la ventana emergente de creación de posts
-  const handleCloseCreatePost = () => {
-    setIsCreatePostOpen(false); // Cierra la ventana emergente
+  const handleCloseCreateProfile = () => {
+    setIsCreateProfileOpen(false); // Cierra el popup de crear perfil
   };
 
-  if(loading) return <p>loading...</p>
-  if(error)return <p>error: {error.message}</p>
+  const handleCloseCrearPost = () => {
+    setIsCrearPostOpen(false); // Cierra el popup de crear publicación
+  };
+
+  if (loading) return <p>loading...</p>;
+  if (error) return <p>error: {error.message}</p>;
 
   return (
     <section className="profile-list-background">
       <div className="profile-list-container">
-        {/* Lista de perfiles */}
         <div className="profile-list">
-          {data?.AllUsersWithCounts.map((perfil:any) => (
+          {data?.AllUsersWithCounts.map((perfil: any) => (
             <div key={perfil.user_id} className="profile-list-item">
               <img
                 src={perfil.profile_picture}
@@ -62,34 +64,39 @@ export const ListPerfiles = () => {
                 <h3 className="profile-list-name">{perfil.username}</h3>
                 <p className="profile-list-description">{perfil.bio}</p>
               </div>
-              {/* Botón de subir archivo */}
               <button
                 className="upload-button"
-                onClick={() => handleUploadFile(perfil.user_id)} // Abre la ventana emergente al hacer clic
+                onClick={() => handleUploadFile(perfil.user_id)}
               >
-                <MdFileUpload size={24} /> {/* Ícono de subir archivo */}
+                <MdFileUpload size={24} />
               </button>
             </div>
           ))}
         </div>
 
-        {/* Modal para mostrar la imagen en grande */}
         {modalImagen && (
           <div className="modal" onClick={closeModal}>
             <img src={modalImagen} className="modal-content" alt="Ampliada" />
           </div>
         )}
 
-        {/* Botón flotante para agregar persona */}
+        {/* Botón flotante para agregar perfil */}
         <button className="floating-button" onClick={handleAddPerson}>
-          <FaUserPlus size={24} /> {/* Ícono de agregar persona */}
+          <FaUserPlus size={24} />
         </button>
 
-        {/* Ventana emergente para crear posts */}
-        <CreatePublicationPopup
+        {/* Ventana emergente para crear perfil */}
+        <CreateProfilePopup
           userId={selectedUserId}
-          isOpen={isCreatePostOpen} // Controla si la ventana está abierta
-          onClose={handleCloseCreatePost} // Función para cerrar la ventana
+          isOpen={isCreateProfileOpen}
+          onClose={handleCloseCreateProfile}
+        />
+
+        {/* Ventana emergente para crear publicación */}
+        <CrearPosts
+          userId={selectedUserId}
+          isOpen={isCrearPostOpen}
+          onClose={handleCloseCrearPost}
         />
       </div>
     </section>

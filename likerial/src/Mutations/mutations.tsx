@@ -18,3 +18,9 @@ export const CREATE_POST = gql`
         CREATE_POST(user_id: $user_id,title: $title,descripcion: $descripcion,media: $media,price: $price)
     }
     `;
+
+    export const CREATE_USER = gql`
+    mutation createPost($user_id: String!, $title: String!, $descripcion: String!, $media: String!, $price: String!) {
+        CREATE_POST(user_id: $user_id,title: $title,descripcion: $descripcion,media: $media,price: $price)
+    }
+    `;
