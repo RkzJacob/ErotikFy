@@ -6,6 +6,7 @@ import CreateProfilePopup from "../CrearPerfil/crearperfil"; // Modificado a cre
 import CrearPosts from "../CrearPosts/crearposts"; // Asegúrate de importar el popup de crear publicación
 import { useGetallCreators } from "../../Hooks/UseQuerys";
 import { SkeletonUserList } from "./SkeletonPerfiles/skeleton";
+import { Search } from "../Buscador/buscador";
 
 
 export const ListPerfiles = () => {
@@ -46,6 +47,7 @@ export const ListPerfiles = () => {
   return (
     <section className="profile-list-background">
       <div className="profile-list-container">
+        <Search/>
         <div className="profile-list">
           {data?.AllUsersWithCountsCreator.map((perfil: any) => (
             <div key={perfil.user_id} className="profile-list-item">

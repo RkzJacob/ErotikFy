@@ -1,5 +1,9 @@
 import "./listaUsuarios.css";
-import { useGetallCreators } from "../../Hooks/UseQuerys";
+import {  useGetallNormals } from "../../Hooks/UseQuerys";
+import { useState } from "react";
+import { FaStar } from "react-icons/fa";
+import { CiStar } from "react-icons/ci";
+import { SkeletonUserList } from "../ListaPerfiles/SkeletonPerfiles/skeleton";
 
 export const ListUsuarios = () => {
   const { data, loading, error } = useGetallNormals();
@@ -12,7 +16,7 @@ export const ListUsuarios = () => {
     }));
   };
 
-  if (loading) return <p>loading...</p>;
+  if (loading) return <SkeletonUserList/>;
   if (error) return <p>error: {error.message}</p>;
 
   return (

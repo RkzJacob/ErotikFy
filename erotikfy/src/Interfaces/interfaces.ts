@@ -15,6 +15,14 @@ export interface ListCreators{
     FILTRAR_USUARIOS:Creators[];
 }
 
+export interface ListNormales{
+    AllUsersWithCountsNormales:Creators[];
+}
+
+export interface ListAdmins{
+    AllUsersWithCountsAdmin:Creators[];
+}
+
 export interface ListPost{
     GET_WEEKLY_FEED:Post[];
 }
