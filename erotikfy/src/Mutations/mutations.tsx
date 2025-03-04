@@ -44,3 +44,9 @@ export const GET_URL_CREATOR = gql`
         GET_UPLOAD_URL_CREATOR(base64File:$base64File)
 }
 `;
+
+export const CREATE_LIKE= gql`
+    mutation generarLike($user_id:String!, $post_id: String!){
+        CREATE_Like(user_id:$user_id,post_id:$post_id)
+    }
+`

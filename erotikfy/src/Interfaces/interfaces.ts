@@ -19,7 +19,7 @@ export interface ListPost{
     GET_WEEKLY_FEED:Post[];
 }
 export interface Post{
-    usuario:Creators[];
+    usuario:Creators;
     post_id:string;
     user_id:string;
     title:string;
@@ -33,7 +33,7 @@ export interface Comments{
     comment_id:string;
     user_id:string;
     content:string;
-    user:User[];
+    user:User;
 
 }
 export interface User {
