@@ -7,6 +7,7 @@ import { Pedidos } from './Pages/Pedidos'
 import { Perfil } from './Pages/perfil'
 import { ListaPerfiles } from './Pages/ListaPerfiles'
 import { Inicio } from './Pages/Inicio'
+import { BuscadorInteligente } from './Pages/Buscador'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path='perfil' element={<Perfil/>}/>
           <Route path='Listado' element={<ListaPerfiles/>}/> 
           <Route path='Inicio' element={<Inicio/>}/>
+          <Route path='search-users' element={<BuscadorInteligente/>}/>
           <Route/>
         </Routes>
       </BrowserRouter>

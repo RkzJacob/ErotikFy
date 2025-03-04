@@ -5,6 +5,8 @@ import "./listaPerfiles.css";
 import CreateProfilePopup from "../CrearPerfil/crearperfil"; // Modificado a crear perfil
 import CrearPosts from "../CrearPosts/crearposts"; // Asegúrate de importar el popup de crear publicación
 import { useGetallCreators } from "../../Hooks/UseQuerys";
+import { SkeletonUserList } from "./SkeletonPerfiles/skeleton";
+
 
 export const ListPerfiles = () => {
   const { data, loading, error } = useGetallCreators();
@@ -38,7 +40,7 @@ export const ListPerfiles = () => {
     setIsCrearPostOpen(false); // Cierra el popup de crear publicación
   };
 
-  if (loading) return <p>loading...</p>;
+  if (loading) return <SkeletonUserList/>;
   if (error) return <p>error: {error.message}</p>;
 
   return (

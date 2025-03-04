@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client"
-import { GET_ALL_CREATORS } from "../Querys/querys"
+import { FILTRAR_USUARIOS, GET_ALL_CREATORS } from "../Querys/querys"
 
 export interface Creators {
     user_id:string;
@@ -15,10 +15,20 @@ export interface Creators {
 
 export interface ListCreators{
     AllUsersWithCounts:Creators[];
+    FILTRAR_USUARIOS:Creators[];
 }
 
 export const useGetallCreators = () => {
     const result = useQuery<ListCreators>(GET_ALL_CREATORS,{
+    })
+    return result
+}
+
+
+export const useGetCreators = (username:String) => {
+    const result = useQuery<ListCreators>(FILTRAR_USUARIOS,{
+        variables:{search:username},
+        skip: !username,
     })
     return result
 }

@@ -24,7 +24,7 @@ export const CREATE_POST = gql`
     `;
 
 export const CREATE_USER_CREATOR = gql`
-    mutation createCreator($username: String!, $contrasena: String!, $profile_picture: [String]!, $bio:String! ) {
+    mutation createCreator($username: String!, $contrasena: String!, $profile_picture: String!, $bio:String! ) {
         CREATE_USER(
         username:$username,
         contrasena:$contrasena
@@ -40,7 +40,7 @@ export const GET_URL = gql`
 `;
 
 export const GET_URL_CREATOR = gql`
-    mutation obtenerUrl($base64File: String!) {
+    mutation obtenerUrlCreator($base64File: String!) {
         GET_UPLOAD_URL_CREATOR(base64File:$base64File)
 }
 `;

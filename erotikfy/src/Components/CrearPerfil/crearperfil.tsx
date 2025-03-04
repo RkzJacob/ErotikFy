@@ -3,6 +3,7 @@ import './crearperfil.css';
 import { useMutation } from "@apollo/client";
 import { CREATE_USER_CREATOR, GET_URL_CREATOR } from "../../Mutations/mutations";
 import { compressImage, fileToBase64 } from "../../Functions/functions";
+import { GET_ALL_CREATORS } from "../../Querys/querys";
 
 interface CreateProfilePopupProps {
   isOpen: boolean;
@@ -25,6 +26,14 @@ const CreateProfilePopup: React.FC<CreateProfilePopupProps> = ({
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
   };
+
+  const resetForm = () => {
+    setProfileName("");
+    setProfileDescription("");
+    setcontrasena("");
+    setFiles(null);
+    setImagePreview(null);
+  };
   
   const uploadToCloudflare = async (file: File) =>{
         
@@ -38,14 +47,14 @@ const CreateProfilePopup: React.FC<CreateProfilePopupProps> = ({
             variables: {base64File:base64},
         });
   
-        if (!data || !data.GET_UPLOAD_URL) {
+        if (!data || !data.GET_UPLOAD_URL_CREATOR) {
           console.error("Error al obtener la URL de subida", data);
           return null;
       }
   
   
-        console.log("URL obtenida:", data.GET_UPLOAD_URL);
-        return data.GET_UPLOAD_URL;
+        console.log("URL obtenida:", data.GET_UPLOAD_URL_CREATOR);
+        return data.GET_UPLOAD_URL_CREATOR;
   
       } catch (error) {
           console.log("error",error)
@@ -64,13 +73,14 @@ const CreateProfilePopup: React.FC<CreateProfilePopupProps> = ({
   
         const imageUrl = await uploadToCloudflare(files);
 
-        if (imageUrl) {
+        if (!imageUrl) {
           console.error("No se subió la imagen correctamente");
           return;
         }
 
         const {data}= await createCreator({
             variables: {username:profileName, contrasena:contrasena,profile_picture:imageUrl,bio:profileDescription},
+            refetchQueries:[{ query: GET_ALL_CREATORS }]
         });
         console.log("Datos enviados al backend",data)
       } catch (error) {
@@ -80,6 +90,7 @@ const CreateProfilePopup: React.FC<CreateProfilePopupProps> = ({
   
     const handlePublish = () => {
       Agregar_user();
+      resetForm();
       onClose(); // Cerrar el popup después de publicar
     };
 
@@ -131,11 +142,11 @@ const CreateProfilePopup: React.FC<CreateProfilePopupProps> = ({
           </div>
           <div className="form-field">
             <label htmlFor="profileDescription">contraseña:</label>
-            <textarea
-              id="profileDescription"
+            <input
+              type="password"
+              id="Contraseña"
               value={contrasena}
               onChange={(e) => setcontrasena(e.target.value)}
-              rows={4}
               required
             />
           </div>
@@ -153,7 +164,7 @@ const CreateProfilePopup: React.FC<CreateProfilePopupProps> = ({
             <input
               type="file"
               id="fileUpload"
-              onChange={(e) => setFiles(e.target.files)}
+              onChange={handleFileChange}
               accept="image/*"
               
               required

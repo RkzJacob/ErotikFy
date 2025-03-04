@@ -29,6 +29,13 @@ const CreatePublicationPopup: React.FC<CreatePublicationPopupProps> = ({
     event.preventDefault();
     setShowPreview(true); // Mostrar la vista previa
   };
+  const resetForm = () => {
+    setPublicationName("");
+    setPublicationDescription("");
+    setFiles([]);
+    setShowPreview(false);
+    setCurrentFileIndex(0);
+};
 
   const uploadToCloudflare = async (file: File) =>{
       
@@ -96,6 +103,7 @@ const CreatePublicationPopup: React.FC<CreatePublicationPopupProps> = ({
 
   const handlePublish = () => {
     Agregar_post();
+    resetForm();
     onClose(); // Cerrar el popup después de publicar
   };
 

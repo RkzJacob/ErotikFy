@@ -1,0 +1,110 @@
+
+.profile-list-container-skeleton{
+    height: 100vh;
+    margin: 0 auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0);
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+/* Fondo general */
+.profile-list-background-skeleton{
+    margin-left: 15rem;
+    background-image: linear-gradient(to bottom, #080808cb, #201752c5);
+    height: 100vh;
+    width: 100%;
+    overflow: hidden; /* Bloquea el scroll del fondo */
+}
+
+/* Cuadro de información */
+.profile-list-info-container-skeleton{
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+    background: rgba(247, 2, 255, 0.055);
+    border-radius: 10px;
+
+    margin-bottom: 1.5rem;
+
+}
+
+/* Header */
+.profile-list-header-skeleton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    
+}
+
+.profile-list-title-skeleton{
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: white;
+}
+
+/* Estrellas de puntuación */
+.profile-list-stars-skeleton{
+    display: flex;
+    gap: 0.25rem;
+    justify-content: center;
+}
+
+.profile-list-star-skeleton{
+    color: #241579;
+}
+
+.profile-list-star-empty-skeleton{
+    color: #8b8b8b;
+}
+
+.profile-list-category-item-skeleton label {
+    color: white;
+    font-size: 1rem;
+}
+
+/* Lista de perfiles */
+.profile-list-skeleton{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    
+}
+
+.profile-list-item-skeleton{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid #8c00d8; /* Línea gris para separar las publicaciones */
+
+}
+
+.profile-list-image-skeleton{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 1rem;
+}
+
+.profile-list-info-skeleton{
+    flex-grow: 1;
+    text-align: left;
+}
+
+/* Información del perfil */
+.profile-list-name-skeleton{
+    font-weight: bold;
+    color: white;
+}
+
+.profile-list-description-skeleton{
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+}

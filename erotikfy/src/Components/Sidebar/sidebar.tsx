@@ -34,10 +34,10 @@ export const Sidebar = () => {
             </li>
             <li>
               <div className="list-main-item">
-                <a href="">
+                <Link to="/search-users"> {/* Navega a la página de Creadores */}
                   <img src={search} alt="" />
                   <p>Buscar</p>
-                </a>
+                </Link>
               </div>
             </li>
             <li>
