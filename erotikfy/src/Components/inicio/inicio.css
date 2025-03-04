@@ -164,7 +164,8 @@
 
 /* Imagen principal de la publicación */
 .feed-item-image {
-    width: 100%;
+    max-width: 400px;
+    min-width: 400px;
     max-height: 500px;
     min-height: 500px;
     object-fit: cover;
@@ -233,6 +234,34 @@
 .comment-text {
     font-size: 0.8rem;
     color: #d1d1d1;
+}
+
+.comment-section{
+    display: flex;
+    max-height: 40px;
+    max-width: 500px;
+    min-width: 500px;
+    align-items: center;
+    justify-content: center;
+}
+.comment-section input{
+    background-color: transparent;
+    width: 700px;
+    height: 20px;
+    border-color: #131212;
+    color: aliceblue;
+    border: none;
+    border-bottom: 2px solid #0b6396;
+    border-top-right-radius: 8px;
+
+}
+
+.comment-section button{
+    margin-left: 1rem;
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    color: aqua;
 }
 
 /* Media Queries */

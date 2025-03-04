@@ -4,7 +4,9 @@ import { Link } from "react-router-dom"; // Importa Link desde react-router-dom
 import { useGET_ID, useGET_WEEKLY_FEED_ } from '../../Hooks/UseQuerys';
 import profile from '../../LocalImagen/profile.jpg'
 import { useMutation } from '@apollo/client';
-import { CREATE_LIKE } from '../../Mutations/mutations';
+import { CREATE_COMENTARIO, CREATE_LIKE } from '../../Mutations/mutations';
+import { useState } from 'react';
+import { GET_WEEKLY_FEED } from '../../Querys/querys';
 
 export const Feed = () => {
   const id_usuario_storage = localStorage.getItem("nombre_usuario");
@@ -12,7 +14,35 @@ export const Feed = () => {
   const usuario = dataUser?.getOneFindUser.user_id || "";
   
   const [generarLike] = useMutation(CREATE_LIKE);
+  const [createComentario] = useMutation(CREATE_COMENTARIO,{
+    refetchQueries:[{ query: GET_WEEKLY_FEED, variables: {user_id: usuario} }]
+  });
   const {data} = useGET_WEEKLY_FEED_(usuario);
+
+  const [comentario, setComentario] = useState("");
+  const [comentando, setComentando] = useState<string | null>(null);
+
+  const handleComentario = async (post_id: string) => {
+    try {
+      if (comentario.trim() === "") {
+        alert("Por favor, escribe un comentario.");
+        return;
+      }
+
+      const { data } = await createComentario({
+        variables: { user_id: usuario, post_id: post_id, content: comentario }
+      });
+
+      console.log(data.CREATE_COMENTARIO); // Mostrar mensaje de éxito
+
+      // Limpiar el campo de comentario y cerrar el campo de escritura
+      setComentario("");
+      setComentando(null);
+
+    } catch (error) {
+      console.error("Error al crear comentario:", error);
+    }
+  };
 
   // Función para deshabilitar el clic derecho
   const handleImageContextMenu = (event: React.MouseEvent<HTMLImageElement>) => {
@@ -71,7 +101,7 @@ export const Feed = () => {
                     <button className="like-button" onClick={ () => handleLike(post.post_id)}>
                       <i className="fa fa-heart"></i>
                     </button>
-                    <button className="comment-button">
+                    <button className="comment-button" onClick={() => setComentando(post.post_id)}>
                       <i className="fa fa-comment"></i>
                     </button>
                   </div>
@@ -110,7 +140,20 @@ export const Feed = () => {
                         </div>
                       </div>
                     ))}
+                    {comentando === post.post_id && (
+                    <div className="comment-section">
+                      <input
+                        value={comentario}
+                        onChange={(e) => setComentario(e.target.value)}
+                        placeholder="Escribe un comentario..."
+                      />
+                      <button onClick={() => handleComentario(post.post_id)}>
+                        <i className="fa fa-comment"></i>
+                        </button>
+                    </div>
+                  )}
                   </div>
+                  
                 </div>
               </div>
             );
