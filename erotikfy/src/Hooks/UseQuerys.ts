@@ -1,22 +1,8 @@
 import { useQuery } from "@apollo/client"
-import { FILTRAR_USUARIOS, GET_ALL_CREATORS } from "../Querys/querys"
+import { FILTRAR_USUARIOS, GET_ALL_CREATORS, GET_ID, GET_WEEKLY_FEED } from "../Querys/querys"
+import { ListCreators, ListPost, Post } from "../Interfaces/interfaces"
 
-export interface Creators {
-    user_id:string;
-    username:string;
-    role:string;
-    email:string;
-    profile_picture:string;
-    bio:string;
-    created_at:string;
-    followers_count:number;
-    following_count:number;
-}
 
-export interface ListCreators{
-    AllUsersWithCounts:Creators[];
-    FILTRAR_USUARIOS:Creators[];
-}
 
 export const useGetallCreators = () => {
     const result = useQuery<ListCreators>(GET_ALL_CREATORS,{
@@ -29,6 +15,20 @@ export const useGetCreators = (username:String) => {
     const result = useQuery<ListCreators>(FILTRAR_USUARIOS,{
         variables:{search:username},
         skip: !username,
+    })
+    return result
+}
+
+export const useGET_WEEKLY_FEED_ = (user_id:String) => {
+    const result = useQuery<ListPost>(GET_WEEKLY_FEED,{
+        variables:{user_id:user_id},
+    })
+    return result
+}
+
+export const useGET_ID = (username:String) => {
+    const result = useQuery(GET_ID,{
+        variables:{username:username},
     })
     return result
 }

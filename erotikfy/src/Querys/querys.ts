@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 export const GET_ALL_CREATORS = gql`
     query{
-  AllUsersWithCounts{
+    AllUsersWithCountsCreator{
     user_id
     username
     role
@@ -30,11 +30,36 @@ export const FILTRAR_USUARIOS = gql`
 `;
 
 export const GET_WEEKLY_FEED = gql`
-    query POST_SEMANALES($user_id: String!) {
+    query GET_WEEKLY_FEED($user_id: String!) {
         GET_WEEKLY_FEED(user_id: $user_id){
-        username
-        profile_picture
-        bio
+        post_id
+        user_id
+        title
+        description
+        media
+        price
+        is_public
+        comments{
+          comment_id
+          content
+          user{
+            user_id
+            username
+            profile_picture
+        
+      }
+    }
+        
+        
+        
+  }
+  }
+`;
+
+export const GET_ID = gql`
+    query get_id_usuario($username: String!) {
+        getOneFindUser(username: $username){
+        user_id
         }
     }
 `;

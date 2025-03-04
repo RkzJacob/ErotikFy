@@ -20,7 +20,6 @@ export const Login = () => {
           const {data}=await login({
             variables: {username: nombreUsuario, contrasena:contrasena },
           });
-
           if (data?.login) {
             // Actualizar el cache de Apollo con el nombre del usuario
             client.writeQuery({

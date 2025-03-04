@@ -47,7 +47,7 @@ export const ListPerfiles = () => {
     <section className="profile-list-background">
       <div className="profile-list-container">
         <div className="profile-list">
-          {data?.AllUsersWithCounts.map((perfil: any) => (
+          {data?.AllUsersWithCountsCreator.map((perfil: any) => (
             <div key={perfil.user_id} className="profile-list-item">
               <img
                 src={perfil.profile_picture}
