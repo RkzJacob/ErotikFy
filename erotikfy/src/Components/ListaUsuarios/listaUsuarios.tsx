@@ -2,7 +2,7 @@
 import "./listaUsuarios.css";
 import { useGetallCreators } from "../../Hooks/UseQuerys";
 
-export const ListPerfiles = () => {
+export const ListUsuarios = () => {
   const { data, loading, error } = useGetallCreators();
 
 
@@ -30,4 +30,4 @@ export const ListPerfiles = () => {
   );
 };
 
-export default ListPerfiles;
+export default ListUsuarios;

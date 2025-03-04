@@ -12,7 +12,7 @@ export const Feed = () => {
   const usuario = dataUser?.getOneFindUser.user_id || "";
   
   const [generarLike] = useMutation(CREATE_LIKE);
-  const {data,loading,error} = useGET_WEEKLY_FEED_(usuario);
+  const {data} = useGET_WEEKLY_FEED_(usuario);
 
   // Función para deshabilitar el clic derecho
   const handleImageContextMenu = (event: React.MouseEvent<HTMLImageElement>) => {

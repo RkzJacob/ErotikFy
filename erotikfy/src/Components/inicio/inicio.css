@@ -58,7 +58,6 @@
     animation: neon-border 2s linear infinite;
 }
 
-
 @keyframes neon-border {
     0% {
         box-shadow: 0 0 2px #8c00d8, 0 0 5px #8c00d8, 0 0 8px #8c00d8;
@@ -73,9 +72,6 @@
         border-color: rgba(167, 19, 122, 0.8);
     }
 }
-
-/* Elimina la línea en la última publicación */
-
 
 /* Contenedor con la información del usuario */
 .feed-info-container {
@@ -132,34 +128,36 @@
 /* Contenedor para la descripción y la imagen */
 .feed-content {
     display: flex;
-    align-items: center;
+    flex-direction: row; /* Cambia a fila para que la descripción esté a la izquierda */
+    align-items: flex-start; /* Alinea los elementos al inicio */
     justify-content: space-between;
-    width: 50%;
-    gap: 1rem;
-    order: 2;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    gap: 1rem; /* Espacio entre la descripción y la imagen */
 }
 
-/* Descripción a la derecha de la imagen */
+/* Descripción a la izquierda de la imagen */
 .feed-description-container {
-    width: 60%; /* Ajusta el ancho de la descripción */
+    width: 40%; /* Ajusta el ancho de la descripción */
     text-align: left;
+    order: 1; /* Asegura que la descripción esté primero */
+    padding: 1rem; /* Añade un poco de padding */
 }
 
 /* Descripción */
 .feed-description {
     font-size: 0.9rem;
-    color: #d1d1d1;
+    color: #ffffff;
 }
 
 /* Contenedor de la imagen */
 .feed-item-image-container {
     display: flex;
-    max-width: 400px;
-    min-width: 400px;
-    max-height: 600px; 
+    max-width: 60%; /* Ajusta el ancho de la imagen */
+    min-width: 60%;
+    max-height: 600px;
     min-height: 600px;
     flex-direction: column;
-
+    order: 2; /* Asegura que la imagen esté después de la descripción */
 }
 
 /* Imagen principal de la publicación */
@@ -168,7 +166,6 @@
     max-height: 500px;
     min-height: 500px;
     object-fit: cover;
-    border-top: 1px solid #494747;
     border-top-right-radius: 15px;  /* Redondea la esquina superior derecha */
     border-bottom-right-radius: 15px;
 }
@@ -183,33 +180,38 @@
     z-index: 1; /* Asegura que esté por encima de la imagen */
     pointer-events: none; /* Permite interacciones con la imagen */
 }
-.rows-content{
+
+.rows-content {
     display: flex;
     flex-direction: row;
+    width: 100%; /* Ocupa todo el ancho disponible */
 }
 
 /* Contenedor de comentarios */
 .comments-container {
-    border-top: 1px solid #494747;
     display: flex;
     flex-direction: column;
     width: 100%;
     gap: 0.5rem;
     order: 1;
 }
-.comment-content{
+
+.comment-content {
     display: flex;
     align-items: center;
     margin-left: 1rem;
     margin-top: 1rem;
 }
-.comment-text{
+
+.comment-text {
     margin-left: 1rem;
 }
-.comment-content .comment-username{
+
+.comment-content .comment-username {
     margin-left: 1rem;
 }
-.comment-content  img{
+
+.comment-content img {
     min-width: 40px;
     max-width: 40px;
     max-height: 40px;

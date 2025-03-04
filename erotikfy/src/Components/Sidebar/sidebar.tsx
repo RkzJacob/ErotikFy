@@ -5,6 +5,7 @@ import Home from "../../Assets/home.png";
 import pornAvatar from "../../Assets/pornhub.avif";
 import search from "../../Assets/search.png";
 import creator from "../../Assets/creator.png";
+import user from "../../assets/user.png";
 
 export const Sidebar = () => {
 
@@ -26,6 +27,14 @@ export const Sidebar = () => {
             </li>
             <li>
               <div className="list-main-item">
+                <Link to="/search-users"> {/* Navega a la página de Creadores */}
+                  <img src={search} alt="" />
+                  <p>Buscar</p>
+                </Link>
+              </div>
+            </li>
+            <li>
+              <div className="list-main-item">
                 <Link to="/listado"> {/* Navega a la página de Creadores */}
                   <img src={creator} alt="" />
                   <p>Creadores</p>
@@ -34,9 +43,9 @@ export const Sidebar = () => {
             </li>
             <li>
               <div className="list-main-item">
-                <Link to="/search-users"> {/* Navega a la página de Creadores */}
-                  <img src={search} alt="" />
-                  <p>Buscar</p>
+                <Link to="/Usuarios"> {/* Navega a la página de Creadores */}
+                  <img src={user} alt="" />
+                  <p>Usuarios</p>
                 </Link>
               </div>
             </li>
