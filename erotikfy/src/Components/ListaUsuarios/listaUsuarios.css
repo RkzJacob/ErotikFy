@@ -302,3 +302,9 @@
   .upload-button:hover {
     color: #c300ff; /* Cambia el color al pasar el mouse */
   }
+
+  /* En tu archivo listaUsuarios.css */
+.star-icon {
+    font-size: 2rem; /* Tamaño grande */
+    transition: color 0.3s ease; /* Transición suave */
+}

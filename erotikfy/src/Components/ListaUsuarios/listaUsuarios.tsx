@@ -1,10 +1,19 @@
-
 import "./listaUsuarios.css";
 import { useGetallCreators } from "../../Hooks/UseQuerys";
+import { CiStar } from "react-icons/ci";
+import { FaStar } from "react-icons/fa";
+import { useState } from "react";
 
 export const ListUsuarios = () => {
   const { data, loading, error } = useGetallCreators();
+  const [starredUsers, setStarredUsers] = useState<{ [key: string]: boolean }>({});
 
+  const toggleStar = (userId: string) => {
+    setStarredUsers((prev) => ({
+      ...prev,
+      [userId]: !prev[userId],
+    }));
+  };
 
   if (loading) return <p>loading...</p>;
   if (error) return <p>error: {error.message}</p>;
@@ -20,7 +29,13 @@ export const ListUsuarios = () => {
               </div>
               <button
                 className="upload-button"
+                onClick={() => toggleStar(perfil.user_id)}
               >
+                {starredUsers[perfil.user_id] ? (
+                  <FaStar className="star-icon filled" />
+                ) : (
+                  <CiStar className="star-icon" />
+                )}
               </button>
             </div>
           ))}
