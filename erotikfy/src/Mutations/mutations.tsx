@@ -51,3 +51,9 @@ export const CREATE_LIKE= gql`
         CREATE_Like(user_id:$user_id,post_id:$post_id)
     }
 `
+
+export const CREATE_COMENTARIO= gql`
+    mutation createComentario($user_id:String!, $post_id: String!,$content: String!){
+        CREATE_COMENTARIO(user_id:$user_id,post_id:$post_id,content:$content)
+    }
+`
