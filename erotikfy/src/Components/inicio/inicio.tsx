@@ -3,14 +3,15 @@ import './inicio.css'; // Asegúrate de importar el archivo CSS
 import { Link } from "react-router-dom"; // Importa Link desde react-router-dom
 import { useGET_ID, useGET_WEEKLY_FEED_ } from '../../Hooks/UseQuerys';
 import profile from '../../LocalImagen/profile.jpg'
+import { useMutation } from '@apollo/client';
+import { CREATE_LIKE } from '../../Mutations/mutations';
 
 export const Feed = () => {
   const id_usuario_storage = localStorage.getItem("nombre_usuario");
   const {data:dataUser} = useGET_ID(id_usuario_storage || "");
-  
   const usuario = dataUser?.getOneFindUser.user_id || "";
   
-
+  const [generarLike] = useMutation(CREATE_LIKE);
   const {data,loading,error} = useGET_WEEKLY_FEED_(usuario);
 
   // Función para deshabilitar el clic derecho
@@ -18,10 +19,26 @@ export const Feed = () => {
     event.preventDefault();
   };
 
+  const handleLike = async (post_id:string) => {
+    try {
+      const { data } = await generarLike({
+        variables: { user_id: usuario, post_id: post_id }
+      });
+      console.log(data.CREATE_Like); // Muestra el mensaje de éxito en la consola
+    } catch (error) {
+      console.error("Error al dar like:", error);
+    }
+  };
+
   const getMediaUrl = (media: string) => {
     try {
-      const mediaArray = media ? JSON.parse(media) : [];
-      return mediaArray.length > 0 ? mediaArray[0] : null; // Retorna la primera URL si existe
+      // Verifica si `media` empieza con "[" para determinar si es un array JSON
+      if (media.startsWith("[") && media.endsWith("]")) {
+        const mediaArray = JSON.parse(media);
+        return Array.isArray(mediaArray) && mediaArray.length > 0 ? mediaArray[0] : null;
+      } 
+      // Si no es un JSON, asumimos que es una URL y la devolvemos directamente
+      return media;
     } catch (error) {
       console.error("Error al parsear media:", error);
       return null; // En caso de error en el parseo, retorna null
@@ -37,7 +54,7 @@ export const Feed = () => {
             const mediaUrl = getMediaUrl(post.media);
 
             return (
-              <div key={post.user_id} className="feed-item">
+              <div key={post.post_id} className="feed-item">
                 <div className="feed-info-container">
                   <Link to="/Perfil">
                     <img
@@ -51,7 +68,7 @@ export const Feed = () => {
                     <span className="feed-username">{post.usuario.username}</span>
                   </Link>
                   <div className="feed-buttons">
-                    <button className="like-button">
+                    <button className="like-button" onClick={ () => handleLike(post.post_id)}>
                       <i className="fa fa-heart"></i>
                     </button>
                     <button className="comment-button">
