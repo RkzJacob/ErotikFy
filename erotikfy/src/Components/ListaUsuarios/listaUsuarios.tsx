@@ -1,11 +1,12 @@
 import "./listaUsuarios.css";
-import { useGetallCreators } from "../../Hooks/UseQuerys";
-import { CiStar } from "react-icons/ci";
-import { FaStar } from "react-icons/fa";
+import {  useGetallNormals } from "../../Hooks/UseQuerys";
 import { useState } from "react";
+import { FaStar } from "react-icons/fa";
+import { CiStar } from "react-icons/ci";
+import { SkeletonUserList } from "../ListaPerfiles/SkeletonPerfiles/skeleton";
 
 export const ListUsuarios = () => {
-  const { data, loading, error } = useGetallCreators();
+  const { data, loading, error } = useGetallNormals();
   const [starredUsers, setStarredUsers] = useState<{ [key: string]: boolean }>({});
 
   const toggleStar = (userId: string) => {
@@ -15,14 +16,14 @@ export const ListUsuarios = () => {
     }));
   };
 
-  if (loading) return <p>loading...</p>;
+  if (loading) return <SkeletonUserList/>;
   if (error) return <p>error: {error.message}</p>;
 
   return (
     <section className="profile-list-background">
       <div className="profile-list-container">
         <div className="profile-list">
-          {data?.AllUsersWithCountsCreator.map((perfil: any) => (
+          {data?.AllUsersWithCountsNormales.map((perfil: any) => (
             <div key={perfil.user_id} className="profile-list-item">
               <div className="profile-list-info">
                 <h3 className="profile-list-name">{perfil.username}</h3>
