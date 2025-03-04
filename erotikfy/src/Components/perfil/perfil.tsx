@@ -81,7 +81,7 @@ export const PerfilList = () => {
             />
             <div className="profile-info">
               <h2 className="username">Valeria</h2>
-              <button className="follow-btn">Seguir</button>
+
             </div>
           </div>
           <div className="profile-description">
@@ -105,14 +105,7 @@ export const PerfilList = () => {
             <img src={modalImage} className="modal-content" alt="Ampliada" />
           </div>
         )}
-  
-        <a href="#top" className="back-to-top" title="Volver al inicio">
-          <i className="fas fa-arrow-up"></i>
-        </a>
-  
-        <a href="index.html" className="back-to-home">
-          <i className="fas fa-arrow-left"></i>
-        </a>
+
         </section>
     );
   };

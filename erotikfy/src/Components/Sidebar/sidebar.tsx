@@ -67,7 +67,6 @@ export const Sidebar = () => {
               </div>
             </li>
           </ul>
-          Premium | No Premium
         </div>
       </div>
     </section>

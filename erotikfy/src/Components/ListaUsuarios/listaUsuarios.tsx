@@ -1,10 +1,16 @@
-
 import "./listaUsuarios.css";
-import { useGetallCreators, useGetallNormals } from "../../Hooks/UseQuerys";
+import { useGetallCreators } from "../../Hooks/UseQuerys";
 
 export const ListUsuarios = () => {
   const { data, loading, error } = useGetallNormals();
+  const [starredUsers, setStarredUsers] = useState<{ [key: string]: boolean }>({});
 
+  const toggleStar = (userId: string) => {
+    setStarredUsers((prev) => ({
+      ...prev,
+      [userId]: !prev[userId],
+    }));
+  };
 
   if (loading) return <p>loading...</p>;
   if (error) return <p>error: {error.message}</p>;
@@ -20,7 +26,13 @@ export const ListUsuarios = () => {
               </div>
               <button
                 className="upload-button"
+                onClick={() => toggleStar(perfil.user_id)}
               >
+                {starredUsers[perfil.user_id] ? (
+                  <FaStar className="star-icon filled" />
+                ) : (
+                  <CiStar className="star-icon" />
+                )}
               </button>
             </div>
           ))}
