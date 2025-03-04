@@ -58,7 +58,7 @@ export const Feed = () => {
                 <div className="feed-info-container">
                   <Link to="/Perfil">
                     <img
-                      src={mediaUrl || ""} // Usar la URL obtenida o un valor vacío si no hay URL
+                      src={post.usuario.profile_picture} // Usar la URL obtenida o un valor vacío si no hay URL
                       alt={`${post.usuario.profile_picture}'s profile`}
                       className="feed-profile-pic"
                       onContextMenu={handleImageContextMenu} // Deshabilita el clic derecho

@@ -1,9 +1,9 @@
 
 import "./listaUsuarios.css";
-import { useGetallCreators } from "../../Hooks/UseQuerys";
+import { useGetallCreators, useGetallNormals } from "../../Hooks/UseQuerys";
 
 export const ListUsuarios = () => {
-  const { data, loading, error } = useGetallCreators();
+  const { data, loading, error } = useGetallNormals();
 
 
   if (loading) return <p>loading...</p>;
@@ -13,7 +13,7 @@ export const ListUsuarios = () => {
     <section className="profile-list-background">
       <div className="profile-list-container">
         <div className="profile-list">
-          {data?.AllUsersWithCountsCreator.map((perfil: any) => (
+          {data?.AllUsersWithCountsNormales.map((perfil: any) => (
             <div key={perfil.user_id} className="profile-list-item">
               <div className="profile-list-info">
                 <h3 className="profile-list-name">{perfil.username}</h3>
