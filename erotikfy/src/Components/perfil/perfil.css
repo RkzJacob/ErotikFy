@@ -1,19 +1,17 @@
-
 /* Contenedor principal */
 .tumadre {
     display: flex; /* Usa flexbox */
     flex-direction: column;
     align-items: center; /* Centra horizontalmente */
-    justify-content: center; /* Centra verticalmente */
+    justify-content: flex-start; /* Alinea el contenido al inicio verticalmente */
     background-image: linear-gradient(to bottom, #080808cb, #201752c5);
-    min-height: 120vh;
+    min-height: 97.6vh;
     width: 100%; /* Hace que el contenedor ocupe el 80% del ancho de la pantalla */
-    max-width: 1900px; /* Máximo 1600px de ancho */
-    min-width: 1900px;
     margin: 0 auto; /* Centra horizontalmente el contenedor */
-    padding: 2rem;
+    padding: 0; /* Eliminamos el padding superior e inferior */
     color: white;
     overflow-y: auto;
+    margin-top: 1%;
 }
 
 /* Estilos para el scrollbar en navegadores basados en WebKit (Chrome, Safari, Edge) */
@@ -45,36 +43,40 @@
 .profile-info-container {
     width: 100%;
     max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
+    margin: 10 auto; /* Centra horizontalmente y elimina el margen superior */
+    padding: 0 4rem; /* Eliminamos el padding superior e inferior */
     background: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
 }
 
 /* Encabezado del perfil */
 .profile-header {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+    flex-direction: row; /* Alinear horizontalmente */
+    align-items: flex-start; /* Alinear al inicio verticalmente */
+    gap: 2rem; /* Espacio entre los elementos */
+    margin-top: 1%; /* Eliminamos el margen superior */
+}
+
+/* Contenedor para la foto y el nombre */
+.profile-left {
+    display: flex;
+    flex-direction: column; /* Cambiado a columna para que el nombre quede debajo */
+    align-items: center; /* Centra horizontalmente */
+    gap: 1rem; /* Espacio entre la foto y el nombre */
+    margin-top: 0; /* Eliminamos el margen superior */
 }
 
 /* Foto de perfil */
-.profile-pic {
-    width: 120px;
-    height: 120px;
+.profile-pics {
+    width: 100px; /* Tamaño de la foto */
+    height: 100px; /* Tamaño de la foto */
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid #8c00d8;
     cursor: pointer;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.profile-pic:hover {
-    transform: scale(1.05);
-    border-color: #c300ff;
+    margin-top: 0; /* Eliminamos el margen superior */
 }
 
 /* Nombre de usuario */
@@ -82,26 +84,27 @@
     font-size: 1.5rem;
     font-weight: bold;
     color: white;
-    margin: 0;
+    margin: 0; /* Eliminamos el margen superior e inferior */
+    text-align: center; /* Centra el texto */
 }
 
 /* Descripción del perfil */
 .profile-description {
-    margin-top: 1rem;
+    flex: 1; /* Ocupa el espacio restante */
     font-size: 0.9rem;
     color: #d1d1d1;
     line-height: 1.6;
-    max-width: 600px;
-    margin: 1rem auto;
+    text-align: left; /* Alinea el texto a la izquierda */
+    margin-top: 0; /* Eliminamos el margen superior */
 }
 
 /* Galería de publicaciones */
 .posts-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 3 columnas */
+    grid-template-columns: repeat(5, 1fr); /* 5 columnas */
     gap: 10px; /* Espacio entre imágenes */
     max-width: 1000px;
-    margin: 2rem auto;
+    margin: 2rem auto; /* Mantenemos el margen inferior */
     padding: 1rem;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
@@ -181,9 +184,9 @@
         grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas medianas */
     }
 
-    .profile-pic {
-        width: 100px;
-        height: 100px;
+    .profile-pics {
+        width: 80px; /* Ajustado para pantallas medianas */
+        height: 80px; /* Ajustado para pantallas medianas */
     }
 
     .username {
@@ -200,9 +203,9 @@
         grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
     }
 
-    .profile-pic {
-        width: 80px;
-        height: 80px;
+    .profile-pics {
+        width: 60px; /* Ajustado para pantallas pequeñas */
+        height: 60px; /* Ajustado para pantallas pequeñas */
     }
 
     .username {

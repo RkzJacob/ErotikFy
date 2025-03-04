@@ -43,43 +43,46 @@ export const PerfilList = () => {
         <section className="tumadre">
             <div className="profile-info-container">
                 <div className="profile-header">
-                    <img
-                        src={profilePic}
-                        alt="Foto de perfil"
-                        className="profile-pic"
-                        onClick={handleProfileClick}
-                    />
-                    <input
-                        type="file"
-                        ref={fileInputRef}
-                        accept="image/*"
-                        style={{ display: "none" }}
-                        onChange={handleFileChange}
-                    />
-                    <div className="profile-info">
+                    {/* Contenedor para la foto y el nombre */}
+                    <div className="profile-left">
+                        <img
+                            src={profilePic}
+                            alt="Foto de perfil"
+                            className="profile-pics"
+                            onClick={handleProfileClick}
+                        />
+                        <input
+                            type="file"
+                            ref={fileInputRef}
+                            accept="image/*"
+                            style={{ display: "none" }}
+                            onChange={handleFileChange}
+                        />
                         <h2 className="username">Valeria</h2>
                     </div>
-                </div>
-                <div className="profile-description">
-                    <p>
-                        Valeria crea contenido de entretenimiento sensual y atractivo,
-                        dirigido a quienes buscan una forma diferente y atractiva de conexión.
-                        Su estilo único y su enfoque creativo han atraído a miles de seguidores.
-                    </p>
+
+                    {/* Descripción del perfil */}
+                    <div className="profile-description">
+                        <p>
+                            Valeria crea contenido de entretenimiento sensual y atractivo,
+                            dirigido a quienes buscan una forma diferente y atractiva de conexión.
+                            Su estilo único y su enfoque creativo han atraído a miles de seguidores.
+                        </p>
+                    </div>
                 </div>
             </div>
 
             <div className="posts-grid">
-            {[img1, img2, img3, img4, img5, img6, img7].map((src, index) => (
-              <div
-                key={index}
-                className="post-container"
-                onClick={() => openModal(src)} // El evento onClick está en el contenedor
-              >
-                <img src={src} alt="Publicación" className="post" />
-              </div>
-            ))}
-          </div>
+                {[img1, img2, img3, img4, img5, img6, img7].map((src, index) => (
+                    <div
+                        key={index}
+                        className="post-container"
+                        onClick={() => openModal(src)} // El evento onClick está en el contenedor
+                    >
+                        <img src={src} alt="Publicación" className="post" />
+                    </div>
+                ))}
+            </div>
 
             {modalImage && (
                 <div className="modal" onClick={closeModal}>
