@@ -67,3 +67,39 @@ export const GET_ID = gql`
         }
     }
 `;
+
+export const GET_ALL_NORMALS = gql`
+    query{
+    AllUsersWithCountsNormales{
+    user_id
+    username
+    role
+    email
+    profile_picture
+    bio
+    created_at
+    updated_at
+    followers_count
+    following_count
+  }
+}
+
+`
+
+export const GET_ALL_ADMINS = gql`
+    query{
+    AllUsersWithCountsAdmin{
+    user_id
+    username
+    role
+    email
+    profile_picture
+    bio
+    created_at
+    updated_at
+    followers_count
+    following_count
+  }
+}
+
+`
