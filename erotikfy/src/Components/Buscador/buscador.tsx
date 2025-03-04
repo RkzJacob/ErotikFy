@@ -2,13 +2,21 @@ import { useState } from 'react';
 import './buscador.css'
 import { useGetCreators } from '../../Hooks/UseQuerys';
 
-export const Search = () =>{
+interface SearchProps {
+  setSearchResults: (results: any[]) => void;
+}
+
+export const Search = ({ setSearchResults }: SearchProps) =>{
     const [searchTerm, setSearchTerm] = useState("");
 
     const { loading, error, data } = useGetCreators(searchTerm);
-    
-    // Manejo de resultados
     const filteredData = data?.FILTRAR_USUARIOS || [];
+
+    const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const term = e.target.value;
+      setSearchTerm(term);
+      setSearchResults(term ? filteredData : []); // Si hay término, actualizar resultados, si no, limpiar
+    };
 
     return (
         <div className="search-container">

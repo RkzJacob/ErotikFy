@@ -9,6 +9,7 @@ import { ListaPerfiles } from './Pages/ListaPerfiles'
 import { Inicio } from './Pages/Inicio'
 import { BuscadorInteligente } from './Pages/Buscador'
 import { ListaUsuarios } from './Pages/Usuarios'
+import { PrivateRoute } from './Components/PrivateRoutes/privateRoute'
 
 function App() {
 
@@ -17,15 +18,15 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Loguear/>}/>
-          <Route path='main' element={<Main/>}/>
+          <Route path='main' element={<PrivateRoute><Main/></PrivateRoute>}/>
           <Route path='registrar-cuenta' element={<Register/>}/>
           <Route path='loguear-cuenta' element={<Loguear/>}/>
-          <Route path='pedidos-personalizados' element={<Pedidos/>}/>
+          <Route path='pedidos-personalizados' element={<PrivateRoute><Pedidos/></PrivateRoute>}/>
           <Route path='perfil' element={<Perfil/>}/>
           <Route path='Listado' element={<ListaPerfiles/>}/> 
           <Route path='Inicio' element={<Inicio/>}/>
-          <Route path='search-users' element={<BuscadorInteligente/>}/>
-          <Route path='Usuarios' element={<ListaUsuarios/>}/> 
+          <Route path='search-users' element={<PrivateRoute><BuscadorInteligente/></PrivateRoute>}/>
+          <Route path='Usuarios' element={<PrivateRoute><ListaUsuarios/></PrivateRoute>}/> 
           <Route/>
         </Routes>
       </BrowserRouter>
