@@ -1,47 +1,90 @@
+/* Contenedor de la barra de búsqueda */
 .search-container {
-    width: 500px;
-    max-width: 400px;
-    margin: 20px auto;
-    position: relative;
-  }
-  
-  .search-input {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #202222d2;
-    border-radius: 5px;
-    background-image: linear-gradient(#0000,#1111);
-    outline: none;
-  }
-  
-  .search-results {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    max-height: 200px;
-    overflow-y: auto;
-    position: absolute;
-    width: 100%;
-    background: rgb(110, 41, 41);
-    border: 1px solid #ccc;
-    border-top: none;
-    border-radius: 0 0 5px 5px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .search-item {
-    padding: 10px;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  
-  .search-item:hover {
-    background: #f0f0f0;
-  }
-  
-  .no-results {
-    color: gray;
-    text-align: center;
-    padding: 10px;
-  }
+  width: 500px;
+  max-width: 90%; /* Hacemos que sea responsive */
+  margin: 20px auto;
+  position: relative;
+  box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el ancho */
+}
+
+/* Campo de entrada de búsqueda */
+.search-input {
+  width: 100%;
+  padding: 12px 16px; /* Aumentamos el padding para mejor legibilidad */
+  font-size: 16px;
+  border: 2px solid #8c00d8; /* Borde morado */
+  border-radius: 3px; /* Bordes redondeados */
+  background-color: #1a1a1a; /* Fondo oscuro */
+  color: white; /* Texto blanco */
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el ancho */
+}
+
+.search-input:focus {
+  border-color: #c300ff; /* Cambia el color del borde al enfocar */
+  box-shadow: 0 0 8px rgba(140, 0, 216, 0.6); /* Sombra morada al enfocar */
+}
+
+/* Contenedor de resultados de búsqueda */
+.search-results {
+  padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  position: absolute;
+  width: calc(100% - 1px); /* Ajustamos el ancho para compensar el borde */
+  background: #1a1a1a; /* Fondo oscuro */
+  border: 2px solid #8c00d8; /* Borde morado */
+  border-top: none;
+  border-radius: 0 0 5px 5px; /* Bordes redondeados solo en la parte inferior */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10; /* Asegura que esté por encima de otros elementos */
+  box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el ancho */
+}
+
+/* Elementos de la lista de resultados */
+.search-item {
+  padding: 12px 16px;
+  cursor: pointer;
+  color: white; /* Texto blanco */
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.search-item:hover {
+  background: #8c00d8; /* Fondo morado al hacer hover */
+  color: white; /* Texto blanco */
+}
+
+/* Mensaje de "no hay resultados" */
+.no-results {
+  color: #8c00d8; /* Texto morado */
+  text-align: center;
+  padding: 12px;
+  font-style: italic;
+}
+
+/* Estilos para el scrollbar en navegadores basados en WebKit (Chrome, Safari, Edge) */
+.search-results::-webkit-scrollbar {
+  width: 8px; /* Ancho del scrollbar */
+}
+
+.search-results::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1); /* Color de fondo del track */
+  border-radius: 4px; /* Bordes redondeados */
+}
+
+.search-results::-webkit-scrollbar-thumb {
+  background: #8c00d8; /* Color morado del thumb (la barra que se mueve) */
+  border-radius: 4px; /* Bordes redondeados */
+}
+
+.search-results::-webkit-scrollbar-thumb:hover {
+  background: #c300ff; /* Color morado más claro al pasar el mouse */
+}
+
+/* Estilos para el scrollbar en Firefox */
+.search-results {
+  scrollbar-width: thin; /* Hace el scrollbar delgado */
+  scrollbar-color: #8c00d8 rgba(255, 255, 255, 0.1); /* Color del thumb y del track */
+}
