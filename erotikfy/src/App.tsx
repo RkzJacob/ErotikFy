@@ -24,7 +24,7 @@ function App() {
           <Route path='pedidos-personalizados' element={<PrivateRoute><Pedidos/></PrivateRoute>}/>
           <Route path='perfil' element={<Perfil/>}/>
           <Route path='Listado' element={<ListaPerfiles/>}/> 
-          <Route path='Inicio' element={<Inicio/>}/>
+          <Route path='Inicio' element={<PrivateRoute><Inicio/></PrivateRoute>}/>
           <Route path='search-users' element={<PrivateRoute><BuscadorInteligente/></PrivateRoute>}/>
           <Route path='Usuarios' element={<PrivateRoute><ListaUsuarios/></PrivateRoute>}/> 
           <Route/>
