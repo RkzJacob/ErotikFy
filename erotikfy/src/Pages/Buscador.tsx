@@ -6,7 +6,10 @@ export function BuscadorInteligente(){
         <>
         <div className="container">
             <Sidebar/>
-            <Search/>
+            <div className="search-container-page">
+                <Search/>
+            </div>
+            
         </div>
         </>
     )

@@ -20,3 +20,9 @@ a,li,ul{
   display: flex;
   min-height: 100%;
 }
+
+.search-container-page{
+  min-height: 100vh;
+  display: flex;
+  margin: 0 auto;
+}
