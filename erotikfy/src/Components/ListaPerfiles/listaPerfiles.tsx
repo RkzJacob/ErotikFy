@@ -80,7 +80,6 @@ export const ListPerfiles = () => {
 
         {/* Ventana emergente para crear perfil */}
         <CreateProfilePopup
-          userId={selectedUserId}
           isOpen={isCreateProfileOpen}
           onClose={handleCloseCreateProfile}
         />

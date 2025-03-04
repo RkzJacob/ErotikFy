@@ -23,8 +23,24 @@ export const CREATE_POST = gql`
     }
     `;
 
+export const CREATE_USER_CREATOR = gql`
+    mutation createCreator($username: String!, $contrasena: String!, $profile_picture: [String]!, $bio:String! ) {
+        CREATE_USER(
+        username:$username,
+        contrasena:$contrasena
+        ,profile_picture: $profile_picture
+        ,bio: $bio)
+    }
+    `;
+
 export const GET_URL = gql`
     mutation obtenerUrl($base64File: String!) {
         GET_UPLOAD_URL(base64File:$base64File)
+}
+`;
+
+export const GET_URL_CREATOR = gql`
+    mutation obtenerUrl($base64File: String!) {
+        GET_UPLOAD_URL_CREATOR(base64File:$base64File)
 }
 `;

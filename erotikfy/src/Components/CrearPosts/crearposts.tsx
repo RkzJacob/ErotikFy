@@ -76,6 +76,15 @@ const CreatePublicationPopup: React.FC<CreatePublicationPopupProps> = ({
 
       uploadedUrls.join(",")
 
+      const variables = {
+        user_id: userId,
+        title: publicationName,
+        descripcion: publicationDescription,
+        media: uploadedUrls  // ⚠️ Asegurar que media es un array
+    };
+
+    console.log("📤 Datos enviados a la mutación:", JSON.stringify(variables, null, 2));
+
       const {data}= await createPost({
           variables: {user_id:userId, title:publicationName,descripcion:publicationDescription,media:uploadedUrls},
       });

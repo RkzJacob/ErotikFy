@@ -1,4 +1,4 @@
-import { AgendaUser } from "../Components/AgendaUser/agendauser";
+// import { AgendaUser } from "../Components/AgendaUser/AgendaUser";
 import { PerfilUser } from "../Components/PerfilUser/perfiluser";
 import { Sidebar } from "../Components/Sidebar/sidebar";
 
@@ -7,7 +7,7 @@ export function MiAgenda(){
         <>
         <div className="container">
             <Sidebar/>
-            <AgendaUser/>
+            {/* <AgendaUser/> */}
             <PerfilUser/>
         </div>
         </>
