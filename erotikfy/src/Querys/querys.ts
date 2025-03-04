@@ -32,6 +32,10 @@ export const FILTRAR_USUARIOS = gql`
 export const GET_WEEKLY_FEED = gql`
     query GET_WEEKLY_FEED($user_id: String!) {
         GET_WEEKLY_FEED(user_id: $user_id){
+        usuario{
+          username
+          profile_picture
+        }
         post_id
         user_id
         title

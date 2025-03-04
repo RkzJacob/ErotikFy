@@ -2,6 +2,7 @@ import './inicio.css'; // Asegúrate de importar el archivo CSS
 
 import { Link } from "react-router-dom"; // Importa Link desde react-router-dom
 import { useGET_ID, useGET_WEEKLY_FEED_ } from '../../Hooks/UseQuerys';
+import profile from '../../LocalImagen/profile.jpg'
 
 export const Feed = () => {
   const id_usuario_storage = localStorage.getItem("nombre_usuario");
@@ -41,13 +42,13 @@ export const Feed = () => {
                   <Link to="/Perfil">
                     <img
                       src={mediaUrl || ""} // Usar la URL obtenida o un valor vacío si no hay URL
-                      alt={`${post.user_id}'s profile`}
+                      alt={`${post.usuario.profile_picture}'s profile`}
                       className="feed-profile-pic"
                       onContextMenu={handleImageContextMenu} // Deshabilita el clic derecho
                     />
                   </Link>
                   <Link to="/Perfil">
-                    <span className="feed-username">{post.post_id}</span>
+                    <span className="feed-username">{post.usuario.username}</span>
                   </Link>
                   <div className="feed-buttons">
                     <button className="like-button">
@@ -58,30 +59,41 @@ export const Feed = () => {
                     </button>
                   </div>
                 </div>
-                <div className="feed-content">
-                  <div className="feed-description-container">
-                    <p className="feed-description">{post.description}</p>
-                  </div>
-                  {/* Contenedor de la imagen con protección */}
-                  <div className="feed-item-image-container">
-                    <img
-                      src={mediaUrl || ""} // Usar la URL obtenida o un valor vacío si no hay URL
-                      alt={`Post by ${post.post_id}`}
-                      className="feed-item-image"
-                      onContextMenu={handleImageContextMenu} // Deshabilita el clic derecho
-                    />
-                    {/* Superposición transparente */}
-                    <div className="image-protection-overlay" />
-                  </div>
-                </div>
-                {/* Contenedor de comentarios */}
-                <div className="comments-container">
-                  {post.comments.map((comment, index) => (
-                    <div key={index} className="comment">
-                      <span className="comment-username">{comment.user_id}: </span>
-                      <span className="comment-text">{comment.content}</span>
+                <div className="rows-content">
+                  <div className="feed-content">
+                    
+                    {/* Contenedor de la imagen con protección */}
+                    <div className="feed-item-image-container">
+                      <img
+                        src={mediaUrl || ""} // Usar la URL obtenida o un valor vacío si no hay URL
+                        alt={`Post by ${post.post_id}`}
+                        className="feed-item-image"
+                        onContextMenu={handleImageContextMenu} // Deshabilita el clic derecho
+                      />
+                      <div className="feed-description-container">
+                      <p className="feed-description">{post.description}</p>
+                      </div>
+                      {/* Superposición transparente */}
+                      <div className="image-protection-overlay" />
                     </div>
-                  ))}
+                  </div>
+                  {/* Contenedor de comentarios */}
+                  <div className="comments-container">
+                    {post.comments.slice(0, 6).map((comment) => (
+                      <div key={comment.comment_id} className="comment">
+                        
+                        <div className="comment-content">
+                            <img
+                              src={ profile}
+                              alt={`Profile of ${comment.user?.username}`}
+                              className="comment-profile-pic"
+                            />
+                          <span className="comment-username">{comment.user?.username}: </span>
+                          <span className="comment-text">{comment.content}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             );
