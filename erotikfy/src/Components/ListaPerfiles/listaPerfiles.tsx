@@ -15,9 +15,11 @@ export const ListPerfiles = () => {
   const [isCreateProfileOpen, setIsCreateProfileOpen] = useState(false); // Estado para controlar la ventana emergente de crear perfil
   const [isCrearPostOpen, setIsCrearPostOpen] = useState(false); // Nuevo estado para controlar la ventana emergente de crear publicación
   const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
+  const [searchResults, setSearchResults] = useState<any[]>([]);
+  const allUsers = data?.AllUsersWithCountsCreator || [];
 
-  const openModal = (imagen: string) => {
-    setModalImagen(imagen);
+  const openModal = (imagen: string) => { setModalImagen(imagen);
+
   };
 
   const closeModal = () => {
@@ -44,10 +46,12 @@ export const ListPerfiles = () => {
   if (loading) return <SkeletonUserList/>;
   if (error) return <p>error: {error.message}</p>;
 
+
+
   return (
     <section className="profile-list-background">
       <div className="profile-list-container">
-        <Search/>
+      <Search setSearchResults={setSearchResults} />
         <div className="profile-list">
           {data?.AllUsersWithCountsCreator.map((perfil: any) => (
             <div key={perfil.user_id} className="profile-list-item">
