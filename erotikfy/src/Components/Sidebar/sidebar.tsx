@@ -6,6 +6,7 @@ import pornAvatar from "../../Assets/pornhub.avif";
 import search from "../../Assets/search.png";
 import creator from "../../Assets/creator.png";
 import user from "../../assets/user.png";
+import exit from "../../assets/exit.png"
 
 export const Sidebar = () => {
 
@@ -52,7 +53,7 @@ export const Sidebar = () => {
             <li>
               <div className="list-main-item">
                 <a href="/loguear-cuenta">
-                  <img src={Home} alt="" />
+                  <img src={exit} alt="" />
                   <p>Cerrar Sesion</p>
                 </a>
               </div>
