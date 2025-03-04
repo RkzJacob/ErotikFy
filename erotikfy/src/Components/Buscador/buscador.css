@@ -4,7 +4,7 @@
   max-width: 90%; /* Hacemos que sea responsive */
   margin: 20px auto;
   position: relative;
-  box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el ancho */
+  
 }
 
 /* Campo de entrada de búsqueda */
@@ -13,7 +13,7 @@
   padding: 12px 16px; /* Aumentamos el padding para mejor legibilidad */
   font-size: 16px;
   border: 2px solid #8c00d8; /* Borde morado */
-  border-radius: 3px; /* Bordes redondeados */
+  border-radius: 5px; /* Bordes redondeados */
   background-color: #1a1a1a; /* Fondo oscuro */
   color: white; /* Texto blanco */
   outline: none;
@@ -33,7 +33,7 @@
   max-height: 200px;
   overflow-y: auto;
   position: absolute;
-  width: calc(100% - 1px); /* Ajustamos el ancho para compensar el borde */
+  width: calc(100% - 4px); /* Ajustamos el ancho para compensar el borde */
   background: #1a1a1a; /* Fondo oscuro */
   border: 2px solid #8c00d8; /* Borde morado */
   border-top: none;
