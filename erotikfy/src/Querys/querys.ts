@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const GET_ALL_CREATORS = gql`
-    query{
+    query buscandoUsers{
     AllUsersWithCountsCreator{
     user_id
     username

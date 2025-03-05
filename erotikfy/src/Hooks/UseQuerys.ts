@@ -6,6 +6,7 @@ import {ListCreators, ListNormales, ListPost, OneCreator } from "../Interfaces/i
 //obtener todos los creados
 export const useGetallCreators = () => {
     const result = useQuery<ListCreators>(GET_ALL_CREATORS,{
+
     })
     return result
 }

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import './crearperfil.css';
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { CREATE_USER_CREATOR, GET_URL_CREATOR } from "../../Mutations/mutations";
 import { compressImage, fileToBase64 } from "../../Functions/functions";
 import { GET_ALL_CREATORS } from "../../Querys/querys";
 import { toast } from "sonner";
+import { ListCreators } from "../../Interfaces/interfaces";
 
 interface CreateProfilePopupProps {
   isOpen: boolean;
@@ -17,21 +18,21 @@ const CreateProfilePopup: React.FC<CreateProfilePopupProps> = ({
 }) => {
   const [profileName, setProfileName] = useState("");
   const [profileDescription, setProfileDescription] = useState("");
-  const [contrasena, setcontrasena] = useState("");
-  const [files, setFiles] = useState<File | null>(null);;
+  const [files, setFiles] = useState<File | null>(null);
 
   const [imagePreview, setImagePreview] = useState<string | null>(null); // Estado para la vista previa de la imagen
-  const [createCreator] = useMutation(CREATE_USER_CREATOR,{refetchQueries:[{ query: GET_ALL_CREATORS }]}); // Mutación para crear un usuario
+  
   const [obtenerUrlCreator] = useMutation(GET_URL_CREATOR);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
   };
 
+  const [createCreator] = useMutation(CREATE_USER_CREATOR,{refetchQueries:[{ query: GET_ALL_CREATORS }]});
+
   const resetForm = () => {
     setProfileName("");
     setProfileDescription("");
-    setcontrasena("");
     setFiles(null);
     setImagePreview(null);
   };
@@ -78,20 +79,28 @@ const CreateProfilePopup: React.FC<CreateProfilePopupProps> = ({
           console.error("No se subió la imagen correctamente");
           return;
         }
+        
 
         await createCreator({
-            variables: {username:profileName, contrasena:contrasena,profile_picture:imageUrl,bio:profileDescription}
+            variables: {username:profileName, contrasena:"pruebasagaas",profile_picture:imageUrl,bio:profileDescription}
         });
+
         toast.success(`Se ha creado con exito el usuario ${profileName}`)
       } catch (error) {
         toast.error(`No se ha podido crear el usuario ${profileName} error: ${error}`)
       }
   }
   
+
+  const obtenerCreadores = () =>{
+    const result = useQuery<ListCreators>(GET_ALL_CREATORS)
+    return result
+  }
     const handlePublish = () => {
       Agregar_user();
       resetForm();
       onClose(); // Cerrar el popup después de publicar
+      obtenerCreadores();
     };
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -137,16 +146,6 @@ const CreateProfilePopup: React.FC<CreateProfilePopupProps> = ({
               value={profileDescription}
               onChange={(e) => setProfileDescription(e.target.value)}
               rows={4}
-              required
-            />
-          </div>
-          <div className="form-field">
-            <label htmlFor="profileDescription">contraseña:</label>
-            <input
-              type="password"
-              id="Contraseña"
-              value={contrasena}
-              onChange={(e) => setcontrasena(e.target.value)}
               required
             />
           </div>
