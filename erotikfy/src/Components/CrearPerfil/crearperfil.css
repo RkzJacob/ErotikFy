@@ -159,7 +159,7 @@ button[type="submit"]:hover {
   .form-field textarea,
   button[type="submit"] {
     font-size: 14px; /* Reducir tamaño de fuente para mejor adaptación */
-    width: 100%; /* Asegurarse de que los inputs se ajusten completamente */
+    width: 96%; /* Asegurarse de que los inputs se ajusten completamente */
   }
 
   .image-preview-img {

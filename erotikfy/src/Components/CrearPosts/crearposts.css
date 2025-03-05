@@ -278,7 +278,7 @@ button[type="submit"]:hover {
   .form-group textarea,
   button[type="submit"] {
     font-size: 14px; /* Reducir tamaño de fuente */
-    width: 100%; /* Ajustar el ancho de los elementos */
+    width: 96%; /* Ajustar el ancho de los elementos */
   }
 
   .post-preview {
@@ -315,12 +315,14 @@ button[type="submit"]:hover {
 
   .popup-content,
   .form-group input,
-  .form-group textarea,
-  button[type="submit"] {
+  .form-group textarea
+   {
     font-size: 14px;
+    width: 95%;
+  }
+  button[type="submit"]{
     width: 100%;
   }
-
   .post-preview {
     width: 100%;
     height: auto;
