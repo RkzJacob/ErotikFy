@@ -177,13 +177,6 @@ const CreatePublicationPopup: React.FC<CreatePublicationPopupProps> = ({
           // Vista previa de la publicación (como un post)
           <div className="post-preview">
             <div className="post-header">
-                <div className="post-header-icon">
-                    <img src={imagenUser}  alt="Perfil" className="profile-pic"/>
-                </div>
-                <div className="post-info-user">
-                    <p>carlistosks</p>
-                    <p> 1s</p>
-                </div>
             </div>
             <div className="post-content">
                 <div className="post-media">
@@ -201,25 +194,7 @@ const CreatePublicationPopup: React.FC<CreatePublicationPopupProps> = ({
                         Tu navegador no soporta el elemento de video.
                     </video>
                     )}
-                    {files.length > 1 && (
-                    <div className="media-navigation">
-                        <button onClick={handlePrevious}>&lt;</button>
-                        <button onClick={handleNext}>&gt;</button>
-                    </div>
-                    )}
                 </div>
-              <div className="post-content-description">
-                <div className="content-title">
-                    <strong>carlistosks</strong>
-                    <p>{publicationName}</p>
-
-                </div>
-                <p className="content-description">{publicationDescription}</p>
-              </div>
-              
-              <p className="file-counter">
-                Archivo {currentFileIndex + 1} de {files.length}
-              </p>
             </div>
             <div className="post-actions">
               <button onClick={() => setShowPreview(false)}>Editar</button>
