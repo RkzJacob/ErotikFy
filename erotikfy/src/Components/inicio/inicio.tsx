@@ -107,14 +107,7 @@ export const Feed = () => {
                   <Link to={`/perfil/${post.user_id}`}>
                     <span className="feed-username">{post.usuario.username}</span>
                   </Link>
-                  <div className="feed-buttons">
-                    <button className="like-button" onClick={() => handleLike(post.post_id)}>
-                      <i className="fa fa-heart"></i>
-                    </button>
-                    <button className="comment-button" onClick={() => setComentando(post.post_id)}>
-                      <i className="fa fa-comment"></i>
-                    </button>
-                  </div>
+                  
                 </div>
                 <div className="rows-content">
                   {/* Contenedor de la imagen con protección */}
@@ -125,9 +118,6 @@ export const Feed = () => {
                       className="feed-item-image"
                       onContextMenu={handleImageContextMenu} // Deshabilita el clic derecho
                     />
-                    <div className="feed-description-container">
-                      <p className="feed-description">{post.description}</p>
-                    </div>
                     {/* Superposición transparente */}
                     <div className="image-protection-overlay" />
                   </div>
@@ -161,7 +151,19 @@ export const Feed = () => {
                       </div>
                     )}
                   </div>
+                  </div>
+                  <p></p>
+                  <div className="feed-buttons">
+                    <button className="like-button" onClick={() => handleLike(post.post_id)}>
+                      <i className="fa fa-heart"></i>
+                    </button>
+                    <button className="comment-button" onClick={() => setComentando(post.post_id)}>
+                      <i className="fa fa-comment"></i>
+                    </button>
                 </div>
+                <div className="feed-description-container">
+                      <p className="feed-description">{post.description}</p>
+                    </div>
               </div>
             );
           })}
