@@ -102,7 +102,9 @@
     position: relative; /* Necesario para que los botones estén por encima de los demás elementos */
     z-index: 10; /* Asegura que los botones estén por encima de la imagen y la info */
 }
-
+.comment-button{
+    margin-left: 10px;
+}
 /* Estilo para los botones */
 .like-button, .comment-button {
     background: none;
@@ -121,8 +123,8 @@
 .like-count {
     font-size: 1rem; /* Tamaño del contador de likes */
     position: absolute;
-    top: -10px; /* Ajusta la posición vertical para que quede por encima del corazón */
-    right: -10px; /* Ajusta la posición horizontal */
+    top: 5px; /* Ajusta la posición vertical para que quede por encima del corazón */
+    right: -15px; /* Ajusta la posición horizontal */
     background-color: #ffffff00; /* Fondo blanco para el contador */ /* Hacemos que el fondo sea redondo */
     width: 20px; /* Tamaño del círculo */
     height: 20px; /* Tamaño del círculo */
