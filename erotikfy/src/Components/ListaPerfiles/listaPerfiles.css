@@ -1,5 +1,5 @@
 /* Contenedor principal */
-.profile-list-container {
+.creator-list-container {
     height: 100vh;
     margin: 0 auto;
     padding: 2rem;
@@ -11,81 +11,79 @@
 }
 
 /* Fondo general */
-.profile-list-background {
+.creator-list-background {
     margin-left: 15rem;
     background-image: linear-gradient(to bottom, #080808cb, #201752c5);
     height: 100vh;
-    width: 3000px;
+    width: 100%;
     overflow: hidden; /* Bloquea el scroll del fondo */
 }
 
 /* Cuadro de información */
-.profile-list-info-container {
+.creator-list-info-container {
     width: 100%;
     margin: 0 auto;
     padding: 2rem;
     background: rgba(247, 2, 255, 0.055);
     border-radius: 10px;
-
     margin-bottom: 1.5rem;
-
 }
 
 /* Header */
-.profile-list-header {
+.creator-list-header {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 1rem;
-    
 }
 
-.profile-list-title {
+.creator-list-title {
     font-size: 1.875rem;
     font-weight: bold;
     color: white;
 }
 
 /* Estrellas de puntuación */
-.profile-list-stars {
+.creator-list-stars {
     display: flex;
     gap: 0.25rem;
     justify-content: center;
 }
 
-.profile-list-star {
+.creator-list-star {
     color: #241579;
 }
 
-.profile-list-star-empty {
+.creator-list-star-empty {
     color: #8b8b8b;
 }
 
-.profile-list-category-item label {
+.creator-list-category-item label {
     color: white;
     font-size: 1rem;
 }
 
 /* Lista de perfiles */
-.profile-list {
+.creator-list {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     margin-top: 1.5rem;
-    
 }
 
-.profile-list-item {
+/* Tarjeta de perfil */
+.creator-list-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
     border-radius: 10px;
     border: 1px solid #8c00d8; /* Línea gris para separar las publicaciones */
-
+    background: rgba(255, 255, 255, 0.1); /* Fondo de la tarjeta */
 }
 
-.profile-list-image {
+/* Imagen del perfil */
+.creator-list-image {
     width: 100px;
     height: 100px;
     object-fit: cover;
@@ -93,212 +91,201 @@
     margin-right: 1rem;
 }
 
-.profile-list-info {
+/* Información del perfil */
+.creator-list-info {
     flex-grow: 1;
     text-align: left;
 }
 
-/* Información del perfil */
-.profile-list-name {
+.creator-list-name {
     font-weight: bold;
     color: white;
 }
 
-.profile-list-description {
+.creator-list-description {
     color: rgba(255, 255, 255, 0.7);
     font-size: 0.875rem;
 }
 
-/* Media Queries */
-@media (max-width: 1024px) {
-    .profile-list-header {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .profile-list-title {
-        font-size: 1.5rem;
-    }
-
-    .profile-list-categories {
-        gap: 8px;
-    }
-
-    .profile-list-item {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .profile-list-image {
-        width: 80px;
-        height: 80px;
-    }
-
-    .profile-list-name {
-        font-size: 1.25rem;
-    }
-
-    .profile-list-description {
-        font-size: 0.75rem;
-    }
-
-    .profile-list-share-button {
-        font-size: 1.25rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .profile-list-container {
-        width: 95%;
-        padding: 1.5rem;
-    }
-
-    .profile-list-info-container {
-        padding: 1.5rem;
-    }
-
-    .profile-list-title {
-        font-size: 1.25rem;
-    }
-
-    .profile-list-image {
-        width: 70px;
-        height: 70px;
-    }
-
-    .profile-list-name {
-        font-size: 1rem;
-    }
-
-    .profile-list-description {
-        font-size: 0.75rem;
-    }
-
-    .profile-list-categories {
-        gap: 6px;
-    }
-
-    .profile-list-item {
-        flex-direction: column;
-        align-items: flex-start;
-        position: relative;
-    }
-
-    .profile-list-share-button {
-        position: absolute;
-        bottom: 0;
-        right: 0px;
-        margin: 2.5rem;
-        font-size: 3rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .profile-list-container {
-        padding: 1rem;
-    }
-
-    .profile-list-info-container {
-        padding: 1rem;
-    }
-
-    .profile-list-title {
-        font-size: 1rem;
-        text-align: center;
-    }
-
-    .profile-list-categories {
-        gap: 4px;
-    }
-
-    .profile-list-item {
-        flex-direction: column;
-        align-items: flex-start;
-        position: relative;
-    }
-
-    .profile-list-image {
-        width: 60px;
-        height: 60px;
-    }
-
-    .profile-list-name {
-        font-size: 1rem;
-    }
-
-    .profile-list-description {
-        font-size: 0.75rem;
-    }
-
-    .profile-list-share-button {
-        position: absolute;
-        bottom: 0;
-        right: 0px;
-        margin: 2.5rem;
-        font-size: 3rem;
-    }
-}
-
-/* Estilos para el scrollbar en navegadores basados en WebKit (Chrome, Safari, Edge) */
-.profile-list-container::-webkit-scrollbar {
-    width: 8px; /* Ancho del scrollbar */
-}
-
-.profile-list-container::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1); /* Color de fondo del track */
-    border-radius: 4px; /* Bordes redondeados */
-}
-
-.profile-list-container::-webkit-scrollbar-thumb {
-    background: #8c00d8; /* Color morado del thumb (la barra que se mueve) */
-    border-radius: 4px; /* Bordes redondeados */
-}
-
-.profile-list-container::-webkit-scrollbar-thumb:hover {
-    background: #c300ff; /* Color morado más claro al pasar el mouse */
-}
-
-/* Estilos para el scrollbar en Firefox */
-.profile-list-container {
-    scrollbar-width: thin; /* Hace el scrollbar delgado */
-    scrollbar-color: #8c00d8 rgba(255, 255, 255, 0.1); /* Color del thumb y del track */
-}
-
-/* Estilos para el botón flotante */
-.floating-button {
-    position: fixed; /* Fija el botón en la pantalla */
-    bottom: 20px; /* Distancia desde la parte inferior */
-    right: 20px; /* Distancia desde la derecha */
-    background-color: #8c00d8; /* Color de fondo morado */
-    color: white; /* Color del ícono */
-    border: none; /* Sin borde */
-    border-radius: 50%; /* Forma circular */
-    width: 56px; /* Ancho del botón */
-    height: 56px; /* Altura del botón */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para efecto flotante */
-    cursor: pointer; /* Cambia el cursor al pasar el mouse */
-    transition: background-color 0.3s ease; /* Transición suave */
-  }
-  
-  .floating-button:hover {
-    background-color: #c300ff; /* Cambia el color al pasar el mouse */
-  }
-
-  /* Estilos para el botón de subir archivo */
+/* Botón de upload */
 .upload-button {
     background: none; /* Sin fondo */
     border: none; /* Sin borde */
     color: #8c00d8; /* Color morado */
     cursor: pointer; /* Cambia el cursor al pasar el mouse */
     transition: color 0.3s ease; /* Transición suave */
-    margin-left: auto; /* Mueve el botón a la derecha */
     padding: 0.5rem; /* Espaciado interno */
-  }
-  
-  .upload-button:hover {
+    font-size: 2rem; /* Tamaño del ícono */
+}
+
+.upload-button:hover {
     color: #c300ff; /* Cambia el color al pasar el mouse */
-  }
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .creator-list-item {
+        flex-direction: column; /* Apila los elementos verticalmente */
+        align-items: center; /* Centra los elementos horizontalmente */
+        text-align: center; /* Centra el texto */
+        padding: 1.5rem; /* Aumenta el padding para mejor espaciado */
+    }
+
+    .creator-list-title {
+        font-size: 1.5rem;
+    }
+
+    .creator-list-categories {
+        gap: 8px;
+    }
+
+    .creator-list-item {
+        flex-direction: column; /* Apila los elementos verticalmente */
+        align-items: center; /* Centra los elementos horizontalmente */
+        text-align: center; /* Centra el texto */
+        padding: 1.5rem; /* Aumenta el padding para mejor espaciado */
+    }
+
+    .creator-list-image {
+        width: 80px;
+        height: 80px;
+        margin-right: 0; /* Elimina el margen derecho */
+        margin-bottom: 1rem; /* Espacio entre la imagen y el nombre */
+    }
+
+    .creator-list-info {
+        text-align: center; /* Centra el texto */
+    }
+
+    .creator-list-name {
+        font-size: 1.25rem;
+    }
+
+    .creator-list-description {
+        font-size: 0.75rem;
+    }
+
+    .upload-button {
+        display: flex; /* Hace que el botón sea un contenedor flexible */
+        justify-content: center; /* Centra el contenido horizontalmente */
+        width: 100%; /* Ocupa todo el ancho disponible */
+        margin-top: 1rem; /* Espacio entre la descripción y el botón */
+    }
+}
+
+@media (max-width: 768px) {
+    .creator-list-container {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    .creator-list-info-container {
+        padding: 1.5rem;
+    }
+
+    .creator-list-title {
+        font-size: 1.25rem;
+    }
+
+    .creator-list-image {
+        width: 70px;
+        height: 70px;
+    }
+
+    .creator-list-name {
+        font-size: 1rem;
+    }
+
+    .creator-list-description {
+        font-size: 0.75rem;
+    }
+
+    .creator-list-categories {
+        gap: 6px;
+    }
+
+    .creator-list-item {
+        flex-direction: column; /* Apila los elementos verticalmente */
+        align-items: center; /* Centra los elementos horizontalmente */
+        text-align: center; /* Centra el texto */
+        padding: 1rem; /* Ajusta el padding */
+    }
+
+    .upload-button {
+        display: flex; /* Hace que el botón sea un contenedor flexible */
+        justify-content: center; /* Centra el contenido horizontalmente */
+        width: 100%; /* Ocupa todo el ancho disponible */
+        margin-top: 1rem; /* Espacio entre la descripción y el botón */
+    }
+}
+
+@media (max-width: 480px) {
+    .creator-list-container {
+        padding: 1rem;
+    }
+
+    .creator-list-info-container {
+        padding: 1rem;
+    }
+
+    .creator-list-title {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .creator-list-categories {
+        gap: 4px;
+    }
+
+    .creator-list-item {
+        flex-direction: column; /* Apila los elementos verticalmente */
+        align-items: center; /* Centra los elementos horizontalmente */
+        text-align: center; /* Centra el texto */
+        padding: 1rem; /* Ajusta el padding */
+    }
+
+    .creator-list-image {
+        width: 60px;
+        height: 60px;
+    }
+
+    .creator-list-name {
+        font-size: 1rem;
+    }
+
+    .creator-list-description {
+        font-size: 0.75rem;
+    }
+
+    .upload-button {
+        display: flex; /* Hace que el botón sea un contenedor flexible */
+        justify-content: center; /* Centra el contenido horizontalmente */
+        width: 100%; /* Ocupa todo el ancho disponible */
+        margin-top: 1rem; /* Espacio entre la descripción y el botón */
+    }
+}
+
+/* Estilos para el scrollbar en navegadores basados en WebKit (Chrome, Safari, Edge) */
+.creator-list-container::-webkit-scrollbar {
+    width: 8px; /* Ancho del scrollbar */
+}
+
+.creator-list-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1); /* Color de fondo del track */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+.creator-list-container::-webkit-scrollbar-thumb {
+    background: #8c00d8; /* Color morado del thumb (la barra que se mueve) */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+.creator-list-container::-webkit-scrollbar-thumb:hover {
+    background: #c300ff; /* Color morado más claro al pasar el mouse */
+}
+
+/* Estilos para el scrollbar en Firefox */
+.creator-list-container {
+    scrollbar-width: thin; /* Hace el scrollbar delgado */
+    scrollbar-color: #8c00d8 rgba(255, 255, 255, 0.1); /* Color del thumb y del track */
+}

@@ -1,4 +1,4 @@
-.sidebar{
+.sidebar {
     display: flex;
     flex-direction: column;
     min-width: 240px;
@@ -6,26 +6,22 @@
     min-height: 100vh;
     border-right: 0.01rem solid #a7137a;
     position: fixed;
-    
 }
 
-.sidebar-complete{
+.sidebar-complete {
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
-.sidebar-list-main ul li a{
+
+.sidebar-list-main ul li a {
     padding: 0;
     margin: auto 0;
     font-size: 0.9rem;
     transition: scale 0.2s ease;
 }
-.sidebar-complete{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-.sidebar-img img{
+
+.sidebar-img img {
     display: flex;
     margin: 0;
     margin-left: 50px;
@@ -33,45 +29,52 @@
     padding: 0;
 }
 
-.sidebar-list-main{
+.sidebar-list-main {
     display: flex;
     width: 100%;
     margin-left: -20px;
 }
-.sidebar-list-main ul :hover{
+
+.sidebar-list-main ul :hover {
     background-color: #000000;
 }
-.sidebar-list-main ul{
+
+.sidebar-list-main ul {
     display: flex;
     flex-direction: column;
-    
 }
-.sidebar-list-main ul li{
+
+.sidebar-list-main ul li {
     border-radius: 10px;
 }
-.sidebar-list-main ul li a{
+
+.sidebar-list-main ul li a {
     display: flex;
     flex-direction: row;
     gap: 20px;
     padding-right: 40px;
     border-radius: 10px;
-    padding-left:10px;
+    padding-left: 10px;
     margin: 0;
 }
-.sidebar-list-main ul li img{
+
+.sidebar-list-main ul li img {
     width: 20px;
     height: 20px;
 }
-.sidebar-list-settings{
+
+.sidebar-list-settings {
     display: flex;
     margin-top: 200px;
     align-items: end;
     margin-left: -20px;
 }
-.sidebar-list-settings ul li{
+
+.sidebar-list-settings ul li {
     border-radius: 10px;
 }
-.sidebar-list-settings ul li a{
+
+.sidebar-list-settings ul li a {
     display: flex;
     flex-direction: row;
     gap: 20px;
@@ -80,11 +83,13 @@
     border-radius: 10px;
     margin: 0;
 }
-.sidebar-list-settings ul li img{
+
+.sidebar-list-settings ul li img {
     width: 20px;
     height: 20px;
 }
-.sidebar-list-settings ul li:hover{
+
+.sidebar-list-settings ul li:hover {
     background-color: #000000;
 }
 
@@ -97,7 +102,8 @@
     align-items: center;
     border-radius: 10px;
 }
-.list-main-item a{
+
+.list-main-item a {
     display: flex;
     gap: 10px;
     align-items: center;
@@ -105,78 +111,89 @@
     text-decoration: none;
 }
 
-
-
+/* Media Queries */
 @media (max-width: 1200px) {
-    .sidebar-list-settings{
+    .sidebar {
+        width: 70px;
+        min-width: unset; /* Eliminar el min-width para permitir que se reduzca */
+        border-right: 0.01rem solid #a7137a;
+    }
+
+    .sidebar-list-settings {
         margin-top: 60px;
     }
-    .sidebar{
-        width: 70px;
-    }
 
-    .list-main-item p{
+    .list-main-item p {
         display: none;
     }
-    .sidebar-list-main{
+
+    .sidebar-list-main {
         gap: 20px;
     }
-    .sidebar-list-main ul li img{
+
+    .sidebar-list-main ul li img {
         width: 30px;
         height: 30px;
         margin-left: 0;
     }
-    .sidebar-list-main ul li a{
+
+    .sidebar-list-main ul li a {
         padding: 5px;
+        padding-left: 20px;
     }
-    .sidebar-list-main ul{
+
+    .sidebar-list-main ul {
         padding: 0;
         margin: 0;
         gap: 30px;
-        padding-left: 35px;
     }
-    .sidebar-img img{
+
+    .sidebar-img img {
         display: none;
     }
-    .sidebar-complete{
+
+    .sidebar-complete {
         margin-top: 20px;
     }
-    .sidebar-list-main ul li a:hover{
+
+    .sidebar-list-main ul li a:hover {
         transform: scale(1.1);
     }
-    .sidebar-list-settings ul li img{
+
+    .sidebar-list-settings ul li img {
         width: 30px;
         height: 30px;
         margin-left: 0;
     }
+
     .sidebar-list-settings ul {
         padding: 0;
         margin: 0;
         gap: 30px;
-        padding-left: 35px;
     }
-    .sidebar-list-settings ul li a{
+
+    .sidebar-list-settings ul li a {
         padding: 5px;
+        padding-left: 20px;
     }
-
-
 }
 
 @media (max-width: 960px) {
-    
+    /* Ajustes adicionales si es necesario */
 }
-@media (max-width: 768px) {
-    
 
+@media (max-width: 768px) {
+    /* Ajustes adicionales si es necesario */
 }
 
 @media (max-width: 576px) {
-   
+    /* Ajustes adicionales si es necesario */
 }
+
 @media (max-width: 430px) {
-    
+    /* Ajustes adicionales si es necesario */
 }
 
 @media (max-width: 376px) {
-    
+    /* Ajustes adicionales si es necesario */
 }
