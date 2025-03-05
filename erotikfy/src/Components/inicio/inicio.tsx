@@ -1,10 +1,10 @@
-import './inicio.css'; // Asegúrate de importar el archivo CSS
-import { Link } from "react-router-dom"; // Importa Link desde react-router-dom
+import './inicio.css';
+import { Link } from "react-router-dom";
 import { useGET_ID, useGET_WEEKLY_FEED_ } from '../../Hooks/UseQuerys';
 import profile from '../../LocalImagen/profile1.png';
 import { useMutation } from '@apollo/client';
 import { CREATE_COMENTARIO, CREATE_LIKE } from '../../Mutations/mutations';
-import { useState, useEffect } from 'react'; // Importa useEffect
+import { useState, useEffect } from 'react';
 import { GET_WEEKLY_FEED } from '../../Querys/querys';
 import { toast } from 'sonner';
 
@@ -21,16 +21,15 @@ export const Feed = () => {
 
   const [comentario, setComentario] = useState("");
   const [comentando, setComentando] = useState<string | null>(null);
-  const [isMobile, setIsMobile] = useState(false); // Estado para detectar si es móvil
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Función para detectar si la pantalla es móvil
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768); // Cambia el valor según tu breakpoint
+      setIsMobile(window.innerWidth <= 768);
     };
 
     window.addEventListener("resize", handleResize);
-    handleResize(); // Llama a la función al cargar la página
+    handleResize();
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -54,7 +53,6 @@ export const Feed = () => {
     }
   };
 
-  // Función para deshabilitar el clic derecho
   const handleImageContextMenu = (event: React.MouseEvent<HTMLImageElement>) => {
     event.preventDefault();
   };
@@ -72,16 +70,14 @@ export const Feed = () => {
 
   const getMediaUrl = (media: string) => {
     try {
-      // Verifica si `media` empieza con "[" para determinar si es un array JSON
       if (media.startsWith("[") && media.endsWith("]")) {
         const mediaArray = JSON.parse(media);
         return Array.isArray(mediaArray) && mediaArray.length > 0 ? mediaArray[0] : null;
       }
-      // Si no es un JSON, asumimos que es una URL y la devolvemos directamente
       return media;
     } catch (error) {
       console.error("Error al parsear media:", error);
-      return null; // En caso de error en el parseo, retorna null
+      return null;
     }
   };
 
@@ -90,7 +86,6 @@ export const Feed = () => {
       <div className="feed-container">
         <div className="feed-list">
           {data?.GET_WEEKLY_FEED.map((post) => {
-            // Llamar a la función para obtener la URL del media
             const mediaUrl = getMediaUrl(post.media);
 
             return (
@@ -98,34 +93,30 @@ export const Feed = () => {
                 <div className="feed-info-container">
                   <Link to={`/perfil/${post.user_id}`}>
                     <img
-                      src={post.usuario.profile_picture} // Usar la URL obtenida o un valor vacío si no hay URL
+                      src={post.usuario.profile_picture}
                       alt={`${post.usuario.profile_picture}'s profile`}
                       className="feed-profile-pic"
-                      onContextMenu={handleImageContextMenu} // Deshabilita el clic derecho
+                      onContextMenu={handleImageContextMenu}
                     />
                   </Link>
                   <Link to={`/perfil/${post.user_id}`}>
                     <span className="feed-username">{post.usuario.username}</span>
                   </Link>
-                  
                 </div>
                 <div className="rows-content">
-                  {/* Contenedor de la imagen con protección */}
                   <div className="feed-item-image-container">
                     <img
-                      src={mediaUrl || ""} // Usar la URL obtenida o un valor vacío si no hay URL
+                      src={mediaUrl || ""}
                       alt={`Post by ${post.post_id}`}
                       className="feed-item-image"
-                      onContextMenu={handleImageContextMenu} // Deshabilita el clic derecho
+                      onContextMenu={handleImageContextMenu}
                     />
-                    {/* Superposición transparente */}
                     <div className="image-protection-overlay" />
                   </div>
 
-                  {/* Contenedor de comentarios */}
                   <div className="comments-container">
-                    {/* Mostrar solo los últimos 2 comentarios en móvil */}
-                    {(isMobile ? post.comments.slice(-2) : post.comments.slice(0, 6)).map((comment) => (
+                    {/* Mostrar solo el último comentario en móvil, todos en escritorio */}
+                    {(isMobile ? post.comments.slice(-1) : post.comments).map((comment) => (
                       <div key={comment.comment_id} className="comment">
                         <div className="comment-content">
                           <img
@@ -138,6 +129,8 @@ export const Feed = () => {
                         </div>
                       </div>
                     ))}
+
+                    {/* Sección para agregar un nuevo comentario */}
                     {comentando === post.post_id && (
                       <div className="comment-section">
                         <input
@@ -151,19 +144,18 @@ export const Feed = () => {
                       </div>
                     )}
                   </div>
-                  </div>
-                  <p></p>
-                  <div className="feed-buttons">
-                    <button className="like-button" onClick={() => handleLike(post.post_id)}>
-                      <i className="fa fa-heart"></i>
-                    </button>
-                    <button className="comment-button" onClick={() => setComentando(post.post_id)}>
-                      <i className="fa fa-comment"></i>
-                    </button>
+                </div>
+                <div className="feed-buttons">
+                  <button className="like-button" onClick={() => handleLike(post.post_id)}>
+                    <i className="fa fa-heart"></i>
+                  </button>
+                  <button className="comment-button" onClick={() => setComentando(post.post_id)}>
+                    <i className="fa fa-comment"></i>
+                  </button>
                 </div>
                 <div className="feed-description-container">
-                      <p className="feed-description">{post.description}</p>
-                    </div>
+                  <p className="feed-description">Creador de contenido: {post.description}</p>
+                </div>
               </div>
             );
           })}
