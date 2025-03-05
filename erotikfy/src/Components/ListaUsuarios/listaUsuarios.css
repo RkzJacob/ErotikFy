@@ -17,6 +17,7 @@
     height: 100vh;
     width: 100%;
     overflow: hidden; /* Bloquea el scroll del fondo */
+    transition: margin-left 0.3s ease-in-out;
 }
 
 /* Cuadro de información */
@@ -45,17 +46,13 @@
 
 /* Estrellas de puntuación */
 .profile-list-stars {
-    background: none; /* Sin fondo */
-    border: none; /* Sin borde */
-    color: #8c00d8; /* Color morado */
-    cursor: pointer; /* Cambia el cursor al pasar el mouse */
-    transition: color 0.3s ease; /* Transición suave */
-    padding: 0.5rem; /* Espaciado interno */
-    font-size: 2rem; /* Tamaño del ícono */
+    display: flex;
+    gap: 0.25rem;
+    justify-content: center;
 }
 
 .profile-list-star {
-    color: #d400ff;
+    color: #241579;
 }
 
 .profile-list-star-empty {
@@ -75,6 +72,7 @@
     margin-top: 1.5rem;
 }
 
+/* Tarjeta de perfil */
 .profile-list-item {
     display: flex;
     justify-content: space-between;
@@ -85,6 +83,7 @@
     background: rgba(255, 255, 255, 0.1); /* Fondo de la tarjeta */
 }
 
+/* Imagen del perfil */
 .profile-list-image {
     width: 100px;
     height: 100px;
@@ -93,12 +92,12 @@
     margin-right: 1rem;
 }
 
+/* Información del perfil */
 .profile-list-info {
     flex-grow: 1;
     text-align: left;
 }
 
-/* Información del perfil */
 .profile-list-name {
     font-weight: bold;
     color: white;
@@ -109,40 +108,51 @@
     font-size: 0.875rem;
 }
 
+/* Botón de upload */
+.upload-button {
+    background: none; /* Sin fondo */
+    border: none; /* Sin borde */
+    color: #8c00d8; /* Color morado */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    transition: color 0.3s ease; /* Transición suave */
+    padding: 0.5rem; /* Espaciado interno */
+    font-size: 2rem; /* Tamaño del ícono */
+}
+
+.upload-button:hover {
+    color: #c300ff; /* Cambia el color al pasar el mouse */
+}
+
 /* Media Queries */
-@media (max-width: 1024px) {
+@media (max-width: 1028px) {
     .profile-list-background {
         margin-left: 60px;
+    }
+    .profile-list-item {
+        flex-direction: column; /* Apila los elementos verticalmente */
+        align-items: center; /* Centra los elementos horizontalmente */
+        text-align: center; /* Centra el texto */
+        padding: 1.5rem; /* Aumenta el padding para mejor espaciado */
     }
 
     .profile-list-title {
         font-size: 1.5rem;
     }
 
-    .profile-list-categories {
-        gap: 8px;
-    }
-
-    .profile-list-item {
-         flex-direction: column; /* Apila los elementos verticalmente */
-        align-items: center; /* Centra los elementos horizontalmente */
-        text-align: center; /* Centra el texto */
-        padding: 1.5rem; /* Aumenta el padding para mejor espaciado */
-   
-    }
-
     .profile-list-image {
         width: 80px;
         height: 80px;
+        margin-bottom: 1rem;
     }
-    .star-icon{
-                display: flex; /* Hace que el botón sea un contenedor flexible */
+    .profile-list-info {
+        text-align: center;
+    }
+    .upload-button {
+        display: flex; /* Hace que el botón sea un contenedor flexible */
         justify-content: center; /* Centra el contenido horizontalmente */
         width: 100%; /* Ocupa todo el ancho disponible */
         margin-top: 1rem; /* Espacio entre la descripción y el botón */
     }
-
-
 }
 
 @media (max-width: 768px) {
@@ -163,32 +173,6 @@
         width: 70px;
         height: 70px;
     }
-
-    .profile-list-name {
-        font-size: 1rem;
-    }
-
-    .profile-list-description {
-        font-size: 0.75rem;
-    }
-
-    .profile-list-categories {
-        gap: 6px;
-    }
-
-    .profile-list-item {
-        flex-direction: column;
-        align-items: flex-start;
-        position: relative;
-    }
-
-    .profile-list-share-button {
-        position: absolute;
-        bottom: 0;
-        right: 0px;
-        margin: 2.5rem;
-        font-size: 3rem;
-    }
 }
 
 @media (max-width: 480px) {
@@ -205,65 +189,55 @@
         text-align: center;
     }
 
-    .profile-list-categories {
-        gap: 4px;
-    }
-
-    .profile-list-item {
-        flex-direction: column;
-        align-items: flex-start;
-        position: relative;
-    }
-
     .profile-list-image {
         width: 60px;
         height: 60px;
     }
-
-    .profile-list-name {
-        font-size: 1rem;
-    }
-
-    .profile-list-description {
-        font-size: 0.75rem;
-    }
-
-    .profile-list-share-button {
-        position: absolute;
-        bottom: 0;
-        right: 0px;
-        margin: 2.5rem;
-        font-size: 3rem;
-    }
 }
 
-/* Estilos para el scrollbar en navegadores basados en WebKit (Chrome, Safari, Edge) */
+/* Estilos para el scrollbar */
 .profile-list-container::-webkit-scrollbar {
-    width: 8px; /* Ancho del scrollbar */
+    width: 8px;
 }
 
 .profile-list-container::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1); /* Color de fondo del track */
-    border-radius: 4px; /* Bordes redondeados */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
 }
 
 .profile-list-container::-webkit-scrollbar-thumb {
-    background: #8c00d8; /* Color morado del thumb (la barra que se mueve) */
-    border-radius: 4px; /* Bordes redondeados */
+    background: #8c00d8;
+    border-radius: 4px;
 }
 
 .profile-list-container::-webkit-scrollbar-thumb:hover {
-    background: #c300ff; /* Color morado más claro al pasar el mouse */
+    background: #c300ff;
 }
 
-/* Estilos para el scrollbar en Firefox */
 .profile-list-container {
-    scrollbar-width: thin; /* Hace el scrollbar delgado */
-    scrollbar-color: #8c00d8 rgba(255, 255, 255, 0.1); /* Color del thumb y del track */
+    scrollbar-width: thin;
+    scrollbar-color: #8c00d8 rgba(255, 255, 255, 0.1);
 }
 
-  /* En tu archivo listaUsuarios.css */
-.star-icon {
-    font-size: 2rem; /* Tamaño grande */
-    transition: color 0.3s ease; /* Transición suave */
+/* Estilos para el botón flotante */
+.floating-button {
+    position: fixed; /* Fija el botón en la pantalla */
+    bottom: 20px; /* Distancia desde la parte inferior */
+    right: 20px; /* Distancia desde la derecha */
+    background-color: #8c00d8; /* Color de fondo morado */
+    color: white; /* Color del ícono */
+    border: none; /* Sin borde */
+    border-radius: 50%; /* Forma circular */
+    width: 56px; /* Ancho del botón */
+    height: 56px; /* Altura del botón */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para efecto flotante */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.floating-button:hover {
+    background-color: #c300ff; /* Cambia el color al pasar el mouse */
 }
