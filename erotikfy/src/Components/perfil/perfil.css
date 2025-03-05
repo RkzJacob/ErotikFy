@@ -1,18 +1,14 @@
 /* Contenedor principal */
 .tumadre {
-    display: flex; /* Usa flexbox */
-    flex-direction: column;
-    align-items: center; 
-    background-image: linear-gradient(to bottom, #080808cb, #201752c5);
-    min-height: 100vh;
-    max-width: 1200px; /* Hace que el contenedor ocupe el 80% del ancho de la pantalla */
-    min-width: 1200px;
-    margin: auto; /* Centra horizontalmente el contenedor */
-    padding: 0; /* Eliminamos el padding superior e inferior */
-    color: white;
+    height: 100vh;
+    margin: 0 auto;
+    margin-left: 430px;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0);
     overflow-y: auto;
-    margin-top: 1%;
-    margin-left: 240px;
+    scroll-behavior: smooth;
 }
 
 /* Estilos para el scrollbar en navegadores basados en WebKit (Chrome, Safari, Edge) */
@@ -65,7 +61,6 @@
     flex-direction: column; /* Cambiado a columna para que el nombre quede debajo */
     align-items: center; /* Centra horizontalmente */
     gap: 1rem; /* Espacio entre la foto y el nombre */
-    
 }
 
 /* Foto de perfil */
@@ -103,7 +98,7 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr); /* 5 columnas */
     gap: 10px; /* Espacio entre imágenes */
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 2rem auto; /* Mantenemos el margen inferior */
     padding: 1rem;
     background: rgba(255, 255, 255, 0.05);
@@ -178,41 +173,137 @@
     object-fit: contain;
 }
 
-/* Media Queries para responsividad */
-@media (max-width: 768px) {
-    .posts-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas medianas */
+@media (max-width: 1440px) {
+    .tumadre {
+        margin-left: 280px; /* Ajusta el margen izquierdo */
+        min-width: auto; /* Elimina el ancho mínimo fijo */
+        max-width: 70%; /* Ocupa el 100% del ancho disponible */
+    }
+
+    .profile-info-container {
+        padding: 0 2rem; /* Reduce el padding horizontal */
+    }
+
+    .profile-header {
+        flex-direction: column; /* Apila los elementos verticalmente */
+        align-items: center; /* Centra los elementos horizontalmente */
+        text-align: center; /* Centra el texto */
+    }
+
+    .profile-left {
+        margin-bottom: 1rem; /* Espacio entre la foto y la descripción */
     }
 
     .profile-pics {
-        width: 80px; /* Ajustado para pantallas medianas */
-        height: 80px; /* Ajustado para pantallas medianas */
+        width: 80px; /* Ajusta el tamaño de la foto */
+        height: 80px;
     }
 
     .username {
-        font-size: 1.25rem;
+        font-size: 1.25rem; /* Reduce el tamaño de la fuente */
     }
 
     .profile-description {
-        font-size: 0.8rem;
+        text-align: center; /* Centra la descripción */
+    }
+
+    .posts-grid {
+        grid-template-columns: repeat(5, 1fr); /* 3 columnas en pantallas medianas */
+    }
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 1028px) {
+    .tumadre {
+        margin-left: 80px; /* Ajusta el margen izquierdo */
+        min-width: auto; /* Elimina el ancho mínimo fijo */
+        max-width: 80%; /* Ocupa el 100% del ancho disponible */
+    }
+
+    .profile-info-container {
+        padding: 0 2rem; /* Reduce el padding horizontal */
+    }
+
+    .profile-header {
+        flex-direction: column; /* Apila los elementos verticalmente */
+        align-items: center; /* Centra los elementos horizontalmente */
+        text-align: center; /* Centra el texto */
+    }
+
+    .profile-left {
+        margin-bottom: 1rem; /* Espacio entre la foto y la descripción */
+    }
+
+    .profile-pics {
+        width: 80px; /* Ajusta el tamaño de la foto */
+        height: 80px;
+    }
+
+    .username {
+        font-size: 1.25rem; /* Reduce el tamaño de la fuente */
+    }
+
+    .profile-description {
+        text-align: center; /* Centra la descripción */
+    }
+
+    .posts-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas en pantallas medianas */
+    }
+}
+
+@media (max-width: 768px) {
+    .tumadre {
+        margin-top: 5px;
+        margin-left: 20; /* Elimina el margen izquierdo */
+        padding: 1rem; /* Ajusta el padding */
+    }
+
+    .profile-info-container {
+        padding: 0 1rem; /* Reduce el padding horizontal */
+    }
+
+    .profile-pics {
+        width: 70px; /* Ajusta el tamaño de la foto */
+        height: 70px;
+    }
+
+    .username {
+        font-size: 1rem; /* Reduce el tamaño de la fuente */
+    }
+
+    .profile-description {
+        font-size: 0.8rem; /* Reduce el tamaño de la fuente */
+    }
+
+    .posts-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas pequeñas */
     }
 }
 
 @media (max-width: 480px) {
-    .posts-grid {
-        grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
+    .tumadre {
+        padding: 0.5rem; /* Reduce el padding */
+    }
+
+    .profile-info-container {
+        padding: 0 0.5rem; /* Reduce el padding horizontal */
     }
 
     .profile-pics {
-        width: 60px; /* Ajustado para pantallas pequeñas */
-        height: 60px; /* Ajustado para pantallas pequeñas */
+        width: 60px; /* Ajusta el tamaño de la foto */
+        height: 60px;
     }
 
     .username {
-        font-size: 1rem;
+        font-size: 0.875rem; /* Reduce el tamaño de la fuente */
     }
 
     .profile-description {
-        font-size: 0.75rem;
+        font-size: 0.75rem; /* Reduce el tamaño de la fuente */
+    }
+
+    .posts-grid {
+        grid-template-columns: 1fr; /* 1 columna en pantallas muy pequeñas */
     }
 }
