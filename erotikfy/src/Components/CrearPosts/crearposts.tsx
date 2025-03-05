@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import './crearposts.css'
-import imagenUser from '../../assets/imagenUser.webp';
 import { useMutation } from "@apollo/client";
 import { CREATE_POST, GET_URL } from "../../Mutations/mutations";
 import { compressImage, fileToBase64 } from "../../Functions/functions";
@@ -111,18 +110,6 @@ const CreatePublicationPopup: React.FC<CreatePublicationPopupProps> = ({
     Agregar_post();
     resetForm();
     onClose(); // Cerrar el popup después de publicar
-  };
-
-  const handleNext = () => {
-    setCurrentFileIndex((prevIndex) =>
-      prevIndex === files.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  const handlePrevious = () => {
-    setCurrentFileIndex((prevIndex) =>
-      prevIndex === 0 ? files.length - 1 : prevIndex - 1
-    );
   };
 
   if (!isOpen) return null;
