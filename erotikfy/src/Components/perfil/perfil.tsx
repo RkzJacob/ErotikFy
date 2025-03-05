@@ -66,7 +66,7 @@ export const PerfilList = () => {
                     {/* Descripción del perfil */}
                     <div className="profile-description">
                         <p>
-                            Valeria crea contenido de entretenimiento sensual y atractivo,
+                            aValeria crea contenido de entretenimiento sensual y atractivo,
                             dirigido a quienes buscan una forma diferente y atractiva de conexión.
                             Su estilo único y su enfoque creativo han atraído a miles de seguidores.
                         </p>
