@@ -2,6 +2,7 @@ import './perfil.css';
 import { useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useGET_INFO_CREATOR } from '../../Hooks/UseQuerys';
+import { SkeletonUserList } from '../ListaPerfiles/SkeletonPerfiles/skeleton';
 
 export const PerfilList = () => {
     const {user_id} = useParams<{ user_id: string }>();
@@ -41,7 +42,7 @@ export const PerfilList = () => {
     };
 
     if (loading) {
-        return <p>Cargando perfil...</p>;
+        return <SkeletonUserList/>;
     }
 
     if (error) {

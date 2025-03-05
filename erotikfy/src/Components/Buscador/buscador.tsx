@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import './buscador.css';
 import { useGetCreators } from '../../Hooks/UseQuerys';
+import { Link } from 'react-router-dom';
 
 export const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -25,7 +26,7 @@ export const Search = () => {
             // Si FILTRAR_USUARIOS tiene algún valor, mapeamos los resultados
             data.FILTRAR_USUARIOS.map((user, index) => (
               <li key={index} className="search-item">
-                {user.username} {/* Muestra el nombre de usuario */}
+                <Link to={`/perfil/${user.user_id}`}>{user.username} </Link>
               </li>
             ))
           ) : (

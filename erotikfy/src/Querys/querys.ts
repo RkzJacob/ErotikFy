@@ -21,6 +21,7 @@ export const GET_ALL_CREATORS = gql`
 export const FILTRAR_USUARIOS = gql`
     query filtrado_usuarios($search: String!) {
         FILTRAR_USUARIOS(search: $search){
+        user_id
         username
         profile_picture
         bio
