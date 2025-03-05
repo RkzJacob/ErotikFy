@@ -8,6 +8,7 @@ import { useGetallCreators } from "../../Hooks/UseQuerys";
 import { SkeletonUserList } from "./SkeletonPerfiles/skeleton";
 import { Search } from "../Buscador/buscador";
 
+
 export const ListPerfiles = () => {
   const { data, loading, error } = useGetallCreators();
   const [modalImagen, setModalImagen] = useState<string | null>(null);
@@ -17,8 +18,8 @@ export const ListPerfiles = () => {
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const allUsers = data?.AllUsersWithCountsCreator || [];
 
-  const openModal = (imagen: string) => {
-    setModalImagen(imagen);
+  const openModal = (imagen: string) => { setModalImagen(imagen);
+
   };
 
   const closeModal = () => {
@@ -42,25 +43,27 @@ export const ListPerfiles = () => {
     setIsCrearPostOpen(false); // Cierra el popup de crear publicación
   };
 
-  if (loading) return <SkeletonUserList />;
+  if (loading) return <SkeletonUserList/>;
   if (error) return <p>error: {error.message}</p>;
 
+
+
   return (
-    <section className="creator-list-background">
-      <div className="creator-list-container">
-        <Search setSearchResults={setSearchResults} />
-        <div className="creator-list">
+    <section className="profile-list-background">
+      <div className="profile-list-container">
+      <Search setSearchResults={setSearchResults} />
+        <div className="profile-list">
           {data?.AllUsersWithCountsCreator.map((perfil: any) => (
-            <div key={perfil.user_id} className="creator-list-item">
+            <div key={perfil.user_id} className="profile-list-item">
               <img
                 src={perfil.profile_picture}
                 alt={`Foto de perfil de ${perfil.username}`}
-                className="creator-list-image"
+                className="profile-list-image"
                 onClick={() => openModal(perfil.profile_picture)}
               />
-              <div className="creator-list-info">
-                <h3 className="creator-list-name">{perfil.username}</h3>
-                <p className="creator-list-description">{perfil.bio}</p>
+              <div className="profile-list-info">
+                <h3 className="profile-list-name">{perfil.username}</h3>
+                <p className="profile-list-description">{perfil.bio}</p>
               </div>
               <button
                 className="upload-button"
