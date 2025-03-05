@@ -147,7 +147,9 @@ export const Feed = () => {
                 </div>
                 <div className="feed-buttons">
                   <button className="like-button" onClick={() => handleLike(post.post_id)}>
-                    <i className="fa fa-heart"></i>
+                    <i className="fa fa-heart">
+                      <span className='like-count'>{post.likes_count}</span>
+                    </i>
                   </button>
                   <button className="comment-button" onClick={() => setComentando(post.post_id)}>
                     <i className="fa fa-comment"></i>

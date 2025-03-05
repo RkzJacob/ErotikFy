@@ -36,6 +36,7 @@ export interface Post{
     price:string;
     is_public:number;
     comments:Comments[];
+    likes_count:number;
 }
 export interface Comments{
     comment_id:string;

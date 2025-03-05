@@ -113,6 +113,26 @@
     transition: color 0.3s;
     margin-bottom: 10px;
 }
+.like-button{
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.like-count {
+    font-size: 1rem; /* Tamaño del contador de likes */
+    position: absolute;
+    top: -10px; /* Ajusta la posición vertical para que quede por encima del corazón */
+    right: -10px; /* Ajusta la posición horizontal */
+    background-color: #ffffff00; /* Fondo blanco para el contador */ /* Hacemos que el fondo sea redondo */
+    width: 20px; /* Tamaño del círculo */
+    height: 20px; /* Tamaño del círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #099de2; /* Color del contador */
+    font-size: 0.8rem; /* Tamaño de la fuente */
+  }
 
 .like-button:hover, .comment-button:hover {
     color: #8c00d8;
