@@ -160,7 +160,7 @@ const CreatePublicationPopup: React.FC<CreatePublicationPopupProps> = ({
               />
             </div>
             <div className="form-group">
-              <label htmlFor="fileUpload">Seleccionar Fotos/Videos:</label>
+              <label htmlFor="fileUpload"className="upload-button"><i className="fas fa-arrow-up" ></i> Seleccionar Foto</label>
               <input
                 type="file"
                 id="fileUpload"
@@ -168,7 +168,7 @@ const CreatePublicationPopup: React.FC<CreatePublicationPopupProps> = ({
                   setFiles(e.target.files ? Array.from(e.target.files) : [])
                 }
                 multiple
-                accept="image/*, video/*"
+                accept="image/*"
               />
             </div>
             <button type="submit">Vista Previa</button>
