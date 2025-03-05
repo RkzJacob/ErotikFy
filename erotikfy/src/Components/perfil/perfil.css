@@ -277,6 +277,7 @@
     }
 
     .profile-pics {
+        margin-top: 20px;
         width: 60px; /* Ajusta el tamaño de la foto */
         height: 60px;
     }
@@ -287,9 +288,10 @@
 
     .profile-description {
         font-size: 0.75rem; /* Reduce el tamaño de la fuente */
+        margin-top: -40px;
     }
 
     .posts-grid {
-        grid-template-columns: 1fr; /* 1 columna en pantallas muy pequeñas */
+        grid-template-columns: repeat(3, 1fr); /* 1 columna en pantallas muy pequeñas */
     }
 }

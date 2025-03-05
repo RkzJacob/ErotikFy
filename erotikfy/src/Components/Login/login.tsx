@@ -11,7 +11,7 @@ import Cookies from "js-cookie";
 export const Login = () => {
     const [nombreUsuario,setNombreUsuario] = useState('');
     const [contrasena,setContrasena] = useState('');
-    const [login,{loading,error}] = useMutation(LOGIN_MUTATION);
+    const [login,{loading}] = useMutation(LOGIN_MUTATION);
     const client = useApolloClient();
     const navigate = useNavigate();
 
