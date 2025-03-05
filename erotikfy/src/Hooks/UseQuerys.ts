@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client"
-import { FILTRAR_USUARIOS, GET_ALL_ADMINS, GET_ALL_CREATORS, GET_ALL_NORMALS, GET_ID, GET_WEEKLY_FEED } from "../Querys/querys"
-import { ListAdmins, ListCreators, ListNormales, ListPost, Post } from "../Interfaces/interfaces"
+import { FILTRAR_USUARIOS,  GET_ALL_CREATORS, GET_ALL_NORMALS, GET_ID, GET_WEEKLY_FEED } from "../Querys/querys"
+import {ListCreators, ListNormales, ListPost } from "../Interfaces/interfaces"
 
 
 //obtener todos los creados
@@ -42,9 +42,3 @@ export const useGetallNormals = () => {
     return result
 }
 
-//obtener todos los usuarios administradores
-export const useGetallAdmin = () => {
-    const result = useQuery<ListAdmins>(GET_ALL_ADMINS,{
-    })
-    return result
-}

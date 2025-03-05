@@ -9,8 +9,10 @@ import img4 from '../../LocalImagen/img4.jpg';
 import img5 from '../../LocalImagen/img5.jpg';
 import img6 from '../../LocalImagen/img6.jpg';
 import img7 from '../../LocalImagen/profile.jpg';
+import { useParams } from 'react-router-dom';
 
 export const PerfilList = () => {
+    const {id} = useParams();
     const [profilePic, setProfilePic] = useState("img/profile.png");
     const [modalImage, setModalImage] = useState<string | null>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);

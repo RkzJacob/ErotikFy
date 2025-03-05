@@ -2,7 +2,7 @@ import './inicio.css'; // Asegúrate de importar el archivo CSS
 
 import { Link } from "react-router-dom"; // Importa Link desde react-router-dom
 import { useGET_ID, useGET_WEEKLY_FEED_ } from '../../Hooks/UseQuerys';
-import profile from '../../LocalImagen/profile.jpg'
+import profile from '../../LocalImagen/profile1.png'
 import { useMutation } from '@apollo/client';
 import { CREATE_COMENTARIO, CREATE_LIKE } from '../../Mutations/mutations';
 import { useState } from 'react';
@@ -94,7 +94,7 @@ export const Feed = () => {
                       onContextMenu={handleImageContextMenu} // Deshabilita el clic derecho
                     />
                   </Link>
-                  <Link to="/Perfil">
+                  <Link to={`/perfil/${post.user_id}`}>
                     <span className="feed-username">{post.usuario.username}</span>
                   </Link>
                   <div className="feed-buttons">

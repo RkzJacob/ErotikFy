@@ -18,7 +18,6 @@ export const GET_ALL_CREATORS = gql`
 
 `
 
-
 export const FILTRAR_USUARIOS = gql`
     query filtrado_usuarios($search: String!) {
         FILTRAR_USUARIOS(search: $search){
@@ -68,27 +67,22 @@ export const GET_ID = gql`
     }
 `;
 
+export const GET_INFO_CREATOR = gql`
+    query get_id_usuario($user_id: String!) {
+        getOneFindUserID(user_id:$user_id){
+          username
+          profile_picture
+          bio
+          posts{
+            media
+              }
+        }
+    }
+`;
+
 export const GET_ALL_NORMALS = gql`
     query{
     AllUsersWithCountsNormales{
-    user_id
-    username
-    role
-    email
-    profile_picture
-    bio
-    created_at
-    updated_at
-    followers_count
-    following_count
-  }
-}
-
-`
-
-export const GET_ALL_ADMINS = gql`
-    query{
-    AllUsersWithCountsAdmin{
     user_id
     username
     role

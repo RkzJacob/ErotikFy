@@ -2,16 +2,17 @@
 .tumadre {
     display: flex; /* Usa flexbox */
     flex-direction: column;
-    align-items: center; /* Centra horizontalmente */
-    justify-content: flex-start; /* Alinea el contenido al inicio verticalmente */
+    align-items: center; 
     background-image: linear-gradient(to bottom, #080808cb, #201752c5);
-    min-height: 97.6vh;
-    width: 100%; /* Hace que el contenedor ocupe el 80% del ancho de la pantalla */
-    margin: 0 auto; /* Centra horizontalmente el contenedor */
+    min-height: 100vh;
+    max-width: 1200px; /* Hace que el contenedor ocupe el 80% del ancho de la pantalla */
+    min-width: 1200px;
+    margin: auto; /* Centra horizontalmente el contenedor */
     padding: 0; /* Eliminamos el padding superior e inferior */
     color: white;
     overflow-y: auto;
     margin-top: 1%;
+    margin-left: 240px;
 }
 
 /* Estilos para el scrollbar en navegadores basados en WebKit (Chrome, Safari, Edge) */
@@ -41,9 +42,8 @@
 
 /* Contenedor de la información del perfil */
 .profile-info-container {
-    width: 100%;
     max-width: 800px;
-    margin: 10 auto; /* Centra horizontalmente y elimina el margen superior */
+    margin: 0 auto; /* Centra horizontalmente y elimina el margen superior */
     padding: 0 4rem; /* Eliminamos el padding superior e inferior */
     background: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
@@ -65,7 +65,7 @@
     flex-direction: column; /* Cambiado a columna para que el nombre quede debajo */
     align-items: center; /* Centra horizontalmente */
     gap: 1rem; /* Espacio entre la foto y el nombre */
-    margin-top: 0; /* Eliminamos el margen superior */
+    
 }
 
 /* Foto de perfil */

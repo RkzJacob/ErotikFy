@@ -15,9 +15,14 @@ a,li,ul{
   color: #fff;
   
 }
-
+.container-sid{
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+}
 .container{
   display: flex;
+  flex-direction: row;
   min-height: 100%;
 }
 

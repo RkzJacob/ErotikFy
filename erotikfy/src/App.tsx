@@ -22,7 +22,7 @@ function App() {
           <Route path='registrar-cuenta' element={<Register/>}/>
           <Route path='loguear-cuenta' element={<Loguear/>}/>
           <Route path='pedidos-personalizados' element={<PrivateRoute><Pedidos/></PrivateRoute>}/>
-          <Route path='perfil' element={<Perfil/>}/>
+          <Route path='/perfil/:user_id' element={<Perfil/>}/>
           <Route path='Listado' element={<ListaPerfiles/>}/> 
           <Route path='Inicio' element={<PrivateRoute><Inicio/></PrivateRoute>}/>
           <Route path='search-users' element={<PrivateRoute><BuscadorInteligente/></PrivateRoute>}/>
