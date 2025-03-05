@@ -15,7 +15,7 @@
     margin-left: 15rem;
     background-image: linear-gradient(to bottom, #080808cb, #201752c5);
     height: 100vh;
-    width: 3000px;
+    width: 100%;
     overflow: hidden; /* Bloquea el scroll del fondo */
 }
 
@@ -26,9 +26,7 @@
     padding: 2rem;
     background: rgba(247, 2, 255, 0.055);
     border-radius: 10px;
-
     margin-bottom: 1.5rem;
-
 }
 
 /* Header */
@@ -37,7 +35,6 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 1rem;
-    
 }
 
 .profile-list-title {
@@ -48,13 +45,17 @@
 
 /* Estrellas de puntuación */
 .profile-list-stars {
-    display: flex;
-    gap: 0.25rem;
-    justify-content: center;
+    background: none; /* Sin fondo */
+    border: none; /* Sin borde */
+    color: #8c00d8; /* Color morado */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    transition: color 0.3s ease; /* Transición suave */
+    padding: 0.5rem; /* Espaciado interno */
+    font-size: 2rem; /* Tamaño del ícono */
 }
 
 .profile-list-star {
-    color: #241579;
+    color: #d400ff;
 }
 
 .profile-list-star-empty {
@@ -72,7 +73,6 @@
     flex-direction: column;
     gap: 1rem;
     margin-top: 1.5rem;
-    
 }
 
 .profile-list-item {
@@ -82,7 +82,7 @@
     padding: 1rem;
     border-radius: 10px;
     border: 1px solid #8c00d8; /* Línea gris para separar las publicaciones */
-
+    background: rgba(255, 255, 255, 0.1); /* Fondo de la tarjeta */
 }
 
 .profile-list-image {
@@ -112,9 +112,10 @@
 /* Media Queries */
 @media (max-width: 1024px) {
     .profile-list-header {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
+        flex-direction: column; /* Apila los elementos verticalmente */
+        align-items: center; /* Centra los elementos horizontalmente */
+        text-align: center; /* Centra el texto */
+        padding: 1.5rem;
     }
 
     .profile-list-title {
@@ -126,8 +127,11 @@
     }
 
     .profile-list-item {
-        flex-direction: column;
-        align-items: flex-start;
+         flex-direction: column; /* Apila los elementos verticalmente */
+        align-items: center; /* Centra los elementos horizontalmente */
+        text-align: center; /* Centra el texto */
+        padding: 1.5rem; /* Aumenta el padding para mejor espaciado */
+   
     }
 
     .profile-list-image {

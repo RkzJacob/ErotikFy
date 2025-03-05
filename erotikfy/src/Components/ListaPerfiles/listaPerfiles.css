@@ -17,6 +17,7 @@
     height: 100vh;
     width: 100%;
     overflow: hidden; /* Bloquea el scroll del fondo */
+    transition: margin-left 0.3s ease-in-out;
 }
 
 /* Cuadro de información */
@@ -123,48 +124,30 @@
 }
 
 /* Media Queries */
-@media (max-width: 1024px) {
+@media (max-width: 1028px) {
+    .creator-list-background {
+        margin-left: 60px;
+    }
     .creator-list-item {
-        flex-direction: column; /* Apila los elementos verticalmente */
-        align-items: center; /* Centra los elementos horizontalmente */
-        text-align: center; /* Centra el texto */
-        padding: 1.5rem; /* Aumenta el padding para mejor espaciado */
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1.5rem;
     }
 
     .creator-list-title {
         font-size: 1.5rem;
     }
 
-    .creator-list-categories {
-        gap: 8px;
-    }
-
-    .creator-list-item {
-        flex-direction: column; /* Apila los elementos verticalmente */
-        align-items: center; /* Centra los elementos horizontalmente */
-        text-align: center; /* Centra el texto */
-        padding: 1.5rem; /* Aumenta el padding para mejor espaciado */
-    }
-
     .creator-list-image {
         width: 80px;
         height: 80px;
-        margin-right: 0; /* Elimina el margen derecho */
-        margin-bottom: 1rem; /* Espacio entre la imagen y el nombre */
+        margin-bottom: 1rem;
     }
 
     .creator-list-info {
-        text-align: center; /* Centra el texto */
+        text-align: center;
     }
-
-    .creator-list-name {
-        font-size: 1.25rem;
-    }
-
-    .creator-list-description {
-        font-size: 0.75rem;
-    }
-
     .upload-button {
         display: flex; /* Hace que el botón sea un contenedor flexible */
         justify-content: center; /* Centra el contenido horizontalmente */
@@ -191,32 +174,6 @@
         width: 70px;
         height: 70px;
     }
-
-    .creator-list-name {
-        font-size: 1rem;
-    }
-
-    .creator-list-description {
-        font-size: 0.75rem;
-    }
-
-    .creator-list-categories {
-        gap: 6px;
-    }
-
-    .creator-list-item {
-        flex-direction: column; /* Apila los elementos verticalmente */
-        align-items: center; /* Centra los elementos horizontalmente */
-        text-align: center; /* Centra el texto */
-        padding: 1rem; /* Ajusta el padding */
-    }
-
-    .upload-button {
-        display: flex; /* Hace que el botón sea un contenedor flexible */
-        justify-content: center; /* Centra el contenido horizontalmente */
-        width: 100%; /* Ocupa todo el ancho disponible */
-        margin-top: 1rem; /* Espacio entre la descripción y el botón */
-    }
 }
 
 @media (max-width: 480px) {
@@ -233,59 +190,32 @@
         text-align: center;
     }
 
-    .creator-list-categories {
-        gap: 4px;
-    }
-
-    .creator-list-item {
-        flex-direction: column; /* Apila los elementos verticalmente */
-        align-items: center; /* Centra los elementos horizontalmente */
-        text-align: center; /* Centra el texto */
-        padding: 1rem; /* Ajusta el padding */
-    }
-
     .creator-list-image {
         width: 60px;
         height: 60px;
     }
-
-    .creator-list-name {
-        font-size: 1rem;
-    }
-
-    .creator-list-description {
-        font-size: 0.75rem;
-    }
-
-    .upload-button {
-        display: flex; /* Hace que el botón sea un contenedor flexible */
-        justify-content: center; /* Centra el contenido horizontalmente */
-        width: 100%; /* Ocupa todo el ancho disponible */
-        margin-top: 1rem; /* Espacio entre la descripción y el botón */
-    }
 }
 
-/* Estilos para el scrollbar en navegadores basados en WebKit (Chrome, Safari, Edge) */
+/* Estilos para el scrollbar */
 .creator-list-container::-webkit-scrollbar {
-    width: 8px; /* Ancho del scrollbar */
+    width: 8px;
 }
 
 .creator-list-container::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1); /* Color de fondo del track */
-    border-radius: 4px; /* Bordes redondeados */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
 }
 
 .creator-list-container::-webkit-scrollbar-thumb {
-    background: #8c00d8; /* Color morado del thumb (la barra que se mueve) */
-    border-radius: 4px; /* Bordes redondeados */
+    background: #8c00d8;
+    border-radius: 4px;
 }
 
 .creator-list-container::-webkit-scrollbar-thumb:hover {
-    background: #c300ff; /* Color morado más claro al pasar el mouse */
+    background: #c300ff;
 }
 
-/* Estilos para el scrollbar en Firefox */
 .creator-list-container {
-    scrollbar-width: thin; /* Hace el scrollbar delgado */
-    scrollbar-color: #8c00d8 rgba(255, 255, 255, 0.1); /* Color del thumb y del track */
+    scrollbar-width: thin;
+    scrollbar-color: #8c00d8 rgba(255, 255, 255, 0.1);
 }
