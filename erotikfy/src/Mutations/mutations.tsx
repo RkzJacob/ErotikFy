@@ -57,3 +57,8 @@ export const CREATE_COMENTARIO= gql`
         CREATE_COMENTARIO(user_id:$user_id,post_id:$post_id,content:$content)
     }
 `
+export const BORRAR_CREADOR= gql`
+    mutation borrarCreador($user_id:String!){
+        DELETE_USER(user_id:$user_id)
+    }
+`

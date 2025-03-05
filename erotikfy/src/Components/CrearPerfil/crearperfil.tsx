@@ -20,7 +20,7 @@ const CreateProfilePopup: React.FC<CreateProfilePopupProps> = ({
   const [files, setFiles] = useState<File | null>(null);;
 
   const [imagePreview, setImagePreview] = useState<string | null>(null); // Estado para la vista previa de la imagen
-  const [createCreator] = useMutation(CREATE_USER_CREATOR); // Mutación para crear un usuario
+  const [createCreator] = useMutation(CREATE_USER_CREATOR,{refetchQueries:[{ query: GET_ALL_CREATORS }]}); // Mutación para crear un usuario
   const [obtenerUrlCreator] = useMutation(GET_URL_CREATOR);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -79,8 +79,7 @@ const CreateProfilePopup: React.FC<CreateProfilePopupProps> = ({
         }
 
         const {data}= await createCreator({
-            variables: {username:profileName, contrasena:contrasena,profile_picture:imageUrl,bio:profileDescription},
-            refetchQueries:[{ query: GET_ALL_CREATORS }]
+            variables: {username:profileName, contrasena:contrasena,profile_picture:imageUrl,bio:profileDescription}
         });
         console.log("Datos enviados al backend",data)
       } catch (error) {
@@ -166,7 +165,6 @@ const CreateProfilePopup: React.FC<CreateProfilePopupProps> = ({
               id="fileUpload"
               onChange={handleFileChange}
               accept="image/*"
-              
               required
               style={{ display: "none" }} // Ocultar el input de archivo
             />

@@ -8,6 +8,9 @@ import { useGetallCreators } from "../../Hooks/UseQuerys";
 import { SkeletonUserList } from "./SkeletonPerfiles/skeleton";
 import { Search } from "../Buscador/buscador";
 import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import { BORRAR_CREADOR } from "../../Mutations/mutations";
+import { GET_ALL_CREATORS } from "../../Querys/querys";
 
 export const ListPerfiles = () => {
   const { data, loading, error } = useGetallCreators();
@@ -15,6 +18,10 @@ export const ListPerfiles = () => {
   const [isCreateProfileOpen, setIsCreateProfileOpen] = useState(false); // Estado para controlar la ventana emergente de crear perfil
   const [isCrearPostOpen, setIsCrearPostOpen] = useState(false); // Nuevo estado para controlar la ventana emergente de crear publicación
   const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
+  const [borrarCreador] = useMutation(BORRAR_CREADOR,{refetchQueries:[{ query: GET_ALL_CREATORS }]});
+
+  const [isDeleteConfirmationOpen, setIsDeleteConfirmationOpen] = useState(false);
+  const [userToDelete, setUserToDelete] = useState<string | null>(null);
 
   const openModal = (imagen: string) => {
     setModalImagen(imagen);
@@ -42,9 +49,33 @@ export const ListPerfiles = () => {
   };
 
   const handleDeleteProfile = (userId: string) => {
-    console.log(`Eliminar perfil con ID: ${userId}`);
-    // Implementar la lógica para eliminar el perfil aquí
+    setUserToDelete(userId);
+    setIsDeleteConfirmationOpen(true);
   };
+
+  const confirmDeleteProfile = async () => {
+    // Aquí puedes agregar tu lógica de eliminación con la mutación
+    if (userToDelete) {
+      try {
+        await borrarCreador({
+          variables: {user_id: userToDelete, 
+          },
+        });
+      console.log("USUARIO eliminado: ",userToDelete)
+      } catch (error) {
+        console.log("error",error)
+      }
+    }
+    // Cerrar la advertencia
+    setIsDeleteConfirmationOpen(false);
+  };
+
+  const cancelDeleteProfile = () => {
+    // Solo cerrar la advertencia sin hacer nada
+    setIsDeleteConfirmationOpen(false);
+  };
+
+  
 
   if (loading) return <SkeletonUserList />;
   if (error) return <p>error: {error.message}</p>;
@@ -83,6 +114,17 @@ export const ListPerfiles = () => {
             </div>
           ))}
         </div>
+        {isDeleteConfirmationOpen && (
+          <div className="delete-confirmation-modal">
+            <div className="delete-confirmation-content">
+              <p>¿Estás seguro de que quieres eliminar este perfil?</p>
+              <div className="delete-confirmation-buttons">
+                <button onClick={confirmDeleteProfile}>Sí</button>
+                <button onClick={cancelDeleteProfile}>No</button>
+              </div>
+            </div>
+          </div>
+        )}
 
         {modalImagen && (
           <div className="modal" onClick={closeModal}>
