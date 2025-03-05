@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client"
-import { FILTRAR_USUARIOS,  GET_ALL_CREATORS, GET_ALL_NORMALS, GET_ID, GET_WEEKLY_FEED } from "../Querys/querys"
+import { FILTRAR_USUARIOS,  GET_ALL_CREATORS, GET_ALL_NORMALS, GET_ID, GET_INFO_CREATOR, GET_WEEKLY_FEED } from "../Querys/querys"
 import {ListCreators, ListNormales, ListPost } from "../Interfaces/interfaces"
 
 
@@ -31,6 +31,13 @@ export const useGET_WEEKLY_FEED_ = (user_id:String) => {
 export const useGET_ID = (username:String) => {
     const result = useQuery(GET_ID,{
         variables:{username:username},
+    })
+    return result
+}
+
+export const useGET_INFO_CREATOR = (used_id:String) => {
+    const result = useQuery(GET_INFO_CREATOR,{
+        variables:{used_id:used_id},
     })
     return result
 }

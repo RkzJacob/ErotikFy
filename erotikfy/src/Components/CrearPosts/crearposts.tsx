@@ -4,6 +4,7 @@ import imagenUser from '../../assets/imagenUser.webp';
 import { useMutation } from "@apollo/client";
 import { CREATE_POST, GET_URL } from "../../Mutations/mutations";
 import { compressImage, fileToBase64 } from "../../Functions/functions";
+import { GET_WEEKLY_FEED } from "../../Querys/querys";
 
 interface CreatePublicationPopupProps {
   isOpen: boolean;
@@ -21,7 +22,9 @@ const CreatePublicationPopup: React.FC<CreatePublicationPopupProps> = ({
   const [files, setFiles] = useState<File[]>([]);
   const [showPreview, setShowPreview] = useState(false);
   const [currentFileIndex, setCurrentFileIndex] = useState(0); // Índice de la imagen/video actual
-  const [createPost] = useMutation(CREATE_POST);
+  const [createPost] = useMutation(CREATE_POST,{ 
+    refetchQueries: [{query: GET_WEEKLY_FEED ,variables: {user_id:userId}}]
+  });
   const [obtenerUrl] = useMutation(GET_URL);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
