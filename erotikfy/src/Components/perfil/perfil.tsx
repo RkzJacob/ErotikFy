@@ -1,18 +1,17 @@
 import './perfil.css';
 import { useRef, useState } from 'react';
-
-// Importa las imágenes
-import img1 from '../../LocalImagen/img1.jpg';
-import img2 from '../../LocalImagen/img2.jpg';
-import img3 from '../../LocalImagen/img3.jpg';
-import img4 from '../../LocalImagen/img4.jpg';
-import img5 from '../../LocalImagen/img5.jpg';
-import img6 from '../../LocalImagen/img6.jpg';
-import img7 from '../../LocalImagen/profile.jpg';
 import { useParams } from 'react-router-dom';
+import { useGET_INFO_CREATOR } from '../../Hooks/UseQuerys';
 
 export const PerfilList = () => {
-    const {id} = useParams();
+    const {user_id} = useParams<{ user_id: string }>();
+    const idpeli:string = user_id || "";
+
+    console.log("EL VALOR DE USER_ID ES ",user_id)
+    const {data,loading,error} = useGET_INFO_CREATOR(idpeli);
+
+    console.log("INFORMACION PERFIL: ",data)
+
     const [profilePic, setProfilePic] = useState("img/profile.png");
     const [modalImage, setModalImage] = useState<string | null>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
@@ -41,6 +40,16 @@ export const PerfilList = () => {
         setModalImage(null);
     };
 
+    if (loading) {
+        return <p>Cargando perfil...</p>;
+    }
+
+    if (error) {
+        return <p>Error al cargar el perfil: {error.message}</p>;
+    }
+
+    console.log(data);
+
     return (
         <section className="tumadre">
             <div className="profile-info-container">
@@ -48,7 +57,7 @@ export const PerfilList = () => {
                     {/* Contenedor para la foto y el nombre */}
                     <div className="profile-left">
                         <img
-                            src={profilePic}
+                            src={data?.getOneFindUserID.profile_picture || profilePic}
                             alt="Foto de perfil"
                             className="profile-pics"
                             onClick={handleProfileClick}
@@ -60,30 +69,33 @@ export const PerfilList = () => {
                             style={{ display: "none" }}
                             onChange={handleFileChange}
                         />
-                        <h2 className="username">Valeria</h2>
+                        <h2 className="username">{data?.getOneFindUserID.username}</h2>
                     </div>
 
                     {/* Descripción del perfil */}
                     <div className="profile-description">
                         <p>
-                            aValeria crea contenido de entretenimiento sensual y atractivo,
-                            dirigido a quienes buscan una forma diferente y atractiva de conexión.
-                            Su estilo único y su enfoque creativo han atraído a miles de seguidores.
+                            {data?.getOneFindUserID.bio}
                         </p>
                     </div>
                 </div>
             </div>
 
             <div className="posts-grid">
-                {[img1, img2, img3, img4, img5, img6, img7].map((src, index) => (
-                    <div
-                        key={index}
-                        className="post-container"
-                        onClick={() => openModal(src)} // El evento onClick está en el contenedor
-                    >
-                        <img src={src} alt="Publicación" className="post" />
-                    </div>
-                ))}
+                {data?.getOneFindUserID.posts?.map((post, index) => {
+                    const mediaArray = JSON.parse(post.media);
+                    return(
+                    
+                        <div
+                            key={index}
+                            className="post-container"
+                            onClick={() => openModal(mediaArray[0])} // El evento onClick está en el contenedor
+                        >
+                            <img src={mediaArray[0]} alt="Publicación" className="post" />
+                        </div>
+                    );
+                })}
+                
             </div>
 
             {modalImage && (

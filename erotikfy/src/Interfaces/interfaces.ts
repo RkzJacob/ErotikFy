@@ -8,19 +8,19 @@ export interface Creators {
     created_at:string;
     followers_count:number;
     following_count:number;
+    posts: Post[];
 }
 
 export interface ListCreators{
     AllUsersWithCountsCreator:Creators[];
     FILTRAR_USUARIOS:Creators[];
 }
+export interface OneCreator{
+    getOneFindUserID: Creators;
+}
 
 export interface ListNormales{
     AllUsersWithCountsNormales:Creators[];
-}
-
-export interface ListAdmins{
-    AllUsersWithCountsAdmin:Creators[];
 }
 
 export interface ListPost{

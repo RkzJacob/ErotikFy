@@ -68,14 +68,14 @@ export const GET_ID = gql`
 `;
 
 export const GET_INFO_CREATOR = gql`
-    query get_id_usuario($user_id: String!) {
+    query get_INFO_USUARIO($user_id: String!) {
         getOneFindUserID(user_id:$user_id){
           username
           profile_picture
           bio
           posts{
             media
-              }
+            }
         }
     }
 `;

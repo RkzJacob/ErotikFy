@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client"
 import { FILTRAR_USUARIOS,  GET_ALL_CREATORS, GET_ALL_NORMALS, GET_ID, GET_INFO_CREATOR, GET_WEEKLY_FEED } from "../Querys/querys"
-import {ListCreators, ListNormales, ListPost } from "../Interfaces/interfaces"
+import {ListCreators, ListNormales, ListPost, OneCreator } from "../Interfaces/interfaces"
 
 
 //obtener todos los creados
@@ -36,9 +36,9 @@ export const useGET_ID = (username:String) => {
     return result
 }
 
-export const useGET_INFO_CREATOR = (used_id:String) => {
-    const result = useQuery(GET_INFO_CREATOR,{
-        variables:{used_id:used_id},
+export const useGET_INFO_CREATOR = (usedid:String) => {
+    const result = useQuery<OneCreator>(GET_INFO_CREATOR,{
+        variables:{user_id:usedid},
     })
     return result
 }
