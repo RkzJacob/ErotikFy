@@ -7,6 +7,7 @@ import CrearPosts from "../CrearPosts/crearposts"; // Asegúrate de importar el 
 import { useGetallCreators } from "../../Hooks/UseQuerys";
 import { SkeletonUserList } from "./SkeletonPerfiles/skeleton";
 import { Search } from "../Buscador/buscador";
+import { Link } from "react-router-dom";
 
 export const ListPerfiles = () => {
   const { data, loading, error } = useGetallCreators();
@@ -53,7 +54,7 @@ export const ListPerfiles = () => {
   return (
     <section className="creator-list-background">
       <div className="creator-list-container">
-        <Search setSearchResults={setSearchResults} />
+        <Search  />
         <div className="creator-list">
           {data?.AllUsersWithCountsCreator.map((perfil: any) => (
             <div key={perfil.user_id} className="creator-list-item">
@@ -64,7 +65,7 @@ export const ListPerfiles = () => {
                 onClick={() => openModal(perfil.profile_picture)}
               />
               <div className="creator-list-info">
-                <h3 className="creator-list-name">{perfil.username}</h3>
+                <h3 className="creator-list-name"><Link to={`/perfil/${perfil.user_id}`}>{perfil.username}</Link> </h3>
                 <p className="creator-list-description">{perfil.bio}</p>
               </div>
               <div className="creator-list-actions">
