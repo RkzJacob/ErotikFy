@@ -1,7 +1,8 @@
 /* Contenedor de la barra de búsqueda */
 .search-container {
   width: 1000px;
-  margin: 20px auto;
+  max-width: 100%; /* Asegura que no se exceda el ancho del contenedor */
+  margin: 20px auto; /* Centra el contenedor en la pantalla de forma horizontal */
   position: relative;
   overflow: hidden; /* Evita el desplazamiento */
   scroll-behavior: smooth;
@@ -9,7 +10,8 @@
 
 /* Campo de entrada de búsqueda */
 .search-input {
-  width: 1000px;
+  max-width: 1000px;
+  width: 100%; /* Se ajusta al 100% del contenedor */
   padding: 12px 16px; /* Aumentamos el padding para mejor legibilidad */
   font-size: 16px;
   border: 2px solid #8c00d8; /* Borde morado */
@@ -31,10 +33,10 @@
 .search-results {
   padding: 0;
   margin: 0;
-  max-height: 210px;
+  max-height: 200px;
   overflow-y: auto;
   position: absolute;
-  width: calc(100% - 1px); /* Ajustamos el ancho para compensar el borde */
+  width: calc(100% - 4px); /* Ajustamos el ancho para compensar el borde */
   background: #1a1a1a; /* Fondo oscuro */
   border: 2px solid #8c00d8; /* Borde morado */
   border-top: none;
@@ -95,9 +97,10 @@
 /* Pantallas medianas (tabletas y pantallas más pequeñas) */
 @media (max-width: 768px) {
   .search-container {
-    width: 100%;
+    width: 200px;
     padding: 10px;
-    margin-left: 40px;
+    margin-left: auto;
+    margin-right: auto; /* Asegura que el contenedor se mantenga centrado */
   }
 
   .search-input {
@@ -107,17 +110,16 @@
 
   .search-results {
     max-width: 95%;
-    max-height: 150px; /* Reducimos la altura máxima para pantallas pequeñas */
+    max-height: 180px; /* Aumentamos la altura máxima para pantallas medianas */
   }
 }
 
 /* Pantallas pequeñas (móviles) */
 @media (max-width: 480px) {
   .search-container {
-    width: 100%;
+    width: 220px;
     margin: 10px auto; /* Reducimos el margen */
     padding: 8px;
-    margin-left: 60px;
   }
 
   .search-input {
@@ -126,7 +128,7 @@
   }
 
   .search-results {
-    max-height: 120px; /* Reducimos aún más la altura máxima */
+    max-height: 140px; /* Aumentamos la altura máxima para dispositivos más pequeños */
     max-width: 95%;
   }
 }
