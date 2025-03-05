@@ -108,20 +108,6 @@
     font-size: 0.875rem;
 }
 
-/* Botón de upload */
-.upload-button {
-    background: none; /* Sin fondo */
-    border: none; /* Sin borde */
-    color: #8c00d8; /* Color morado */
-    cursor: pointer; /* Cambia el cursor al pasar el mouse */
-    transition: color 0.3s ease; /* Transición suave */
-    padding: 0.5rem; /* Espaciado interno */
-    font-size: 2rem; /* Tamaño del ícono */
-}
-
-.upload-button:hover {
-    color: #c300ff; /* Cambia el color al pasar el mouse */
-}
 
 /* Media Queries */
 @media (max-width: 1028px) {
@@ -147,7 +133,7 @@
     .profile-list-info {
         text-align: center;
     }
-    .upload-button {
+    .star-button {
         display: flex; /* Hace que el botón sea un contenedor flexible */
         justify-content: center; /* Centra el contenido horizontalmente */
         width: 100%; /* Ocupa todo el ancho disponible */
@@ -219,25 +205,17 @@
     scrollbar-color: #8c00d8 rgba(255, 255, 255, 0.1);
 }
 
-/* Estilos para el botón flotante */
-.floating-button {
-    position: fixed; /* Fija el botón en la pantalla */
-    bottom: 20px; /* Distancia desde la parte inferior */
-    right: 20px; /* Distancia desde la derecha */
-    background-color: #8c00d8; /* Color de fondo morado */
-    color: white; /* Color del ícono */
+/* Botón de upload */
+.star-button {
+    background: none; /* Sin fondo */
     border: none; /* Sin borde */
-    border-radius: 50%; /* Forma circular */
-    width: 56px; /* Ancho del botón */
-    height: 56px; /* Altura del botón */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para efecto flotante */
+    color: #c300ff; /* Color morado */
     cursor: pointer; /* Cambia el cursor al pasar el mouse */
-    transition: background-color 0.3s ease; /* Transición suave */
+    transition: color 0.3s ease; /* Transición suave */
+    padding: 0.5rem; /* Espaciado interno */
+    font-size: 2rem; /* Tamaño del ícono */
 }
 
-.floating-button:hover {
-    background-color: #c300ff; /* Cambia el color al pasar el mouse */
+.star-button:hover {
+    color: #ff00f2; /* Cambia el color al pasar el mouse */
 }

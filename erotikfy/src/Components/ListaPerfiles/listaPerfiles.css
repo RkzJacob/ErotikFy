@@ -44,21 +44,6 @@
     color: white;
 }
 
-/* Estrellas de puntuación */
-.creator-list-stars {
-    display: flex;
-    gap: 0.25rem;
-    justify-content: center;
-}
-
-.creator-list-star {
-    color: #241579;
-}
-
-.creator-list-star-empty {
-    color: #8b8b8b;
-}
-
 .creator-list-category-item label {
     color: white;
     font-size: 1rem;
@@ -119,7 +104,7 @@
 .delete-button {
     background: none;
     border: none;
-    color: rgb(255, 0, 255);
+    color: rgb(255, 255, 255);
     cursor: pointer;
     transition: color 0.3s ease;
     padding: 0.5rem;
@@ -127,14 +112,14 @@
 }
 
 .delete-button:hover {
-    color: rgb(127, 0, 139);
+    color: rgb(109, 109, 109);
 }
 
 /* Botón de upload */
 .upload-button {
     background: none; /* Sin fondo */
     border: none; /* Sin borde */
-    color: #8c00d8; /* Color morado */
+    color: #00f7ff; /* Color morado */
     cursor: pointer; /* Cambia el cursor al pasar el mouse */
     transition: color 0.3s ease; /* Transición suave */
     padding: 0.5rem; /* Espaciado interno */
@@ -142,7 +127,7 @@
 }
 
 .upload-button:hover {
-    color: #c300ff; /* Cambia el color al pasar el mouse */
+    color: #00e1ff; /* Cambia el color al pasar el mouse */
 }
 
 /* Media Queries */
