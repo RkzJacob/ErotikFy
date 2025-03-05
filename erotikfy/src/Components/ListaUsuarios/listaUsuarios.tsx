@@ -29,7 +29,7 @@ export const ListUsuarios = () => {
                 <h3 className="profile-list-name">{perfil.username}</h3>
               </div>
               <button
-                className="upload-button"
+                className="star-button"
                 onClick={() => toggleStar(perfil.user_id)}
               >
                 {starredUsers[perfil.user_id] ? (
