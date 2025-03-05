@@ -44,6 +44,7 @@
     border-radius: 10px;
     border: 1px solid #8c00d8; /* Línea gris para separar las publicaciones */
     animation: neon-border 2s linear infinite;
+    margin-left: 10px;
 }
 
 @keyframes neon-border {
@@ -82,6 +83,8 @@
     min-height: 40px;
     border-radius: 50%;
     object-fit: cover;
+    margin-left: 40px;
+    margin-top: 10px;
 }
 
 /* Nombre de usuario */
@@ -89,6 +92,7 @@
     font-weight: bold;
     color: white;
     font-size: 1rem;
+    margin-left: 10px;
 }
 
 /* Contenedor de botones */
@@ -107,6 +111,7 @@
     font-size: 1.5rem;
     cursor: pointer;
     transition: color 0.3s;
+    margin-bottom: 10px;
 }
 
 .like-button:hover, .comment-button:hover {
@@ -125,14 +130,17 @@
 
 /* Descripción a la derecha de la imagen */
 .feed-description-container {
-    width: 60%; /* Ajusta el ancho de la descripción */
-    text-align: left;
+    width: 100%; /* Ajusta el ancho de la descripción */
+
 }
 
 /* Descripción */
 .feed-description {
     font-size: 0.9rem;
-    color: #d1d1d1;
+    color: #ff00dd;
+    margin-left: 800px;
+    margin-top: -560px;
+    font-style: italic;
 }
 
 /* Contenedor de la imagen */
@@ -141,16 +149,19 @@
     max-width: 400px;
     max-height: 600px; 
     flex-direction: column;
+    flex-shrink: 0; /* Evita que la imagen se encoja */
 }
 
 /* Imagen principal de la publicación */
 .feed-item-image {
     max-height: 500px;
     min-height: 500px;
+    width: 100%; /* Asegura que la imagen ocupe el ancho del contenedor */
     object-fit: cover;
-    border-top: 1px solid #494747;
-    border-top-right-radius: 15px;  /* Redondea la esquina superior derecha */
-    border-bottom-right-radius: 15px;
+    border: 1px solid #c300ff;
+    border-radius: 15px;  /* Redondea la esquina superior derecha */
+    flex-shrink: 0; /* Evita que la imagen se encoja */
+    margin-left: 50px;
 }
 
 /* Superposición transparente */
@@ -166,17 +177,39 @@
 
 .rows-content {
     display: flex;
-    flex-direction: row;
+    flex-direction: row; /* Coloca la imagen y los comentarios en una fila en escritorio */
+    gap: 1rem; /* Espacio entre la imagen y los comentarios */
 }
 
 /* Contenedor de comentarios */
 .comments-container {
-    border-top: 1px solid #494747;
+
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 40%; /* Ancho fijo para los comentarios en escritorio */
     gap: 0.5rem;
     order: 1;
+    margin-top: 0; /* Elimina el margen superior en escritorio */
+    overflow-y: auto; /* Permite el desplazamiento vertical si los comentarios son muy largos */
+    max-height: 500px; /* Limita la altura máxima de los comentarios */
+    margin-left: 50px;
+    overflow-y: scroll; /* Permite el desplazamiento sin mostrar la barra de scroll */
+    scroll-behavior: smooth;
+}
+
+/* Ocultar la barra de scroll, pero mantener el desplazamiento funcional */
+.comments-container::-webkit-scrollbar {
+    width: 0px; /* Hace la barra de scroll invisible */
+    background: transparent; /* Fondo transparente */
+}
+
+.comments-container::-webkit-scrollbar-thumb {
+    background: transparent; /* Elimina el color del thumb */
+}
+
+.feed-buttons{
+    margin-left: 50px;
+    margin-top: 10px;
 }
 
 .comment-content {
@@ -208,13 +241,17 @@
     flex-direction: column;
     gap: 0.3rem;
 }
-
+.comment-profile-pic{
+    display: none;
+}
 .comment-username {
     font-weight: bold;
-    color: white;
     font-size: 0.9rem;
 }
 
+.comment-username{
+    color: #7700ff;
+}
 .comment-text {
     font-size: 0.8rem;
     color: #d1d1d1;
@@ -248,7 +285,7 @@
     color: aqua;
 }
 
-/* Media Queries para responsividad (extraídas de .creator-list-container) */
+/* Media Queries para responsividad */
 @media (max-width: 1028px) {
     .feed-background {
         margin-left: 60px;
@@ -270,12 +307,11 @@
         margin-bottom: 1rem;
         margin-left: -120px;
     }
-    .feed-description-container{
-
+    .feed-description-container {
         text-align: center;
     }
     .comments-container {
-        display: none; /* Oculta el contenedor de comentarios */
+        display: flex; /* Muestra el contenedor de comentarios */
     }
 }
 
@@ -298,12 +334,19 @@
         height: 600px;
         margin-left: -10px;
     }
-    .feed-description-container{
+    .feed-description-container {
         margin-left: 50px;
         text-align: center;
     }
+    .rows-content {
+        flex-direction: column; /* Coloca los comentarios debajo de la imagen en móvil */
+    }
     .comments-container {
-        display: none; /* Oculta el contenedor de comentarios */
+        width: 100%; /* Ocupa todo el ancho en móvil */
+        margin-top: 1rem; /* Espacio entre la imagen y los comentarios */
+    }
+    .feed-description-container {
+        display: none; /* Oculta la descripción en dispositivos móviles */
     }
 }
 
@@ -311,19 +354,15 @@
     .feed-container {
         padding: 1rem;
     }
-
     .feed-info-container {
         padding: 1rem;
     }
-
     .feed-title {
         font-size: 1rem;
         text-align: center;
     }
-
-    .feed-description-container{
-        margin-left: 50px;
-        text-align: center;
+    .feed-description-container {
+        display: none; /* Oculta la descripción en dispositivos móviles */
     }
     .feed-item-image {
         width: 250px;
@@ -331,6 +370,30 @@
         margin-left: -10px;
     }
     .comments-container {
-        display: none; /* Oculta el contenedor de comentarios */
+        display: flex; /* Muestra el contenedor de comentarios */
+        margin-top: -50px;
+        margin-left: -40px;
+    }
+    .comment-username{
+        margin-left: 100px;
+        display: none;
+    }
+    .comment-text {
+        font-size: 0.8rem;
+        color: #d1d1d1;
+        white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+        overflow: hidden; /* Oculta el texto que excede el ancho */
+        text-overflow: ellipsis; /* Agrega los tres puntos al final */
+        max-width: 120px; /* Ajusta el ancho máximo según tu diseño */
+        margin-left: 5px;
+        display: none;
+    }
+    
+    .comment-section input {
+        width: 120px;
+        margin-left: -80px;
+    }
+    .feed-buttons{
+        margin-left: 170px;
     }
 }
