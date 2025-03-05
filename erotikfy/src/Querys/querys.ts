@@ -43,6 +43,7 @@ export const GET_WEEKLY_FEED = gql`
         media
         price
         is_public
+        likes_count
         comments{
           comment_id
           content
