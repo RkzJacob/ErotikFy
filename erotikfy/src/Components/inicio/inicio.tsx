@@ -14,7 +14,9 @@ export const Feed = () => {
   const { data: dataUser } = useGET_ID(id_usuario_storage || "");
   const usuario = dataUser?.getOneFindUser.user_id || "";
 
-  const [generarLike] = useMutation(CREATE_LIKE);
+  const [generarLike] = useMutation(CREATE_LIKE,{ 
+      refetchQueries: [{query: GET_WEEKLY_FEED ,variables: {user_id:usuario}}]
+    });
   const [createComentario] = useMutation(CREATE_COMENTARIO, {
     refetchQueries: [{ query: GET_WEEKLY_FEED, variables: { user_id: usuario } }]
   });
