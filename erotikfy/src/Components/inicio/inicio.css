@@ -275,6 +275,8 @@
     border: none;
     border-bottom: 2px solid #0b6396;
     border-top-right-radius: 8px;
+    margin-top: -20px;
+    margin-left: 50px;
 }
 
 .comment-section button {
@@ -283,6 +285,7 @@
     border: none;
     font-size: 1rem;
     color: aqua;
+    margin-bottom: 10px;
 }
 
 /* Media Queries para responsividad */
@@ -390,10 +393,28 @@
     }
     
     .comment-section input {
-        width: 120px;
-        margin-left: -80px;
+        width: 200px;
+        margin-left: 0px;
     }
     .feed-buttons{
         margin-left: 170px;
     }
 }
+
+.send-button {
+    background-color: #6f00ff; /* Color de fondo */
+    border: none; /* Sin borde */
+    border-radius: 50%; /* Forma circular */
+    width: 40px; /* Ancho */
+    height: 40px; /* Alto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    transition: background-color 0.3s ease; /* Transición suave */
+  }
+
+  .send-button svg {
+    color: #6f00ff; /* Color del ícono */
+    font-size: 20px; /* Tamaño del ícono */
+  }
