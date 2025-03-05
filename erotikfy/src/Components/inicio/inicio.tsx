@@ -7,6 +7,7 @@ import { CREATE_COMENTARIO, CREATE_LIKE } from '../../Mutations/mutations';
 import { useState, useEffect } from 'react';
 import { GET_WEEKLY_FEED } from '../../Querys/querys';
 import { toast } from 'sonner';
+import { LuSend } from "react-icons/lu";
 
 export const Feed = () => {
   const id_usuario_storage = localStorage.getItem("nombre_usuario");
@@ -131,18 +132,7 @@ export const Feed = () => {
                     ))}
 
                     {/* Sección para agregar un nuevo comentario */}
-                    {comentando === post.post_id && (
-                      <div className="comment-section">
-                        <input
-                          value={comentario}
-                          onChange={(e) => setComentario(e.target.value)}
-                          placeholder="Escribe un comentario..."
-                        />
-                        <button onClick={() => handleComentario(post.post_id)}>
-                          <i className="fa fa-comment"></i>
-                        </button>
-                      </div>
-                    )}
+                    
                   </div>
                 </div>
                 <div className="feed-buttons">
@@ -158,6 +148,18 @@ export const Feed = () => {
                 <div className="feed-description-container">
                   <p className="feed-description">Creador de contenido: {post.description}</p>
                 </div>
+                {comentando === post.post_id && (
+                      <div className="comment-section">
+                        <input
+                          value={comentario}
+                          onChange={(e) => setComentario(e.target.value)}
+                          placeholder="Escribe un comentario..."
+                        />
+                        <button className="send-button" onClick={() => handleComentario(post.post_id)}>
+                          <LuSend />
+                        </button>
+                      </div>
+                    )}
               </div>
             );
           })}
