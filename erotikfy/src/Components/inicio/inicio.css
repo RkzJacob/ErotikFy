@@ -111,6 +111,7 @@
     font-size: 1.5rem;
     cursor: pointer;
     transition: color 0.3s;
+    margin-bottom: 10px;
 }
 
 .like-button:hover, .comment-button:hover {
@@ -192,6 +193,18 @@
     overflow-y: auto; /* Permite el desplazamiento vertical si los comentarios son muy largos */
     max-height: 500px; /* Limita la altura máxima de los comentarios */
     margin-left: 50px;
+    overflow-y: scroll; /* Permite el desplazamiento sin mostrar la barra de scroll */
+    scroll-behavior: smooth;
+}
+
+/* Ocultar la barra de scroll, pero mantener el desplazamiento funcional */
+.comments-container::-webkit-scrollbar {
+    width: 0px; /* Hace la barra de scroll invisible */
+    background: transparent; /* Fondo transparente */
+}
+
+.comments-container::-webkit-scrollbar-thumb {
+    background: transparent; /* Elimina el color del thumb */
 }
 
 .feed-buttons{
@@ -358,11 +371,12 @@
     }
     .comments-container {
         display: flex; /* Muestra el contenedor de comentarios */
-        margin-top: -30px;
+        margin-top: -50px;
         margin-left: -40px;
     }
     .comment-username{
         margin-left: 100px;
+        display: none;
     }
     .comment-text {
         font-size: 0.8rem;
@@ -372,6 +386,7 @@
         text-overflow: ellipsis; /* Agrega los tres puntos al final */
         max-width: 120px; /* Ajusta el ancho máximo según tu diseño */
         margin-left: 5px;
+        display: none;
     }
     
     .comment-section input {
