@@ -62,3 +62,14 @@ export const BORRAR_CREADOR= gql`
         DELETE_USER(user_id:$user_id)
     }
 `
+export const HACER_SUSCRIPTOR= gql`
+    mutation serSuscriptor($user_id:String!){
+        UPDATE_USER_ROLE(user_id:$user_id)
+    }
+`
+
+export const HACER_NORMAL= gql`
+    mutation serNormal($user_id:String!){
+        UPDATE_USER_ROLE_NORMAL(user_id:$user_id)
+    }
+`

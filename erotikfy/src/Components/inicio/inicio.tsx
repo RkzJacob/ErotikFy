@@ -7,6 +7,7 @@ import { useMutation } from '@apollo/client';
 import { CREATE_COMENTARIO, CREATE_LIKE } from '../../Mutations/mutations';
 import { useState } from 'react';
 import { GET_WEEKLY_FEED } from '../../Querys/querys';
+import { toast } from 'sonner';
 
 export const Feed = () => {
   const id_usuario_storage = localStorage.getItem("nombre_usuario");
@@ -29,18 +30,18 @@ export const Feed = () => {
         return;
       }
 
-      const { data } = await createComentario({
+      await createComentario({
         variables: { user_id: usuario, post_id: post_id, content: comentario }
       });
 
-      console.log(data.CREATE_COMENTARIO); // Mostrar mensaje de éxito
+      // console.log(data.CREATE_COMENTARIO); // Mostrar mensaje de éxito
 
       // Limpiar el campo de comentario y cerrar el campo de escritura
       setComentario("");
       setComentando(null);
-
+      toast.success(`El comentario se ha subido con exito`);
     } catch (error) {
-      console.error("Error al crear comentario:", error);
+      toast.error(`No se ha podido subir el comentario ${error}`);
     }
   };
 
@@ -51,12 +52,12 @@ export const Feed = () => {
 
   const handleLike = async (post_id:string) => {
     try {
-      const { data } = await generarLike({
+      await generarLike({
         variables: { user_id: usuario, post_id: post_id }
       });
-      console.log(data.CREATE_Like); // Muestra el mensaje de éxito en la consola
+      toast.success(`Le haz dado like con exito`); // Muestra el mensaje de éxito en la consola
     } catch (error) {
-      console.error("Error al dar like:", error);
+      toast.error(`No se ha podido dar like ${error}`);
     }
   };
 

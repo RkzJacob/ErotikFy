@@ -8,6 +8,7 @@ import creator from "../../Assets/creator.png";
 import user from "../../assets/user.png";
 import exit from "../../assets/exit.png"
 import Cookies from "js-cookie";
+import { toast } from "sonner";
 
 export const Sidebar = () => {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ export const Sidebar = () => {
         Cookies.remove("token");
         Cookies.remove("time_video_player");
 
-
+        toast.success(`Se ha cerrado sesión con exito`);
         navigate("/")
     }
 
