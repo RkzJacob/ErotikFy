@@ -129,10 +129,10 @@
         margin-left: 60px;
     }
     .creator-list-item {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 1.5rem;
+        flex-direction: column; /* Apila los elementos verticalmente */
+        align-items: center; /* Centra los elementos horizontalmente */
+        text-align: center; /* Centra el texto */
+        padding: 1.5rem; /* Aumenta el padding para mejor espaciado */
     }
 
     .creator-list-title {
@@ -144,7 +144,6 @@
         height: 80px;
         margin-bottom: 1rem;
     }
-
     .creator-list-info {
         text-align: center;
     }
@@ -219,3 +218,26 @@
     scrollbar-width: thin;
     scrollbar-color: #8c00d8 rgba(255, 255, 255, 0.1);
 }
+
+/* Estilos para el botón flotante */
+.floating-button {
+    position: fixed; /* Fija el botón en la pantalla */
+    bottom: 20px; /* Distancia desde la parte inferior */
+    right: 20px; /* Distancia desde la derecha */
+    background-color: #8c00d8; /* Color de fondo morado */
+    color: white; /* Color del ícono */
+    border: none; /* Sin borde */
+    border-radius: 50%; /* Forma circular */
+    width: 56px; /* Ancho del botón */
+    height: 56px; /* Altura del botón */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para efecto flotante */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    transition: background-color 0.3s ease; /* Transición suave */
+  }
+  
+  .floating-button:hover {
+    background-color: #c300ff; /* Cambia el color al pasar el mouse */
+  }

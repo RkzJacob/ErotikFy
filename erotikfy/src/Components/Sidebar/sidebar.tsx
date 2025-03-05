@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom"; // Importa Link desde react-router-dom
 import "./sidebar.css";
 import Home from "../../Assets/home.png";
-import pornAvatar from "../../Assets/pornhub.avif";
+import logo from "../../Assets/logo.png";
 import search from "../../Assets/search.png";
 import creator from "../../Assets/creator.png";
 import user from "../../assets/user.png";
@@ -14,7 +14,7 @@ export const Sidebar = () => {
     <section className="sidebar">
       <div className="sidebar-complete">
         <div className="sidebar-img">
-          <img src={pornAvatar} alt="" />
+          <img src={logo} alt="" />
         </div>
         <div className="sidebar-list-main">
           <ul>

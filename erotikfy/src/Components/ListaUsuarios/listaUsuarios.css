@@ -111,11 +111,8 @@
 
 /* Media Queries */
 @media (max-width: 1024px) {
-    .profile-list-header {
-        flex-direction: column; /* Apila los elementos verticalmente */
-        align-items: center; /* Centra los elementos horizontalmente */
-        text-align: center; /* Centra el texto */
-        padding: 1.5rem;
+    .profile-list-background {
+        margin-left: 60px;
     }
 
     .profile-list-title {
@@ -138,18 +135,14 @@
         width: 80px;
         height: 80px;
     }
-
-    .profile-list-name {
-        font-size: 1.25rem;
+    .star-icon{
+                display: flex; /* Hace que el botón sea un contenedor flexible */
+        justify-content: center; /* Centra el contenido horizontalmente */
+        width: 100%; /* Ocupa todo el ancho disponible */
+        margin-top: 1rem; /* Espacio entre la descripción y el botón */
     }
 
-    .profile-list-description {
-        font-size: 0.75rem;
-    }
 
-    .profile-list-share-button {
-        font-size: 1.25rem;
-    }
 }
 
 @media (max-width: 768px) {
@@ -268,44 +261,6 @@
     scrollbar-width: thin; /* Hace el scrollbar delgado */
     scrollbar-color: #8c00d8 rgba(255, 255, 255, 0.1); /* Color del thumb y del track */
 }
-
-/* Estilos para el botón flotante */
-.floating-button {
-    position: fixed; /* Fija el botón en la pantalla */
-    bottom: 20px; /* Distancia desde la parte inferior */
-    right: 20px; /* Distancia desde la derecha */
-    background-color: #8c00d8; /* Color de fondo morado */
-    color: white; /* Color del ícono */
-    border: none; /* Sin borde */
-    border-radius: 50%; /* Forma circular */
-    width: 56px; /* Ancho del botón */
-    height: 56px; /* Altura del botón */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para efecto flotante */
-    cursor: pointer; /* Cambia el cursor al pasar el mouse */
-    transition: background-color 0.3s ease; /* Transición suave */
-  }
-  
-  .floating-button:hover {
-    background-color: #c300ff; /* Cambia el color al pasar el mouse */
-  }
-
-  /* Estilos para el botón de subir archivo */
-.upload-button {
-    background: none; /* Sin fondo */
-    border: none; /* Sin borde */
-    color: #8c00d8; /* Color morado */
-    cursor: pointer; /* Cambia el cursor al pasar el mouse */
-    transition: color 0.3s ease; /* Transición suave */
-    margin-left: auto; /* Mueve el botón a la derecha */
-    padding: 0.5rem; /* Espaciado interno */
-  }
-  
-  .upload-button:hover {
-    color: #c300ff; /* Cambia el color al pasar el mouse */
-  }
 
   /* En tu archivo listaUsuarios.css */
 .star-icon {
