@@ -1,5 +1,5 @@
 
-import { Link } from "react-router-dom"; // Importa Link desde react-router-dom
+import { Link, useNavigate } from "react-router-dom"; // Importa Link desde react-router-dom
 import "./sidebar.css";
 import Home from "../../Assets/home.png";
 import logo from "../../Assets/logo.png";
@@ -7,8 +7,19 @@ import search from "../../Assets/search.png";
 import creator from "../../Assets/creator.png";
 import user from "../../assets/user.png";
 import exit from "../../assets/exit.png"
+import Cookies from "js-cookie";
 
 export const Sidebar = () => {
+  const navigate = useNavigate();
+
+    const handleLogout =() =>{
+        localStorage.removeItem("nombre_usuario");
+        Cookies.remove("token");
+        Cookies.remove("time_video_player");
+
+
+        navigate("/")
+    }
 
   return (
     <section className="sidebar">
@@ -52,7 +63,7 @@ export const Sidebar = () => {
             </li>
             <li>
               <div className="list-main-item">
-                <a href="/loguear-cuenta">
+                <a  onClick={handleLogout}>
                   <img src={exit} alt="" />
                   <p>Cerrar Sesion</p>
                 </a>
