@@ -86,7 +86,7 @@ export const Feed = () => {
             return (
               <div key={post.post_id} className="feed-item">
                 <div className="feed-info-container">
-                  <Link to="/Perfil">
+                  <Link to={`/perfil/${post.user_id}`}>
                     <img
                       src={post.usuario.profile_picture} // Usar la URL obtenida o un valor vacío si no hay URL
                       alt={`${post.usuario.profile_picture}'s profile`}
