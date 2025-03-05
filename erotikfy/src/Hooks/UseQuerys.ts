@@ -23,6 +23,7 @@ export const useGetCreators = (username:String) => {
 export const useGET_WEEKLY_FEED_ = (user_id:String) => {
     const result = useQuery<ListPost>(GET_WEEKLY_FEED,{
         variables:{user_id:user_id},
+        fetchPolicy: "network-only",
     })
     return result
 }

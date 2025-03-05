@@ -22,8 +22,9 @@ const CreatePublicationPopup: React.FC<CreatePublicationPopupProps> = ({
   const [files, setFiles] = useState<File[]>([]);
   const [showPreview, setShowPreview] = useState(false);
   const [currentFileIndex, setCurrentFileIndex] = useState(0); // Índice de la imagen/video actual
+  const  id =  userId; 
   const [createPost] = useMutation(CREATE_POST,{ 
-    refetchQueries: [{query: GET_WEEKLY_FEED ,variables: {user_id:userId}}]
+    refetchQueries: [{query: GET_WEEKLY_FEED ,variables: {user_id:id}}]
   });
   const [obtenerUrl] = useMutation(GET_URL);
 
