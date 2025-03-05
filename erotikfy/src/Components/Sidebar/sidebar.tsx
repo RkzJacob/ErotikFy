@@ -12,6 +12,7 @@ import { toast } from "sonner";
 
 export const Sidebar = () => {
   const navigate = useNavigate();
+  const role = Cookies.get("role");
 
     const handleLogout =() =>{
         localStorage.removeItem("nombre_usuario");
@@ -38,6 +39,8 @@ export const Sidebar = () => {
                 </Link>
               </div>
             </li>
+            {role === "admin" && (
+              <>
             <li>
               <div className="list-main-item">
                 <Link to="/search-users"> {/* Navega a la página de Creadores */}
@@ -61,7 +64,10 @@ export const Sidebar = () => {
                   <p>Usuarios</p>
                 </Link>
               </div>
+            
             </li>
+            </>
+            )}
             <li>
               <div className="list-main-item">
                 <a  onClick={handleLogout}>

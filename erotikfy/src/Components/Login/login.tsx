@@ -5,6 +5,7 @@ import background from '../../assets/erotikfy.jpg'
 import { gql, useApolloClient, useMutation } from '@apollo/client';
 import { LOGIN_MUTATION } from '../../Mutations/mutations';
 import { toast } from 'sonner';
+import Cookies from "js-cookie";
 
 
 export const Login = () => {
@@ -41,7 +42,15 @@ export const Login = () => {
           }
           localStorage.setItem("nombre_usuario", nombreUsuario);
           toast.success(`Haz accedido con exito ${nombreUsuario}`)
-          navigate("/main");
+          const role = Cookies.get("role") || "";
+          if(role=="suscriptor"){
+            navigate("/inicio");
+          }else if(role=="normal"){
+            navigate("/main");
+          }else if (role=="admin"){
+            navigate("/inicio");
+          }
+          
         } catch (err) {
           toast.error(`No haz podido ingresar contraseña o nombre de usuario invalido`)
         }
