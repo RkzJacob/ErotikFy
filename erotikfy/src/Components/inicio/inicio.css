@@ -6,8 +6,18 @@
     background: rgba(255, 255, 255, 0);
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0);
-    overflow-y: auto;
+    overflow-y: scroll; /* Permite el desplazamiento sin mostrar la barra de scroll */
     scroll-behavior: smooth;
+}
+
+/* Ocultar la barra de scroll, pero mantener el desplazamiento funcional */
+.feed-container::-webkit-scrollbar {
+    width: 0px; /* Hace la barra de scroll invisible */
+    background: transparent; /* Fondo transparente */
+}
+
+.feed-container::-webkit-scrollbar-thumb {
+    background: transparent; /* Elimina el color del thumb */
 }
 
 /* Fondo general */

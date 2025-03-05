@@ -1,39 +1,25 @@
 /* Contenedor principal */
 .tumadre {
+    
     height: 100vh;
     margin: 0 auto;
-    margin-left: 430px;
     padding: 2rem;
     background: rgba(255, 255, 255, 0);
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0);
-    overflow-y: auto;
+    overflow-y: scroll; /* Permite el desplazamiento sin mostrar la barra de scroll */
     scroll-behavior: smooth;
 }
 
 /* Estilos para el scrollbar en navegadores basados en WebKit (Chrome, Safari, Edge) */
 .tumadre::-webkit-scrollbar {
-    width: 8px; /* Ancho del scrollbar */
-}
-
-.tumadre::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1); /* Color de fondo del track */
-    border-radius: 4px; /* Bordes redondeados */
-}
-
-.tumadre::-webkit-scrollbar-thumb {
-    background: #8c00d8; /* Color morado del thumb (la barra que se mueve) */
-    border-radius: 4px; /* Bordes redondeados */
-}
-
-.tumadre::-webkit-scrollbar-thumb:hover {
-    background: #c300ff; /* Color morado más claro al pasar el mouse */
+    display: none; /* Oculta la barra de desplazamiento */
 }
 
 /* Estilos para el scrollbar en Firefox */
 .tumadre {
-    scrollbar-width: thin; /* Hace el scrollbar delgado */
-    scrollbar-color: #8c00d8 rgba(255, 255, 255, 0.1); /* Color del thumb y del track */
+    scrollbar-width: none; /* Oculta la barra de desplazamiento */
+    scrollbar-color: transparent transparent; /* Hace invisible el color del scrollbar */
 }
 
 /* Contenedor de la información del perfil */
@@ -43,7 +29,7 @@
     padding: 0 4rem; /* Eliminamos el padding superior e inferior */
     background: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0);
 }
 
 /* Encabezado del perfil */
