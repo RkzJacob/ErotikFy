@@ -4,6 +4,7 @@ import { useMutation } from "@apollo/client";
 import { CREATE_USER_CREATOR, GET_URL_CREATOR } from "../../Mutations/mutations";
 import { compressImage, fileToBase64 } from "../../Functions/functions";
 import { GET_ALL_CREATORS } from "../../Querys/querys";
+import { toast } from "sonner";
 
 interface CreateProfilePopupProps {
   isOpen: boolean;
@@ -78,12 +79,12 @@ const CreateProfilePopup: React.FC<CreateProfilePopupProps> = ({
           return;
         }
 
-        const {data}= await createCreator({
+        await createCreator({
             variables: {username:profileName, contrasena:contrasena,profile_picture:imageUrl,bio:profileDescription}
         });
-        console.log("Datos enviados al backend",data)
+        toast.success(`Se ha creado con exito el usuario ${profileName}`)
       } catch (error) {
-          console.log("error",error)
+        toast.error(`No se ha podido crear el usuario ${profileName} error: ${error}`)
       }
   }
   

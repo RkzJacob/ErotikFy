@@ -6,6 +6,8 @@ import { InputForm } from './inputsForm';
 import background from '../../assets/register_realike.jpg'
 import { useMutation } from '@apollo/client';
 import { REGISTER_MUTATION_USERNORMAL } from '../../Mutations/mutations';
+import { toast } from 'sonner';
+import { useNavigate } from 'react-router-dom';
 
 
 const schema = z.object({
@@ -21,6 +23,7 @@ type FormValues = z.infer<typeof schema>;
 
 export const Registrar = () =>{
     const [createUser,{loading ,error}] = useMutation(REGISTER_MUTATION_USERNORMAL);
+    const navigate = useNavigate();
     const {control,handleSubmit,formState:{errors}} = useForm<FormValues>({
         resolver:zodResolver(schema),
         mode:"onBlur",
@@ -33,13 +36,13 @@ export const Registrar = () =>{
 
     const onSubmit: SubmitHandler<FormValues> = async (formData) =>{
         try {
-            const {data}= await createUser({
+            await createUser({
                 variables: {username: formData.nombre_usuario,contrasena:formData.confirmPassword },
               });
-            console.log("usuario registrado",data)
-            
+            toast.success(`Haz registrado tu cuenta con exito ${formData.nombre_usuario}`)
+            navigate('/loguear-cuenta')
         } catch (error) {
-            console.log("usuario no registrado",error)
+            toast.error(`no se ha podido registrar con exito ${error}`)
         }
     }
     return (

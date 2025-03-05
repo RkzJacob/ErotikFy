@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom"
 import background from '../../assets/erotikfy.jpg'
 import { gql, useApolloClient, useMutation } from '@apollo/client';
 import { LOGIN_MUTATION } from '../../Mutations/mutations';
+import { toast } from 'sonner';
 
 
 export const Login = () => {
@@ -39,10 +40,10 @@ export const Login = () => {
             });
           }
           localStorage.setItem("nombre_usuario", nombreUsuario);
+          toast.success(`Haz accedido con exito ${nombreUsuario}`)
           navigate("/main");
         } catch (err) {
-          console.error(err);
-          alert("Error en el inicio de sesión");
+          toast.error(`No haz podido ingresar contraseña o nombre de usuario invalido`)
         }
       };
 

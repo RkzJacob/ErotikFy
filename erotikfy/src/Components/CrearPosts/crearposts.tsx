@@ -5,6 +5,7 @@ import { useMutation } from "@apollo/client";
 import { CREATE_POST, GET_URL } from "../../Mutations/mutations";
 import { compressImage, fileToBase64 } from "../../Functions/functions";
 import { GET_WEEKLY_FEED } from "../../Querys/querys";
+import { Toaster, toast } from 'sonner'
 
 interface CreatePublicationPopupProps {
   isOpen: boolean;
@@ -96,12 +97,13 @@ const CreatePublicationPopup: React.FC<CreatePublicationPopupProps> = ({
 
     console.log("📤 Datos enviados a la mutación:", JSON.stringify(variables, null, 2));
 
-      const {data}= await createPost({
+      await createPost({
           variables: {user_id:userId, title:publicationName,descripcion:publicationDescription,media:uploadedUrls},
       });
-      console.log("Datos enviados al backend",data)
+
+      toast.success('Agregado correctamente')
     } catch (error) {
-        console.log("error",error)
+      toast.error(`No se ha podido agregar el post ${error}`)
     }
 }
 
@@ -128,6 +130,7 @@ const CreatePublicationPopup: React.FC<CreatePublicationPopupProps> = ({
   return (
     <div className="popup-overlay">
       <div className="popup-content">
+      <Toaster position="top-center"/>
         <button className="close-btn" onClick={onClose}>
           &times;
         </button>

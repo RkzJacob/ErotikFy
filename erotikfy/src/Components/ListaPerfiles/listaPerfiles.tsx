@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { BORRAR_CREADOR } from "../../Mutations/mutations";
 import { GET_ALL_CREATORS } from "../../Querys/querys";
+import { toast } from "sonner";
 
 export const ListPerfiles = () => {
   const { data, loading, error } = useGetallCreators();
@@ -61,9 +62,9 @@ export const ListPerfiles = () => {
           variables: {user_id: userToDelete, 
           },
         });
-      console.log("USUARIO eliminado: ",userToDelete)
+      toast.success(`Haz eliminado correctamente al usuario ${userToDelete}`)
       } catch (error) {
-        console.log("error",error)
+        toast.error(`Ha habido un error eliminado el usuario ${error}`)
       }
     }
     // Cerrar la advertencia
