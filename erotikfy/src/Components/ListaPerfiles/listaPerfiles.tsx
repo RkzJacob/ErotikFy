@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaUserPlus } from "react-icons/fa"; // Ícono de agregar persona
-import { MdFileUpload } from "react-icons/md"; // Ícono de subir archivo
+import { MdFileUpload, MdDelete } from "react-icons/md"; // Íconos de subir archivo y eliminar
 import "./listaPerfiles.css";
 import CreateProfilePopup from "../CrearPerfil/crearperfil"; // Modificado a crear perfil
 import CrearPosts from "../CrearPosts/crearposts"; // Asegúrate de importar el popup de crear publicación
@@ -42,6 +42,11 @@ export const ListPerfiles = () => {
     setIsCrearPostOpen(false); // Cierra el popup de crear publicación
   };
 
+  const handleDeleteProfile = (userId: string) => {
+    console.log(`Eliminar perfil con ID: ${userId}`);
+    // Implementar la lógica para eliminar el perfil aquí
+  };
+
   if (loading) return <SkeletonUserList />;
   if (error) return <p>error: {error.message}</p>;
 
@@ -62,12 +67,20 @@ export const ListPerfiles = () => {
                 <h3 className="creator-list-name">{perfil.username}</h3>
                 <p className="creator-list-description">{perfil.bio}</p>
               </div>
-              <button
-                className="upload-button"
-                onClick={() => handleUploadFile(perfil.user_id)}
-              >
-                <MdFileUpload size={24} />
-              </button>
+              <div className="creator-list-actions">
+                <button
+                  className="delete-button"
+                  onClick={() => handleDeleteProfile(perfil.user_id)}
+                >
+                  <MdDelete size={24} />
+                </button>
+                <button
+                  className="upload-button"
+                  onClick={() => handleUploadFile(perfil.user_id)}
+                >
+                  <MdFileUpload size={24} />
+                </button>
+              </div>
             </div>
           ))}
         </div>
