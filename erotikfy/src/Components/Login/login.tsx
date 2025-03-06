@@ -23,8 +23,8 @@ export const Login = () => {
           const {data}=await login({
             variables: {username: nombreUsuario, contrasena:contrasena },
           });
-
-          if (data) {
+          
+          if (data?.login) {
             // Actualizar el cache de Apollo con el nombre del usuario
             client.writeQuery({
               query: gql`
@@ -42,20 +42,18 @@ export const Login = () => {
               },
             });
           }
-          const role = Cookies.get("role") || "";
+
+          const role = (Cookies.get("role") || "").trim().toLowerCase();
+          console.log(role);
           localStorage.setItem("nombre_usuario", nombreUsuario);
           toast.success(`Haz accedido con exito ${nombreUsuario}`)
           
-
-          console.log(role)
-          if(role=="suscriptor"){
+          if (role === "suscriptor" || role === "admin") {
             navigate("/inicio");
-          }
-          if(role=="normal"){
+          } else if (role === "normal") {
             navigate("/main");
-          }
-          if (role=="admin"){
-            navigate("/inicio");
+          } else {
+            console.warn("Rol no reconocido:", role);
           }
           
         } catch (err) {
