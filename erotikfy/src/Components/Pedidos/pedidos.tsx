@@ -1,7 +1,6 @@
 import './pedidos.css';
 import user from '../../assets/user.png';
 import pedidosIcon from '../../assets/pedidosIcon.svg';
-import { PerfilUser } from '../PerfilUser/perfiluser';
 
 export const PedidosList = () => {
     return (
