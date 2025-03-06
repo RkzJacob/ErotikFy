@@ -7,13 +7,18 @@ import search from "../../assets//search.png";
 import creator from "../../assets//creator.png";
 import user from "../../assets/user.png";
 import exit from "../../assets/exit.png"
+import volver from "../../assets/volver.png"; // Asegúrate de que la ruta es correcta
+
 import Cookies from "js-cookie";
 import { toast } from "sonner";
 
 export const Sidebar = () => {
   const navigate = useNavigate();
   const role = localStorage.getItem("role");
-
+  const handleBack = () => {
+    navigate(-1); // Vuelve a la página anterior
+  };
+  
     const handleLogout =() =>{
         localStorage.removeItem("nombre_usuario");
         Cookies.remove("token");
@@ -76,6 +81,18 @@ export const Sidebar = () => {
                 </a>
               </div>
             </li>
+            <div className="sidebar-list-footer">
+              <ul>
+                <li>
+                  <div className="list-main-item">
+                    <a onClick={handleBack} style={{ cursor: "pointer" }}>
+                      <img src={volver} alt="Volver" />
+                      <p>Volver</p>
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </ul>
         </div>
         <div className="sidebar-list-settings">

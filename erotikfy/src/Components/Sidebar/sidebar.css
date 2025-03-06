@@ -180,3 +180,40 @@
 @media (max-width: 376px) {
     
 }
+
+.sidebar-list-footer {
+    margin-top: auto; /* Empuja el botón hacia abajo */
+    padding-bottom: 20px; /* Espaciado inferior */
+}
+
+.sidebar-list-footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-list-footer ul li {
+    border-radius: 10px;
+}
+
+.sidebar-list-footer ul li a {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 10px;
+    padding-right: 50px;
+    border-radius: 10px;
+    margin: 0;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sidebar-list-footer ul li a:hover {
+    background-color: #000000;
+}
+
+.sidebar-list-footer ul li img {
+    width: 20px;
+    height: 20px;
+}
