@@ -1,10 +1,10 @@
 
 import { Link, useNavigate } from "react-router-dom"; // Importa Link desde react-router-dom
 import "./sidebar.css";
-import Home from "../../Assets/home.png";
-import logo from "../../Assets/logo.png";
-import search from "../../Assets/search.png";
-import creator from "../../Assets/creator.png";
+import Home from "../../assets/home.png";
+import logo from "../../assets//logo.png";
+import search from "../../assets//search.png";
+import creator from "../../assets//creator.png";
 import user from "../../assets/user.png";
 import exit from "../../assets/exit.png"
 import Cookies from "js-cookie";
