@@ -1,9 +1,8 @@
 import { Navigate } from "react-router-dom";
-import Cookies from "js-cookie";
 import { JSX } from "react";
 
 export const PrivateRoute = ({ children, requiredRole }: { children: JSX.Element, requiredRole: string[] }) => {
-  const token = Cookies.get("token");
+  const token = localStorage.getItem("token");
 
   // Si el token no existe, redirige a la página de login
   if (!token) {
@@ -11,7 +10,7 @@ export const PrivateRoute = ({ children, requiredRole }: { children: JSX.Element
   }
 
   // Aquí asumimos que el rol está dentro del token
-  const role = Cookies.get("role") || ""; // Decodificar el token (suponiendo que es JWT)
+  const role = localStorage.getItem("role") || ""; // Decodificar el token (suponiendo que es JWT)
 
 
   // Verificamos si el usuario tiene el rol adecuado

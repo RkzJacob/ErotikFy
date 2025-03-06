@@ -12,7 +12,7 @@ import { toast } from "sonner";
 
 export const Sidebar = () => {
   const navigate = useNavigate();
-  const role = Cookies.get("role");
+  const role = localStorage.getItem("role");
 
     const handleLogout =() =>{
         localStorage.removeItem("nombre_usuario");
