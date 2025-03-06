@@ -73,7 +73,17 @@ export const Sidebar = () => {
             </li>
             </>
             )}
-            <li>
+
+              <li>
+                <div className="list-main-item">
+                  <a onClick={handleBack} style={{ cursor: "pointer" }}>
+                    <img src={volver} alt="Volver" />
+                     <p>Volver</p>
+                   </a>
+                  </div>
+              </li>
+
+              <li>
               <div className="list-main-item">
                 <a  onClick={handleLogout}>
                   <img src={exit} alt="" />
@@ -81,18 +91,6 @@ export const Sidebar = () => {
                 </a>
               </div>
             </li>
-            <div className="sidebar-list-footer">
-              <ul>
-                <li>
-                  <div className="list-main-item">
-                    <a onClick={handleBack} style={{ cursor: "pointer" }}>
-                      <img src={volver} alt="Volver" />
-                      <p>Volver</p>
-                    </a>
-                  </div>
-                </li>
-              </ul>
-            </div>
           </ul>
         </div>
         <div className="sidebar-list-settings">
