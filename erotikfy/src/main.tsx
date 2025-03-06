@@ -8,7 +8,7 @@ import { Toaster } from 'sonner';
 const client = new ApolloClient({
   cache:new InMemoryCache(),
   link: new HttpLink({
-    uri: "http://localhost:3000/api",
+    uri: "https://graph-erotikfy.onrender.com/",
     
     credentials: 'include',
   })
