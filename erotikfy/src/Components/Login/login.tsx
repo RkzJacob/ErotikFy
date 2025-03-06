@@ -14,6 +14,7 @@ export const Login = () => {
     const [login,{loading}] = useMutation(LOGIN_MUTATION);
     const client = useApolloClient();
     const navigate = useNavigate();
+    const [role, setRole] = useState<string | null>(null);
     
 
     const handleSubmit = async (e:any) => {
@@ -43,19 +44,25 @@ export const Login = () => {
             });
           }
 
-          const role = (Cookies.get("role") || "").trim().toLowerCase();
-          console.log(role);
+          
           localStorage.setItem("nombre_usuario", nombreUsuario);
           toast.success(`Haz accedido con exito ${nombreUsuario}`)
           
-          if (role === "suscriptor" || role === "admin") {
-            navigate("/inicio");
-          } else if (role === "normal") {
-            navigate("/main");
-          } else {
-            console.warn("Rol no reconocido:", role);
-          }
-          
+          setTimeout(() => {
+            const updatedRole = (Cookies.get("role") || "").trim().toLowerCase();
+            setRole(updatedRole);
+            
+            console.log("Rol obtenido:", updatedRole);
+
+            if (updatedRole === "suscriptor" || updatedRole === "admin") {
+                navigate("/inicio");
+            } else if (updatedRole === "normal") {
+                navigate("/main");
+            } else {
+                console.warn("Rol no reconocido:", updatedRole);
+            }
+        }, 700);
+
         } catch (err) {
           toast.error(`No haz podido ingresar contraseña o nombre de usuario invalido`)
         }
