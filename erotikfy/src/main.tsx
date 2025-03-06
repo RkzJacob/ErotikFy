@@ -9,7 +9,6 @@ const client = new ApolloClient({
   cache:new InMemoryCache(),
   link: new HttpLink({
     uri: "https://graph-erotikfy.onrender.com/api",
-    
     credentials: 'include',
   })
 })

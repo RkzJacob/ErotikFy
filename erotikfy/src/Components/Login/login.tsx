@@ -1,18 +1,16 @@
 import './login.css'
-import {  useEffect, useState } from "react";
+import {  useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import background from '../../assets/erotikfy.jpg'
-import { gql, useApolloClient, useMutation } from '@apollo/client';
+import {  useMutation } from '@apollo/client';
 import { LOGIN_MUTATION } from '../../Mutations/mutations';
 import { toast } from 'sonner';
-import Cookies from "js-cookie";
 
 
 export const Login = () => {
     const [nombreUsuario,setNombreUsuario] = useState('');
     const [contrasena,setContrasena] = useState('');
     const [login,{loading}] = useMutation(LOGIN_MUTATION);
-    const client = useApolloClient();
     const navigate = useNavigate();
 
 
@@ -25,31 +23,14 @@ export const Login = () => {
             variables: {username: nombreUsuario, contrasena:contrasena },
           });
           
-          if (data?.login) {
-            // Actualizar el cache de Apollo con el nombre del usuario
-            client.writeQuery({
-              query: gql`
-                query GetUserName {
-                  user {
-                    nombre_usuario
-                  }
-                }
-              `,
-              data: {
-                user: {
-                  nombre_usuario: nombreUsuario,
-                  __typename: 'User',  // Especificar un typename
-                },
-              },
-            });
-          }
-
-          
+          if (data) {
+          localStorage.setItem("role", data.LOGIN_USER.role);
           localStorage.setItem("nombre_usuario", nombreUsuario);
           toast.success(`Haz accedido con exito ${nombreUsuario}`)
           
           setTimeout(() => {
-            const updatedRole = Cookies.get("role");
+            
+            const updatedRole =localStorage.getItem("role");
             
             console.log("Rol obtenido:", updatedRole);
 
@@ -61,27 +42,14 @@ export const Login = () => {
                 console.warn("Rol no reconocido:", updatedRole);
             }
         }, 2000);
+          }
+          
 
         } catch (err) {
           toast.error(`No haz podido ingresar contraseña o nombre de usuario invalido`)
-          const updatedRole = Cookies.get("role");
-          console.log("Rol obtenido:", updatedRole);
         }
       };
       
-      useEffect(() => {
-        const updatedRole = Cookies.get("role");
-
-        console.log("Rol obtenido:", updatedRole);
-
-        if (updatedRole === "suscriptor" || updatedRole === "admin") {
-            navigate("/inicio");
-        } else if (updatedRole === "normal") {
-            navigate("/main");
-        } else {
-            console.warn("Rol no reconocido:", updatedRole);
-        }
-    }, []);
 
     
     return (
