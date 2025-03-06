@@ -14,7 +14,7 @@ export const Login = () => {
     const [login,{loading}] = useMutation(LOGIN_MUTATION);
     const client = useApolloClient();
     const navigate = useNavigate();
-    const role = Cookies.get("role") || "";
+    
 
     const handleSubmit = async (e:any) => {
         e.preventDefault();
@@ -23,7 +23,8 @@ export const Login = () => {
           const {data}=await login({
             variables: {username: nombreUsuario, contrasena:contrasena },
           });
-          if (data?.login) {
+
+          if (data) {
             // Actualizar el cache de Apollo con el nombre del usuario
             client.writeQuery({
               query: gql`
@@ -41,6 +42,7 @@ export const Login = () => {
               },
             });
           }
+          const role = Cookies.get("role") || "";
           localStorage.setItem("nombre_usuario", nombreUsuario);
           toast.success(`Haz accedido con exito ${nombreUsuario}`)
           
