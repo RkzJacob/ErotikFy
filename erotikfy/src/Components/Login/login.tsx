@@ -60,7 +60,7 @@ export const Login = () => {
             } else {
                 console.warn("Rol no reconocido:", updatedRole);
             }
-        }, 700);
+        }, 2000);
 
         } catch (err) {
           toast.error(`No haz podido ingresar contraseña o nombre de usuario invalido`)
