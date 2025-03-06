@@ -14,10 +14,11 @@ export const Login = () => {
     const [login,{loading}] = useMutation(LOGIN_MUTATION);
     const client = useApolloClient();
     const navigate = useNavigate();
+    const role = Cookies.get("role") || "";
 
     const handleSubmit = async (e:any) => {
         e.preventDefault();
-    
+        
         try {
           const {data}=await login({
             variables: {username: nombreUsuario, contrasena:contrasena },
@@ -42,12 +43,16 @@ export const Login = () => {
           }
           localStorage.setItem("nombre_usuario", nombreUsuario);
           toast.success(`Haz accedido con exito ${nombreUsuario}`)
-          const role = Cookies.get("role") || "";
+          
+
+          console.log(role)
           if(role=="suscriptor"){
             navigate("/inicio");
-          }else if(role=="normal"){
+          }
+          if(role=="normal"){
             navigate("/main");
-          }else if (role=="admin"){
+          }
+          if (role=="admin"){
             navigate("/inicio");
           }
           
