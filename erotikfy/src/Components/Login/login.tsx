@@ -1,5 +1,5 @@
 import './login.css'
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import background from '../../assets/erotikfy.jpg'
 import { gql, useApolloClient, useMutation } from '@apollo/client';
@@ -49,7 +49,7 @@ export const Login = () => {
           toast.success(`Haz accedido con exito ${nombreUsuario}`)
           
           setTimeout(() => {
-            const updatedRole = (Cookies.get("role") || "").trim().toLowerCase();
+            const updatedRole = Cookies.get("role");
             
             console.log("Rol obtenido:", updatedRole);
 
@@ -64,9 +64,24 @@ export const Login = () => {
 
         } catch (err) {
           toast.error(`No haz podido ingresar contraseña o nombre de usuario invalido`)
+          const updatedRole = Cookies.get("role");
+          console.log("Rol obtenido:", updatedRole);
         }
       };
+      
+      useEffect(() => {
+        const updatedRole = Cookies.get("role");
 
+        console.log("Rol obtenido:", updatedRole);
+
+        if (updatedRole === "suscriptor" || updatedRole === "admin") {
+            navigate("/inicio");
+        } else if (updatedRole === "normal") {
+            navigate("/main");
+        } else {
+            console.warn("Rol no reconocido:", updatedRole);
+        }
+    }, []);
 
     
     return (
