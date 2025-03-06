@@ -1,5 +1,5 @@
 import './login.css'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import background from '../../assets/erotikfy.jpg'
 import { gql, useApolloClient, useMutation } from '@apollo/client';
@@ -14,8 +14,8 @@ export const Login = () => {
     const [login,{loading}] = useMutation(LOGIN_MUTATION);
     const client = useApolloClient();
     const navigate = useNavigate();
-    const [role, setRole] = useState<string | null>(null);
-    
+
+
 
     const handleSubmit = async (e:any) => {
         e.preventDefault();
@@ -50,7 +50,6 @@ export const Login = () => {
           
           setTimeout(() => {
             const updatedRole = (Cookies.get("role") || "").trim().toLowerCase();
-            setRole(updatedRole);
             
             console.log("Rol obtenido:", updatedRole);
 
