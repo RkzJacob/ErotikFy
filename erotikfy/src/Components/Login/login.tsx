@@ -1,5 +1,5 @@
 import './login.css';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import background from '../../assets/erotikfy.jpg';
 import { useMutation } from '@apollo/client';
@@ -11,6 +11,16 @@ export const Login = () => {
     const [contrasena, setContrasena] = useState('');
     const [login, { loading }] = useMutation(LOGIN_MUTATION);
     const [redirectTo, setRedirectTo] = useState<string | null>(null);  // Nuevo estado para la redirección
+
+    const [showAgePopup, setShowAgePopup] = useState(true);
+
+    useEffect(() => {
+      // Verificar si ya aceptó la restricción de edad
+      const ageConfirmed = localStorage.getItem("ageConfirmed");
+      if (ageConfirmed === "true") {
+          setShowAgePopup(false);
+      }
+  }, []);
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
@@ -47,9 +57,31 @@ export const Login = () => {
         return <Navigate to={redirectTo} />;
     }
 
+    const handleAcceptAge = () => {
+      localStorage.setItem("ageConfirmed", "true");
+      setShowAgePopup(false);
+    };
+
+    // Función para rechazar el acceso
+    const handleDenyAge = () => {
+      setShowAgePopup(true);
+      window.location.href = "https://www.google.cl/";
+    };
+
     return (
         <>
-            <section className="login">
+          {showAgePopup && (
+                <div className="age-popup">
+                    <div className="age-popup-content">
+                        <h2>Este contenido es <span>SOLO para mayores de 18 años</span></h2>
+                        <div className="buttons">
+                            <button onClick={handleAcceptAge} className="accept">Soy mayor de edad</button>
+                            <button onClick={handleDenyAge} className="deny">No soy mayor de edad</button>
+                        </div>
+                    </div>
+                </div>
+            )}
+            <section className={`login ${showAgePopup ? 'blurred' : ''}`}>
                 <div className="login-content">
                     <img src={background} className='login__img banner' alt="" />
                 </div>

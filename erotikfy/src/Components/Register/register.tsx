@@ -8,6 +8,7 @@ import { useMutation } from '@apollo/client';
 import { REGISTER_MUTATION_USERNORMAL } from '../../Mutations/mutations';
 import { toast } from 'sonner';
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 
 const schema = z.object({
@@ -24,6 +25,26 @@ type FormValues = z.infer<typeof schema>;
 export const Registrar = () =>{
     const [createUser,{loading}] = useMutation(REGISTER_MUTATION_USERNORMAL);
     const navigate = useNavigate();
+    const [showAgePopup, setShowAgePopup] = useState(true);
+
+    useEffect(() => {
+          // Verificar si ya aceptó la restricción de edad
+          const ageConfirmed = localStorage.getItem("ageConfirmed");
+          if (ageConfirmed === "true") {
+              setShowAgePopup(false);
+          }
+      }, []);
+      
+    const handleAcceptAge = () => {
+        localStorage.setItem("ageConfirmed", "true");
+        setShowAgePopup(false);
+    };
+    
+    const handleDenyAge = () => {
+        setShowAgePopup(true);
+        window.location.href = "https://www.google.cl/";
+    };
+
     const {control,handleSubmit,formState:{errors}} = useForm<FormValues>({
         resolver:zodResolver(schema),
         mode:"onBlur",
@@ -46,6 +67,18 @@ export const Registrar = () =>{
         }
     }
     return (
+        <>
+        {showAgePopup && (
+            <div className="age-popup">
+            <div className="age-popup-content">
+                <h2>Este contenido es <span>SOLO para mayores de 18 años</span></h2>
+                <div className="buttons">
+                    <button onClick={handleAcceptAge} className="accept">Soy mayor de edad</button>
+                    <button onClick={handleDenyAge} className="deny">No soy mayor de edad</button>
+                </div>
+            </div>
+        </div>
+        )}
         <section className="register">
             <div className="content-register">
                 <div className='imagen-register'>
@@ -78,5 +111,6 @@ export const Registrar = () =>{
                 </div>
                 
         </section>
+        </>
     )
 }
