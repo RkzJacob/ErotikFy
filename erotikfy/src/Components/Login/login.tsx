@@ -55,8 +55,8 @@ export const Login = () => {
                 </div>
                 <div className="login__container">
                     <div className='login__header'>
-                        <h2>Iniciar Sesion</h2>
-                        <p>Ingresa tu nombre de usuario y la contraseña para acceder a erotkfy</p>
+                        <h2>Iniciar Sesión</h2>
+                        <p>Ingresa tu nombre de usuario y la contraseña para acceder a LikeRial</p>
                     </div>
                     <form className="login__form" onSubmit={handleSubmit}>
                         <div className='login__item'>
@@ -87,7 +87,7 @@ export const Login = () => {
                             </ul>
                         </div>
                         <button className='login__button' type='submit' disabled={loading}>
-                            Iniciar sesion
+                            Iniciar sesión
                         </button>
                     </form>
                 </div>

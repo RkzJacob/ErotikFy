@@ -55,7 +55,7 @@ export const Registrar = () =>{
             </div>
             <div className="register__container">
                 <div className='register_container-title'>
-                    <h2>REGISTRAR CUENTA</h2>
+                    <h2>Registrar tu cuenta</h2>
                 </div>
                     <form className="register__form" onSubmit={handleSubmit(onSubmit)}  >
                         <div>
@@ -64,11 +64,12 @@ export const Registrar = () =>{
                         </div>
                         <div>
                             <i className="fa fa-lock"></i>
-                            <InputForm name='contrasena' control={control} label='Contraseña' type='password' error={errors.contrasena}/>
+                            <InputForm name='contrasena' control={control} label='Ingresa una contraseña facil de recordar, no hay cambios' type='password' error={errors.contrasena}/>
                         </div>
                         <div>
+                            
                             <i className="fa fa-lock"></i>
-                            <InputForm name='confirmPassword' control={control} label='Confirmar contraseña' type='password' error={errors.confirmPassword}/>
+                            <InputForm name='confirmPassword' control={control} label='Confirma la contraseña, recuerda, no hay cambios' type='password' error={errors.confirmPassword}/>
                         </div>
                         <button className='register__button' type='submit'  disabled={loading}>
                             Registrarse
