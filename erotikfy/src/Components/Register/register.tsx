@@ -26,6 +26,8 @@ export const Registrar = () =>{
     const [createUser,{loading}] = useMutation(REGISTER_MUTATION_USERNORMAL);
     const navigate = useNavigate();
     const [showAgePopup, setShowAgePopup] = useState(true);
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setshowConfirmPassword] = useState(false);
 
     useEffect(() => {
           // Verificar si ya aceptó la restricción de edad
@@ -54,6 +56,13 @@ export const Registrar = () =>{
             confirmPassword:""
         }
     });
+
+    const togglePasswordVisibility = () => {
+        setShowPassword((prev) => !prev);
+    };
+    const toggleConfirmPasswordVisibility = () => {
+        setshowConfirmPassword((prev) => !prev);
+    };
 
     const onSubmit: SubmitHandler<FormValues> = async (formData) =>{
         try {
@@ -97,12 +106,20 @@ export const Registrar = () =>{
                         </div>
                         <div>
                             <i className="fa fa-lock"></i>
-                            <InputForm name='contrasena' control={control} label='Ingresa una contraseña facil de recordar, no hay cambios' type='password' error={errors.contrasena}/>
+                            <InputForm name='contrasena' control={control} label='Ingresa una contraseña facil de recordar, no hay cambios' type={showPassword ? "text" : "password"} error={errors.contrasena}/>
+                            <i 
+                                className={`fa ${showPassword ? "fa-eye-slash" : "fa-eye"}`} 
+                                onClick={togglePasswordVisibility}
+                            ></i>
                         </div>
                         <div>
                             
                             <i className="fa fa-lock"></i>
-                            <InputForm name='confirmPassword' control={control} label='Confirma la contraseña, recuerda, no hay cambios' type='password' error={errors.confirmPassword}/>
+                            <InputForm name='confirmPassword' control={control} label='Confirma la contraseña, recuerda, no hay cambios' type={showConfirmPassword ? "text" : "password"} error={errors.confirmPassword}/>
+                            <i 
+                                className={`fa ${showConfirmPassword ? "fa-eye-slash" : "fa-eye"}`} 
+                                onClick={toggleConfirmPasswordVisibility}
+                            ></i>
                         </div>
                         <button className='register__button' type='submit'  disabled={loading}>
                             Registrarse
