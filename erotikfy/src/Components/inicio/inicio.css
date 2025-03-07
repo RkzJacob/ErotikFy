@@ -355,9 +355,27 @@
     }
 
     .feed-item-image {
-        width: 300px;
-        height: 600px;
-        margin-left: -10px;
+        max-width: 500px;
+        min-width: 500px;
+        max-height: 500px;
+        min-height: 500px;
+        margin-left: -50px;
+        object-fit: contain;
+    }
+    .rows-content{
+        margin-left: 6rem;
+        max-width: 500px;
+        min-width: 500px;
+        max-height: 600px;
+        min-height: 600px;
+        margin-bottom: -4rem;
+    }
+    .feed-info-container{
+        margin-left: -4rem;
+        margin-bottom: 0.5rem;
+    }
+    .feed-buttons{
+        margin: auto;
     }
     .feed-description-container {
         margin-left: 50px;
@@ -382,6 +400,32 @@
     .feed-info-container {
         padding: 1rem;
     }
+    .feed-item-image {
+        max-width: 240px;
+        min-width: 240px;
+        max-height: 240px;
+        min-height: 240px;
+        margin-left: -10px;    
+        object-fit: contain;
+    }
+    .feed-item{
+        padding: 1px;
+    }
+    .rows-content{
+        
+        max-width: 300px;
+        min-width: 300px;
+        max-height: 300px;
+        min-height: 300px;
+        margin-bottom: -2rem;
+    }
+    .feed-info-container{
+        
+        margin-bottom: 0.5rem;
+    }
+    .feed-buttons{
+        margin: auto;
+    }
     .feed-title {
         font-size: 1rem;
         text-align: center;
@@ -389,11 +433,7 @@
     .feed-description-container {
         display: none; /* Oculta la descripción en dispositivos móviles */
     }
-    .feed-item-image {
-        width: 250px;
-        height: 600px;
-        margin-left: -10px;
-    }
+    
     .comments-container {
         display: flex; /* Muestra el contenedor de comentarios */
         margin-top: -50px;
