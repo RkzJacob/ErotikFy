@@ -1,6 +1,7 @@
 .login{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    height: 100vh;
 }
 .login__img.banner{
     display: flex;
@@ -9,6 +10,10 @@
     width: 100%;
     height: 100vh;
     box-shadow:1px 0px 120px #0628c281 ;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
 .login__img.logo{
     width: auto;
@@ -25,6 +30,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 100vh;
 }
 .login__header{
     display: flex;
@@ -332,16 +338,13 @@
     }
 }
 @media (max-width: 430px) {
-    .login{
-        padding: 4px;
-    }
     .login__header{
-        width: 360px;
+        width: 340px;
         font-size: 0.7rem;
         margin: 0 auto;
     }
     .login__form{
-        width: 360px;
+        width: 340px;
         text-justify: auto;
     }
     .login__item-input{
@@ -358,6 +361,8 @@
     .login{
             display: grid;
             grid-template-columns: 1fr;
+            width: 100%;
+            padding: 2px;
     }
     .login__button{
             font-size: 0.7rem;
@@ -366,11 +371,11 @@
 
 @media (max-width: 376px) {
     .login__header{
-        width: 360px;
+        width: 340px;
         font-size: 0.5rem;
     }
     .login__form{
-        width: 360px;
+        width: 340px;
         padding: 10px;
         margin: 10px;
     }
@@ -395,7 +400,8 @@
     .login{
             display: grid;
             grid-template-columns: 1fr;
-           
+            width: 100%;
+            padding: 2px;         
         }
     .login__button{
         font-size: 0.7rem;
