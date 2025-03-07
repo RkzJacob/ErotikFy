@@ -13,6 +13,7 @@ export const Login = () => {
     const [redirectTo, setRedirectTo] = useState<string | null>(null);  // Nuevo estado para la redirección
 
     const [showAgePopup, setShowAgePopup] = useState(true);
+    const [showPassword, setShowPassword] = useState(false);
 
     useEffect(() => {
       // Verificar si ya aceptó la restricción de edad
@@ -21,6 +22,10 @@ export const Login = () => {
           setShowAgePopup(false);
       }
   }, []);
+
+    const togglePasswordVisibility = () => {
+        setShowPassword((prev) => !prev);
+    };
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
@@ -92,6 +97,7 @@ export const Login = () => {
                     </div>
                     <form className="login__form" onSubmit={handleSubmit}>
                         <div className='login__item'>
+                        <i className="fa fa-user"></i>
                             <input
                                 type="text"
                                 placeholder='Nombre de usuario'
@@ -103,8 +109,9 @@ export const Login = () => {
                             />
                         </div>
                         <div className='login__item'>
+                         <i className="fa fa-lock"></i>
                             <input
-                                type="password"
+                                type={showPassword ? "text" : "password"}
                                 className='login__item-input'
                                 placeholder='Contraseña'
                                 name='contrasena'
@@ -112,6 +119,10 @@ export const Login = () => {
                                 value={contrasena}
                                 onChange={(e) => setContrasena(e.target.value)}
                             />
+                            <i 
+                                className={`fa ${showPassword ? "fa-eye-slash" : "fa-eye"}`} 
+                                onClick={togglePasswordVisibility}
+                            ></i>
                         </div>
                         <div className="login__item">
                             <ul className='login__item list'>

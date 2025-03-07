@@ -53,14 +53,38 @@
     width: 700px;
 }
 .login__item{
+    position:relative;
+    display: flex;
+    width: 100%;
     margin: 0;
     padding: 0;
-    display: flex;
-    font-size: 16px;
-    color: #fff;
-    flex-direction: column;
-    width: 100%;
     
+}
+.login__item i:last-child{
+    cursor: pointer;
+    right: 0;
+    top: 20%;
+    transform: translateY(-50%);
+    transform: translateX(95%);
+     font-size: 1.2rem;
+    
+}
+.login__item i{
+    position: absolute;
+    margin-right: 5px;
+    top: 30%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+}
+
+
+.login_item div{
+    position:relative;
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 .login__item .list{
     margin: 0;
@@ -91,6 +115,7 @@
     margin: 0;
     color: #fff;
     font-size: 20px;
+    padding-left: 50px;
     margin-bottom: 40px;
 }
 
@@ -329,14 +354,23 @@
     .login__header{
         width: 360px;
         font-size: 0.5rem;
+        margin: 10px;
     }
     .login__form{
         width: 360px;
+        margin: 10px;
+    }
+    .login__form i{
+        font-size: 0.8rem;
     }
     .login__item-input{
-        width: 360px;
+        width: 320px;
         font-size: 0.7rem;
         height: 30px;
+    }
+    .login__item i:last-child{
+        font-size: 1rem;
+        top: 14%;
     }
     .login__recuperar{
         font-size: 0.7rem;
@@ -347,7 +381,7 @@
     .login{
             display: grid;
             grid-template-columns: 1fr;
-            padding: 0 auto;
+            padding:  auto;
         }
     .login__button{
         font-size: 0.7rem;
