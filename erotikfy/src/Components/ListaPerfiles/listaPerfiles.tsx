@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaUserPlus } from "react-icons/fa"; // Ícono de agregar persona
-import { MdFileUpload, MdDelete } from "react-icons/md"; // Íconos de subir archivo y eliminar
+import { MdFileUpload, MdDelete, MdEdit } from "react-icons/md"; // Íconos de subir archivo y eliminar
 import "./listaPerfiles.css";
 import CreateProfilePopup from "../CrearPerfil/crearperfil"; // Modificado a crear perfil
 import CrearPosts from "../CrearPosts/crearposts"; // Asegúrate de importar el popup de crear publicación
@@ -12,6 +12,7 @@ import { useMutation } from "@apollo/client";
 import { BORRAR_CREADOR } from "../../Mutations/mutations";
 import { GET_ALL_CREATORS } from "../../Querys/querys";
 import { toast } from "sonner";
+import EditProfilePopup from "../EditarPerfil/editarPerfil";
 
 export const ListPerfiles = () => {
   const { data, loading, error } = useGetallCreators();
@@ -19,6 +20,7 @@ export const ListPerfiles = () => {
   const [isCreateProfileOpen, setIsCreateProfileOpen] = useState(false); // Estado para controlar la ventana emergente de crear perfil
   const [isCrearPostOpen, setIsCrearPostOpen] = useState(false); // Nuevo estado para controlar la ventana emergente de crear publicación
   const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
+  const [EditarPerfilOpen, setEditarPerfilOpen] = useState(false);
   const [borrarCreador] = useMutation(BORRAR_CREADOR,{refetchQueries:[{ query: GET_ALL_CREATORS }]});
 
   const [isDeleteConfirmationOpen, setIsDeleteConfirmationOpen] = useState(false);
@@ -36,6 +38,11 @@ export const ListPerfiles = () => {
     setIsCreateProfileOpen(true); // Abre el popup para crear perfil
   };
 
+  const handleUpdateProfile = (userId: string) => {
+    setSelectedUserId(userId);
+    setEditarPerfilOpen(true); // Abre el popup para crear publicación
+  };
+
   const handleUploadFile = (userId: string) => {
     setSelectedUserId(userId);
     setIsCrearPostOpen(true); // Abre el popup para crear publicación
@@ -47,6 +54,10 @@ export const ListPerfiles = () => {
 
   const handleCloseCrearPost = () => {
     setIsCrearPostOpen(false); // Cierra el popup de crear publicación
+  };
+
+  const handleCloseEditarPerfil = () => {
+    setEditarPerfilOpen(false); // Cierra el popup de crear publicación
   };
 
   const handleDeleteProfile = (userId: string) => {
@@ -111,6 +122,13 @@ export const ListPerfiles = () => {
                 >
                   <MdFileUpload size={24} />
                 </button>
+                <button
+                  className="upload-button"
+                  onClick={() => handleUpdateProfile(perfil.user_id)}
+                >
+                  <MdEdit size={24} />
+                </button>
+                
               </div>
             </div>
           ))}
@@ -149,6 +167,12 @@ export const ListPerfiles = () => {
           userId={selectedUserId}
           isOpen={isCrearPostOpen}
           onClose={handleCloseCrearPost}
+        />
+
+        <EditProfilePopup
+          userId={selectedUserId}
+          isOpen={EditarPerfilOpen}
+          onClose={handleCloseEditarPerfil}
         />
       </div>
     </section>

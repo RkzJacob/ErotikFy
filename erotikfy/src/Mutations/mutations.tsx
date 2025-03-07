@@ -73,3 +73,9 @@ export const HACER_NORMAL= gql`
         UPDATE_USER_ROLE_NORMAL(user_id:$user_id)
     }
 `
+
+export const ACTUALIZAR_CREATOR= gql`
+    mutation actualizarCreator($user_id:String!,$username:String,$profile_picture:String,$bio:String){
+        UPDATE_USER(user_id:$user_id,username:$username,profile_picture:$profile_picture,bio:$bio)
+    }
+`
