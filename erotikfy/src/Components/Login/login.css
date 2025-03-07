@@ -178,6 +178,14 @@
         font-size: 0.9rem;
         margin: 0 30px;
     }
+    .login__item i{
+        font-size: 1rem;
+        top: 25%;
+    }
+    .login__item i:last-child{
+        font-size: 1rem;
+        top: 14%;
+    }
     .login__form{
         width: 500px;
         text-justify: auto;
@@ -292,17 +300,20 @@
 }
 
 @media (max-width: 576px) {
+    .login{
+        margin: 20px;
+    }
     .login__header{
         width: 500px;
         font-size: 1rem;
         margin: 0 20px;
     }
     .login__form{
-        width: 500px;
+        width: 420px;
         text-justify: auto;
     }
     .login__item-input{
-        width: 500px;
+        width: 450px;
         font-size: 0.7rem;
         height: 30px;
     }
@@ -321,6 +332,9 @@
     }
 }
 @media (max-width: 430px) {
+    .login{
+        padding: 4px;
+    }
     .login__header{
         width: 360px;
         font-size: 0.7rem;
@@ -331,7 +345,7 @@
         text-justify: auto;
     }
     .login__item-input{
-        width: 360px;
+        width: 340px;
         font-size: 0.7rem;
         height: 30px;
     }
@@ -354,10 +368,10 @@
     .login__header{
         width: 360px;
         font-size: 0.5rem;
-        margin: 10px;
     }
     .login__form{
         width: 360px;
+        padding: 10px;
         margin: 10px;
     }
     .login__form i{
@@ -381,7 +395,7 @@
     .login{
             display: grid;
             grid-template-columns: 1fr;
-            padding:  auto;
+           
         }
     .login__button{
         font-size: 0.7rem;
