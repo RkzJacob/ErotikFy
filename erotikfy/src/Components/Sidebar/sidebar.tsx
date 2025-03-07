@@ -87,7 +87,7 @@ export const Sidebar = () => {
               <div className="list-main-item">
                 <a  onClick={handleLogout}>
                   <img src={exit} alt="" />
-                  <p>Cerrar Sesion</p>
+                  <p>Cerrar Sesión</p>
                 </a>
               </div>
             </li>
