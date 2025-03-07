@@ -176,6 +176,9 @@
     .login__recuperar{
         font-size: 0.9rem;
     }
+    .login__content{
+        height: 100vh;
+    }
 }
 
 @media (max-width: 960px) {
@@ -208,6 +211,7 @@
     .login__button{
             font-size: 0.7rem;
     }
+
 }
 @media (max-width: 768px) {
     .login__header{
